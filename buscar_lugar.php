@@ -4,42 +4,52 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST");
 header("Access-Control-Allow-Headers: Content-Type");
 
+// Configuración de la base de datos
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "grx";
 
 // Crear conexión
-//$conn = new mysqli($servername, $username, $password, $dbname);
-try{
+try {
     $conn = new mysqli($servername, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        throw new Exception("Conexión fallida: " . $conn->connect_error);
+    }
+} catch (Exception $e) {
+    // Enviar un mensaje de error si la conexión falla
+    echo json_encode(['error' => 'Error de conexión a la base de datos']);
+    exit;
 }
-catch(Exception $e){
-    echo $e;
-}
-//$conn = mysqli_connect($servername,$username,$password,$dbname);
 
+// Obtener el nombre del lugar desde el parámetro GET
 $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
 
-$sql = "SELECT * FROM lugares WHERE nombre ='Alhambra'";
-$res = $conn->query($sql);
-// $stmt = $conn->prepare($sql);
-// $stmt->bind_param("s", $nombre);
-// $stmt->execute();
-// $result = $stmt->get_result();
-// print_r($result);
-
+// Consulta a la base de datos para buscar el lugar por nombre
+$sql = "SELECT * FROM lugares WHERE nombre LIKE ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $nombre);  // Vincula el parámetro de búsqueda
+$stmt->execute();
+$res = $stmt->get_result();
 
 // Verificar si se encontró el lugar
 if ($res->num_rows > 0) {
-    $row = $res->fetch_assoc();
-    // Retornar los datos como JSON
-    echo json_encode(['latitud' => $row['latitud'], 'longitud' => $row['longitud']]);
+    // Crear el array de resultados
+    $lugares = [];
+    while ($row = $res->fetch_assoc()) {
+        $lugares[] = [
+            'nombre' => $row['nombre'],
+            'latitud' => $row['latitud'],
+            'longitud' => $row['longitud']
+        ];
+    }
+    // Retornar los resultados como JSON
+    echo json_encode(['lugares' => $lugares]);
 } else {
     echo json_encode(['error' => 'Lugar no encontrado']);
 }
 
-// Cerrar la conexión
+// Cerrar la conexión y la declaración
 $stmt->close();
 $conn->close();
 ?>

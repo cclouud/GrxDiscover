@@ -1,52 +1,38 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("JavaScript cargado");
+fetch(url)
+    .then(response => response.text())  // Primero, recibe la respuesta como texto
+    .then(text => {
+        console.log("Respuesta del servidor:", text); // Verifica la respuesta antes de convertirla en JSON
+        
+        try {
+            // Intenta convertir el texto a JSON
+            const data = JSON.parse(text);
+            console.log("Datos recibidos:", data);  // Verifica los datos después de convertirlos
 
-    // Inicializar el mapa centrado en Granada
-    var map = L.map('map').setView([37.1773, -3.5986], 13);
-
-    // Cargar OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    var marker;
-
-    // Función para buscar en la base de datos
-    window.buscarLugar = function () {
-        let nombre = document.getElementById("busqueda").value.trim();
-
-        if (nombre === "") {
-            alert("Por favor, introduce un nombre válido.");
-            return;
-        }
-
-        console.log("Buscando:", nombre); // Verifica que el nombre se obtiene bien
-
-        // Cambiar URL a la del servidor XAMPP
-        fetch("http://localhost/GrxDiscover/buscar_lugar.php?nombre=" + encodeURIComponent(nombre))
-            .then(response => response.json())  // Procesar la respuesta como JSON
-            .then(data => {
-                console.log("Datos recibidos:", data); // Verifica qué datos llegan
-
-                if (data.error) {
-                    alert("Error: " + data.error);
-                } else {
-                    console.log("Coordenadas encontradas:", data);
-
-                    // Mover el mapa a la nueva ubicación
-                    map.setView([data.latitud, data.longitud], 15);
-
-                    // Si ya hay un marcador, eliminarlo
-                    if (marker) {
-                        map.removeLayer(marker);
+            if (data.error) {
+                alert("Error: " + data.error);
+            } else {
+                // Limpiar los marcadores previos en el mapa
+                map.eachLayer(function(layer) {
+                    if (layer instanceof L.Marker) {
+                        map.removeLayer(layer);
                     }
+                });
 
-                    // Agregar un nuevo marcador
-                    marker = L.marker([data.latitud, data.longitud]).addTo(map)
-                        .bindPopup(`<b>${nombre}</b><br>Lat: ${data.latitud}, Lng: ${data.longitud}`)
-                        .openPopup();
+                // Mostrar los resultados en el mapa
+                data.lugares.forEach(lugar => {
+                    L.marker([lugar.latitud, lugar.longitud])
+                        .addTo(map)
+                        .bindPopup(`<b>${lugar.nombre}</b><br>Lat: ${lugar.latitud}, Lng: ${lugar.longitud}`);
+                });
+
+                // Si se encontró un solo lugar, centrar el mapa en ese lugar
+                if (data.lugares.length === 1) {
+                    map.setView([data.lugares[0].latitud, data.lugares[0].longitud], 15);
                 }
-            })
-            .catch(error => console.error("Error en la búsqueda:", error));
-    };
-});
+            }
+        } catch (error) {
+            console.error("Error al procesar la respuesta JSON:", error);
+            alert("Error al procesar los datos. Verifica la respuesta del servidor.");
+        }
+    })
+    .catch(error => console.error("Error en la búsqueda:", error));

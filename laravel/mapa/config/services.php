@@ -3,11 +3,11 @@
 return [
 
     /*
-    |--------------------------------------------------------------------------
+    |----------------------------------------------------------------------
     | Third Party Services
-    |--------------------------------------------------------------------------
+    |----------------------------------------------------------------------
     |
-    | This file is for storing the credentials for third party services such
+    | This file is for storing the credentials for third-party services such
     | as Mailgun, Postmark, AWS and more. This file provides the de facto
     | location for this type of information, allowing packages to have
     | a conventional file to locate the various service credentials.
@@ -34,5 +34,26 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+
+    // Agregar configuración de Hybridauth
+    'hybridauth' => [
+        'callback' => env('HYBRIDAUTH_CALLBACK_URL'),
+        'keys' => [
+            'google' => [
+                'id' => env('GOOGLE_CLIENT_ID'),
+                'secret' => env('GOOGLE_CLIENT_SECRET'),
+            ],
+            'facebook' => [
+                'id' => env('FACEBOOK_APP_ID'),
+                'secret' => env('FACEBOOK_APP_SECRET'),
+            ],
+        ],
+    ],
+
+    'google' => [
+    'client_id' => env('GOOGLE_CLIENT_ID'),
+    'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+    'redirect' => 'http://127.0.0.1:8000/google-auth/callback',
+],
 
 ];

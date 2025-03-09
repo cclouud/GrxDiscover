@@ -35,25 +35,11 @@ return [
         ],
     ],
 
-    // Agregar configuración de Hybridauth
-    'hybridauth' => [
-        'callback' => env('HYBRIDAUTH_CALLBACK_URL'),
-        'keys' => [
-            'google' => [
-                'id' => env('GOOGLE_CLIENT_ID'),
-                'secret' => env('GOOGLE_CLIENT_SECRET'),
-            ],
-            'facebook' => [
-                'id' => env('FACEBOOK_APP_ID'),
-                'secret' => env('FACEBOOK_APP_SECRET'),
-            ],
-        ],
-    ],
-
+    // Solo mantener la configuración de Google para Socialite
     'google' => [
-    'client_id' => env('GOOGLE_CLIENT_ID'),
-    'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-    'redirect' => 'http://127.0.0.1:8000/google-auth/callback',
-],
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT_URI'),
+    ],
 
 ];

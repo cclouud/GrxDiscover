@@ -1,189 +1,825 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Grayscale - Start Bootstrap Theme</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/estilosinicio.css" rel="stylesheet" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GrxDisc - Descubre Granada</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <style>
+            :root {
+                --primary-color: #ff5a5f;
+                --secondary-color: #2c3e50;
+                --background-color: #f8f9fa;
+                --text-color: #333;
+                --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                --transition-speed: 0.3s;
+                --card-bg: #ffffff;
+                --section-bg: #ffffff;
+                --footer-bg: #2c3e50;
+                --footer-text: #ffffff;
+                --secondary-text: #666;
+                --title-color: #2c3e50;
+            }
+
+            [data-theme="dark"] {
+                --background-color: #1a1a1a;
+                --text-color: #ffffff;
+                --card-bg: #2d2d2d;
+                --section-bg: #2d2d2d;
+                --footer-bg: #1a1a1a;
+                --footer-text: #ffffff;
+                --secondary-text: #b3b3b3;
+                --title-color: #ffffff;
+            }
+
+            [data-theme="light"] {
+                --background-color: #f8f9fa;
+                --text-color: #333;
+                --card-bg: #ffffff;
+                --section-bg: #ffffff;
+                --footer-bg: #2c3e50;
+                --footer-text: #ffffff;
+                --secondary-text: #666;
+                --title-color: #2c3e50;
+            }
+
+            body {
+                overflow-x: hidden;
+                background-color: var(--background-color);
+                font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+                color: var(--text-color);
+                transition: background-color var(--transition-speed), color var(--transition-speed);
+            }
+
+            .navbar {
+                background-color: var(--secondary-color) !important;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                padding: 0.8rem 1rem;
+            }
+
+            .navbar-brand, .nav-link {
+                color: white !important;
+            }
+
+            .nav-link:hover {
+                color: var(--primary-color) !important;
+            }
+
+            .hero-section {
+                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/alhambra1.jpg');
+                background-size: cover;
+                background-position: center;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                color: white;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 2rem;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+                font-weight: bold;
+                margin-bottom: 1.5rem;
+                animation: fadeInUp 1s ease;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+                animation: fadeInUp 1s ease 0.2s;
+                opacity: 0;
+                animation-fill-mode: forwards;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1.2rem;
+                border-radius: 50px;
+                background: var(--primary-color);
+                color: white;
+                border: none;
+                transition: transform 0.3s ease;
+                animation: fadeInUp 1s ease 0.4s;
+                opacity: 0;
+                animation-fill-mode: forwards;
+            }
+
+            .cta-button:hover {
+                transform: translateY(-3px);
+                background: #ff4449;
+                color: white;
+            }
+
+            .about-section {
+                padding: 5rem 0;
+                background: var(--section-bg);
+            }
+
+            .about-content {
+                max-width: 800px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .about-title {
+                color: var(--title-color);
+                margin-bottom: 2rem;
+            }
+
+            .about-text {
+                color: var(--secondary-text);
+                line-height: 1.8;
+                font-size: 1.1rem;
+            }
+
+            .features-section {
+                padding: 5rem 0;
+                background: var(--background-color);
+            }
+
+            .feature-card {
+                text-align: center;
+                padding: 2rem;
+                margin-bottom: 2rem;
+                transition: transform 0.3s ease;
+                background: var(--card-bg);
+                border-radius: 12px;
+                box-shadow: var(--card-shadow);
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                color: var(--text-color);
+            }
+
+            .feature-card:hover {
+                transform: translateY(-10px);
+            }
+
+            .feature-icon {
+                font-size: 3rem;
+                color: var(--primary-color);
+                margin-bottom: 1.5rem;
+            }
+
+            .feature-title {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                color: var(--title-color);
+            }
+
+            .feature-description {
+                color: var(--secondary-text);
+                line-height: 1.6;
+            }
+
+            .stats-section {
+                background: var(--secondary-color);
+                color: white;
+                padding: 4rem 0;
+            }
+
+            .stat-item {
+                text-align: center;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+            }
+
+            .stat-label {
+                font-size: 1.1rem;
+                opacity: 0.9;
+            }
+
+            .team-section {
+                padding: 5rem 0;
+                background: var(--section-bg);
+            }
+
+            .team-section .row {
+                justify-content: center;
+            }
+
+            .team-section .col-md-4 {
+                display: flex;
+                justify-content: center;
+            }
+
+            .team-member {
+                text-align: center;
+                margin-bottom: 2rem;
+                transition: transform 0.3s ease;
+                background: var(--card-bg);
+                padding: 2rem;
+                border-radius: 15px;
+                box-shadow: var(--card-shadow);
+                width: 100%;
+                max-width: 300px;
+                color: var(--text-color);
+            }
+
+            .team-member:hover {
+                transform: translateY(-5px);
+            }
+
+            .team-member img {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                margin-bottom: 1.5rem;
+                object-fit: cover;
+                border: 3px solid var(--primary-color);
+                padding: 3px;
+                background-color: #f8f9fa;
+            }
+
+            .team-member h4 {
+                color: var(--title-color);
+                margin-bottom: 0.5rem;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+
+            .team-member p {
+                color: var(--secondary-text);
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .team-social {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .team-social a {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                background: var(--secondary-color);
+            }
+
+            .team-social a:hover {
+                background: var(--primary-color);
+                transform: translateY(-3px);
+            }
+
+            .team-social a i {
+                font-size: 1.2rem;
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .hero-title {
+                    font-size: 2.5rem;
+                }
+                .hero-subtitle {
+                    font-size: 1.2rem;
+                }
+            }
+
+            /* Footer Styles */
+            .footer-section {
+                background: var(--footer-bg);
+                color: var(--footer-text);
+                padding: 5rem 0 2rem;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .footer-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, var(--primary-color), #ff8a8e);
+            }
+
+            .footer-brand {
+                margin-bottom: 2rem;
+            }
+
+            .footer-logo {
+                height: 40px;
+                margin-bottom: 1rem;
+            }
+
+            .footer-description {
+                color: rgba(255, 255, 255, 0.8);
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            .footer-links h4,
+            .footer-contact h4,
+            .footer-social h4 {
+                color: white;
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+                position: relative;
+                padding-bottom: 0.5rem;
+            }
+
+            .footer-links h4::after,
+            .footer-contact h4::after,
+            .footer-social h4::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 40px;
+                height: 2px;
+                background: var(--primary-color);
+            }
+
+            .footer-links ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .footer-links ul li {
+                margin-bottom: 0.8rem;
+            }
+
+            .footer-links ul li a {
+                color: rgba(255, 255, 255, 0.8);
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+            .footer-links ul li a:hover {
+                color: var(--primary-color);
+                padding-left: 5px;
+            }
+
+            .footer-contact ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .footer-contact ul li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem;
+                color: rgba(255, 255, 255, 0.8);
+            }
+
+            .footer-contact ul li i {
+                color: var(--primary-color);
+                margin-right: 10px;
+                width: 20px;
+            }
+
+            .social-icons {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+            .social-icon:hover {
+                background: var(--primary-color);
+                transform: translateY(-3px);
+            }
+
+            .footer-bottom {
+                margin-top: 3rem;
+                padding-top: 2rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .copyright {
+                color: rgba(255, 255, 255, 0.8);
+                margin: 0;
+            }
+
+            .footer-legal {
+                display: flex;
+                gap: 1.5rem;
+                justify-content: flex-end;
+            }
+
+            .footer-legal a {
+                color: rgba(255, 255, 255, 0.8);
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .footer-legal a:hover {
+                color: var(--primary-color);
+            }
+
+            @media (max-width: 768px) {
+                .footer-section {
+                    padding: 3rem 0 1rem;
+                }
+
+                .footer-bottom {
+                    margin-top: 2rem;
+                }
+
+                .footer-legal {
+                    justify-content: center;
+                    margin-top: 1rem;
+                }
+            }
+
+            .logo {
+                height: 2.5em;
+                transition: transform var(--transition-speed);
+            }
+
+            .navbar-brand {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .theme-toggle {
+                background: none;
+                border: none;
+                color: white;
+                cursor: pointer;
+                padding: 0.5rem;
+                font-size: 1.2rem;
+                transition: transform var(--transition-speed);
+                margin-left: 1rem;
+            }
+
+            .theme-toggle:hover {
+                transform: scale(1.1);
+            }
+        </style>
     </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="img/logorojo.svg" alt="GrxDisc Logo" class="logo">
+                    GrxDisc
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">Sobre Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#features">Características</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#team">Equipo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-primary text-white px-3" href="mapa.html">Explorar Mapa</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="theme-toggle" id="themeToggle">
+                                <i class="fas fa-sun"></i>
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-                <div class="d-flex justify-content-center">
-                    <div class="text-center">
-                        <h1 class="mx-auto my-0 text-uppercase">GRX Discover</h1>
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Your guide for Granada city</h2>
-                        <a class="btn btn-primary" href="mapa.html">Get Started</a>
-                    </div>
-                </div>
-            </div>
-        </header>
-        
 
-        <!-- Projects-->
-        <section class="projects-section bg-light" id="projects">
-            <div class="container px-4 px-lg-5">
-                <!-- Featured Project Row-->
-                <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/fondo.webp" alt="..." /></div>
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="featured-text text-center text-lg-left">
-                            <h4>Shoreline</h4>
-                            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Descubre Granada</h1>
+                <p class="hero-subtitle">Explora los lugares más increíbles de Granada con nuestra guía interactiva</p>
+                <a href="mapa.html" class="btn cta-button">
+                    <i class="fas fa-map-marked-alt me-2"></i>Explorar Mapa
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <h2 class="about-title">Sobre GrxDisc</h2>
+                    <p class="about-text">
+                        GrxDisc es una plataforma innovadora diseñada para ayudar a locales y turistas a descubrir los rincones más fascinantes de Granada. 
+                        Nuestro objetivo es proporcionar una experiencia interactiva y personalizada para explorar la ciudad, 
+                        combinando la riqueza histórica de Granada con la tecnología moderna.
+                    </p>
+                    <p class="about-text">
+                        Con nuestro mapa interactivo, podrás encontrar los mejores lugares, leer reseñas verificadas y 
+                        descubrir historias únicas detrás de cada rincón de la ciudad. Ya sea que estés buscando los mejores 
+                        restaurantes, monumentos históricos o lugares secretos, GrxDisc es tu guía personal para explorar Granada.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="text-center mb-5 section-title">¿Por qué elegir GrxDisc?</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <h3 class="feature-title">Mapa Interactivo</h3>
+                            <p class="feature-description">Explora Granada con nuestro mapa interactivo que te muestra los mejores lugares y puntos de interés.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 class="feature-title">Reseñas Verificadas</h3>
+                            <p class="feature-description">Accede a reseñas reales de usuarios y descubre las mejores experiencias en cada lugar.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <h3 class="feature-title">Galería de Fotos</h3>
+                            <p class="feature-description">Visualiza cada lugar a través de fotografías de alta calidad y conoce su aspecto real.</p>
                         </div>
                     </div>
                 </div>
-                <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-01.jpg" alt="..." /></div>
-                    <div class="col-lg-6">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white">Misty</h4>
-                                    <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
-                                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="team-section">
+            <div class="container">
+                <h2 class="text-center mb-5 section-title">Nuestro Equipo</h2>
+                <div class="row">
+                    <div class="col-md-4 col-lg-4">
+                        <div class="team-member">
+                            <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=alejandrogarcia&backgroundColor=b6e3f4" alt="Alejandro García">
+                            <h4>Alejandro García</h4>
+                            <p>Desarrollador Principal</p>
+                            <div class="team-social">
+                                <a href="https://github.com/alejandrogarcia" target="_blank" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/alejandrogarcia" target="_blank" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://alejandrogarcia.dev" target="_blank" title="Portfolio">
+                                    <i class="fas fa-globe"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row gx-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="..." /></div>
-                    <div class="col-lg-6 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white">Mountains</h4>
-                                    <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well!</p>
-                                </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="team-member">
+                            <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=alejandrohernandez&backgroundColor=ffd5dc" alt="Alejandro Hernández">
+                            <h4>Alejandro Hernández</h4>
+                            <p>Desarrollador Frontend</p>
+                            <div class="team-social">
+                                <a href="https://github.com/alejandrohernandez" target="_blank" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/alejandrohernandez" target="_blank" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://alejandrohernandez.dev" target="_blank" title="Portfolio">
+                                    <i class="fas fa-globe"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="team-member">
+                            <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=alejandrobermudez&backgroundColor=c0aede" alt="Alejandro Bermúdez">
+                            <h4>Alejandro Bermúdez</h4>
+                            <p>Desarrollador Backend</p>
+                            <div class="team-social">
+                                <a href="https://github.com/alejandrobermudez" target="_blank" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/alejandrobermudez" target="_blank" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://alejandrobermudez.dev" target="_blank" title="Portfolio">
+                                    <i class="fas fa-globe"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="team-member">
+                            <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=jaimemoreno&backgroundColor=b6e3f4" alt="Jaime Moreno">
+                            <h4>Jaime Moreno</h4>
+                            <p>Diseñador UX/UI</p>
+                            <div class="team-social">
+                                <a href="https://github.com/jaimemoreno" target="_blank" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/jaimemoreno" target="_blank" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://jaimemoreno.dev" target="_blank" title="Portfolio">
+                                    <i class="fas fa-globe"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="team-member">
+                            <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=pablomillan&backgroundColor=ffd5dc" alt="Pablo Millán">
+                            <h4>Pablo Millán</h4>
+                            <p>Experto en Contenido</p>
+                            <div class="team-social">
+                                <a href="https://github.com/pablomillan" target="_blank" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/pablomillan" target="_blank" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://pablomillan.dev" target="_blank" title="Portfolio">
+                                    <i class="fas fa-globe"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Signup-->
-        <section class="signup-section" id="signup">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-md-10 col-lg-8 mx-auto text-center">
-                        <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                        <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form class="form-signup" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Email address input-->
-                            <div class="row input-group-newsletter">
-                                <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email" /></div>
-                                <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Notify Me!</button></div>
+
+        <!-- Stats Section -->
+        <section id="stats" class="stats-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Lugares Destacados</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-item">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Reseñas de Usuarios</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-item">
+                            <div class="stat-number">4.8</div>
+                            <div class="stat-label">Valoración Media</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer-section">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="row g-4">
+                        <div class="col-lg-4">
+                            <div class="footer-brand">
+                                <img src="img/logorojo.svg" alt="GrxDisc Logo" class="footer-logo mb-3">
+                                <h3>GrxDisc</h3>
+                                <p class="footer-description">
+                                    Tu guía personal para explorar Granada. Descubre los rincones más fascinantes de la ciudad con nuestra plataforma interactiva.
+                                </p>
                             </div>
-                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">An email is required.</div>
-                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email is not valid.</div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3 mt-2 text-white">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                        </div>
+                        <div class="col-lg-2 col-md-6">
+                            <div class="footer-links">
+                                <h4>Navegación</h4>
+                                <ul>
+                                    <li><a href="#about">Sobre Nosotros</a></li>
+                                    <li><a href="#features">Características</a></li>
+                                    <li><a href="#team">Equipo</a></li>
+                                    <li><a href="mapa.html">Explorar Mapa</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-contact">
+                                <h4>Contacto</h4>
+                                <ul>
+                                    <li>
+                                        <i class="fas fa-envelope"></i>
+                                        <span>info@grxdisc.com</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-phone"></i>
+                                        <span>+34 958 123 456</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Granada, España</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="footer-social">
+                                <h4>Síguenos</h4>
+                                <div class="social-icons">
+                                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                                 </div>
                             </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error sending message!</div></div>
-                        </form>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <p class="copyright">&copy; 2024 GrxDisc. Todos los derechos reservados.</p>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <div class="footer-legal">
+                                    <a href="#">Términos y Condiciones</a>
+                                    <a href="#">Política de Privacidad</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Contact-->
-        <section class="contact-section bg-black">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Address</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">4923 Market Street, Orlando FL</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-envelope text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Email</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50"><a href="#!">hello@yourdomain.com</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Phone</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">+1 (555) 902-8832</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </section>
-        <!-- Footer-->
-        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2023</div></footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
+            
+            // Set dark mode as default
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                updateIcon(savedTheme);
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+            });
+
+            function updateIcon(theme) {
+                icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        </script>
     </body>
 </html>

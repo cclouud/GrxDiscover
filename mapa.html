@@ -12,126 +12,393 @@
     
     <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff5a5f;
+            --secondary-color: #2c3e50;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s;
+            --card-bg: #ffffff;
+            --section-bg: #ffffff;
+            --footer-bg: #2c3e50;
+            --footer-text: #ffffff;
+            --secondary-text: #666;
+            --title-color: #2c3e50;
+        }
+
+        [data-theme="dark"] {
+            --background-color: #1a1a1a;
+            --text-color: #ffffff;
+            --card-bg: #2d2d2d;
+            --section-bg: #2d2d2d;
+            --footer-bg: #1a1a1a;
+            --footer-text: #ffffff;
+            --secondary-text: #b3b3b3;
+            --title-color: #ffffff;
+            --icon-color: #ff5a5f;
+            --border-color: #404040;
+        }
+
+        [data-theme="light"] {
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --section-bg: #ffffff;
+            --footer-bg: #2c3e50;
+            --footer-text: #ffffff;
+            --secondary-text: #666;
+            --title-color: #2c3e50;
+            --icon-color: #2c3e50;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        .navbar {
+            background-color: var(--secondary-color) !important;
+        }
+
+        .logo {
+            height: 2.5em;
+            transition: transform var(--transition-speed);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            transition: transform var(--transition-speed);
+            margin-left: 1rem;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            color: var(--text-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .info-card h2 {
+            color: var(--title-color);
+        }
+
+        .info-card p {
+            color: var(--text-color);
+        }
+
+        .info-card i {
+            color: var(--icon-color);
+        }
+
+        .search__input {
+            background: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .search__input::placeholder {
+            color: var(--secondary-text);
+        }
+
+        .opinion {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .opinion strong {
+            color: var(--title-color);
+        }
+
+        .opinion p {
+            color: var(--text-color);
+        }
+
+        .text-muted {
+            color: var(--secondary-text) !important;
+        }
+
+        .rating i {
+            color: #ffc107;
+        }
+
+        .rating-bar {
+            color: var(--text-color);
+        }
+
+        .progress {
+            background-color: var(--border-color);
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: var(--card-bg);
+            border-radius: 50%;
+            padding: 1rem;
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .map-controls .btn {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .map-controls .btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+    </style>
 </head>
 <body>
-
-        <!--Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand d-flex align-items-center" href="index.html">
-                    <img class="logo ms-3" src="img/logorojo.png" alt="Logo" >
-                    <span class="ms-2 text-white fw-bold">GRXDiscover</span>
-                </a>
-                
-                
-            
-                <div class="navbar-nav x-10">
-                    <a class="nav-item nav-link active" href="index.html">Restaurantes </a>
-                    <a class="nav-item nav-link active" href="index.html">Monumentos </a>
-                    <a class="nav-item nav-link active" href="index.html">Ocio </a>
-                    <a class="nav-item nav-link active" href="index.html">Rutas </a>
-
-                </div>
-
-
-
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logorojo.svg" alt="GrxDisc Logo" class="logo">
+                GrxDisc
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-utensils me-1"></i> Restaurantes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-landmark me-1"></i> Monumentos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-theater-masks me-1"></i> Ocio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-route me-1"></i> Rutas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
+                </ul>
             </div>
-        </nav>
-        <!--Navbar-->
-
-
-
-        <div id="mapaycon" class="container-fluid d-flex flex-column flex-md-row">
-
-
-
-            <div id="contenido" class="order-2 order-md-1">
-    
-                <!-- Buscador -->
-                <div class="search">
-                    <input type="text" class="search__input" placeholder="¿Qué quieres hacer hoy?">
-                    <button class="search__button">🔍</button>
-                </div>
-            
-                <!-- Información del sitio -->
-                <div class="info-card">
-                    <h2>Cafetería Alhambra</h2>
-                    <p>📍 Granada, España</p>
-                    <p>☕ Especialidad en café y repostería artesanal.</p>
-                    <p>⏰ Abierto de 8:00 AM a 10:00 PM</p>
-                </div>
-            
-                <!-- Carrusel -->
-                <div id="carouselExampleControls" class="carousel slide mt-3" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="img/restaurante.jpg" alt="Interior de la cafetería">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/restaurante2.jpg" alt="Café servido">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/restaurante.jpg" alt="Postres y café">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
-                    </button>
-                </div>
-
-                <div class="info-card">
-                    <h2>Opiniones</h2>
-                    
-                    <div class="opinion">
-                        <div class="opinion-header">
-                            <img src="" alt="Usuario" class="user-img">
-                            <div>
-                                <strong>Juan Pérez</strong>
-                                <p class="text-muted">⭐️⭐️⭐️⭐️⭐️ - 12 Feb 2025</p>
-                            </div>
-                        </div>
-                        <p>"El mejor café de Granada ☕. Excelente atención y repostería deliciosa."</p>
-                    </div>
-                
-                    <div class="opinion">
-                        <div class="opinion-header">
-                            <img src="" alt="Usuario" class="user-img">
-                            <div>
-                                <strong>María López</strong>
-                                <p class="text-muted">⭐️⭐️⭐️⭐️ - 10 Feb 2025</p>
-                            </div>
-                        </div>
-                        <p>"Buena calidad, pero algo caro. Aun así, lo recomiendo!"</p>
-                    </div>
-                
-                    <button class="btn btn-primary w-100">Ver más opiniones</button>
-
-                </div>
-                
-            
-            </div>    
-
-
-            <div id="divmap" class="order-1 order-md-2">
-                <div id="map"></div>
-            </div>
-        
         </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="mapaycon" class="container-fluid">
+        <!-- Map Section -->
+        <div id="divmap" class="order-1 order-md-2">
+            <div id="map"></div>
+            <div class="map-controls">
+                <button class="btn btn-light rounded-circle shadow-sm" id="locateMe">
+                    <i class="fas fa-location-arrow"></i>
+                </button>
+                <button class="btn btn-light rounded-circle shadow-sm" id="toggleView">
+                    <i class="fas fa-arrows-alt"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Content Section -->
+        <div id="contenido" class="order-2 order-md-1">
+            <!-- Search -->
+            <div class="search">
+                <input type="text" class="search__input" placeholder="¿Qué quieres hacer hoy?">
+                <button class="search__button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
         
+            <!-- Place Info -->
+            <div class="info-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2>Cafetería Alhambra</h2>
+                    <div class="rating">
+                        <i class="fas fa-star text-warning"></i>
+                        <span class="ms-1">4.8</span>
+                    </div>
+                </div>
+                <p><i class="fas fa-map-marker-alt text-danger me-2"></i>Granada, España</p>
+                <p><i class="fas fa-coffee text-primary me-2"></i>Especialidad en café y repostería artesanal</p>
+                <p><i class="fas fa-clock text-success me-2"></i>Abierto de 8:00 AM a 10:00 PM</p>
+            </div>
+        
+            <!-- Image Carousel -->
+            <div id="placeCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/restaurante.jpg" class="d-block w-100" alt="Interior de la cafetería">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/restaurante2.jpg" class="d-block w-100" alt="Café servido">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/restaurante.jpg" class="d-block w-100" alt="Postres y café">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#placeCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#placeCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
 
+            <!-- Reviews Section -->
+            <div class="info-card">
+                <h2>Opiniones</h2>
+                <div class="reviews-summary mb-3">
+                    <div class="d-flex align-items-center">
+                        <div class="rating-large me-3">
+                            <span class="display-4">4.8</span>
+                            <div class="stars">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                        </div>
+                        <div class="rating-bars">
+                            <div class="rating-bar">
+                                <span>5</span>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" style="width: 80%"></div>
+                                </div>
+                                <span>80%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>4</span>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" style="width: 15%"></div>
+                                </div>
+                                <span>15%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>3</span>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" style="width: 5%"></div>
+                                </div>
+                                <span>5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="opinion">
+                    <div class="opinion-header">
+                        <img src="https://via.placeholder.com/40" alt="Usuario" class="user-img">
+                        <div>
+                            <strong>Juan Pérez</strong>
+                            <p class="text-muted mb-0">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <span class="ms-2">12 Feb 2025</span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="mt-2">"El mejor café de Granada ☕. Excelente atención y repostería deliciosa."</p>
+                </div>
+            
+                <div class="opinion">
+                    <div class="opinion-header">
+                        <img src="https://via.placeholder.com/40" alt="Usuario" class="user-img">
+                        <div>
+                            <strong>María López</strong>
+                            <p class="text-muted mb-0">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                                <span class="ms-2">10 Feb 2025</span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="mt-2">"Buena calidad, pero algo caro. Aun así, lo recomiendo!"</p>
+                </div>
+            
+                <button class="btn btn-outline-primary w-100 mt-3">
+                    <i class="fas fa-comments me-2"></i>Ver más opiniones
+                </button>
+            </div>
+        </div>
+    </div>
 
-
+    <!-- Scripts -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    
     <script src="js/server.js"></script>
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const icon = themeToggle.querySelector('i');
+        
+        // Set dark mode as default
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+        }
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
 
-
+        function updateIcon(theme) {
+            icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    </script>
 </body>
 </html>

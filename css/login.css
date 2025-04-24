@@ -1,0 +1,46 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--background-color); /* Corrected variable name */
+    color: var(--text-color); /* Correct */
+}
+.login-container {
+    background-color: var(--card-bg); /* Correct */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow); /* Corrected variable name */
+    width: 100%;
+    max-width: 400px;
+}
+.login-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--title-color); /* Corrected variable name */
+}
+.form-label {
+    color: var(--text-color); /* Correct */
+}
+.form-control {
+    background-color: var(--card-bg); /* Using existing variable */
+    color: var(--text-color); /* Using existing variable */
+    border-color: var(--border-color); /* Using existing variable */
+}
+.form-control:focus {
+    background-color: var(--card-bg); /* Using existing variable */
+    color: var(--text-color); /* Using existing variable */
+    border-color: var(--primary-color); /* Using existing variable */
+    box-shadow: 0 0 0 0.25rem rgba(255, 90, 95, 0.25); /* Using hardcoded primary color RGB for consistency with style.css */
+}
+.btn-primary {
+    background-color: var(--primary-color); /* Correct */
+    border-color: var(--primary-color); /* Correct */
+}
+.btn-primary:hover {
+    background-color: #ff4449; /* Using hardcoded hover color from style.css */
+    border-color: #ff4449; /* Using hardcoded hover color from style.css */
+}
+.alert {
+    margin-top: 15px;
+}

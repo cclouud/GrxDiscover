@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    $is_logged_in = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -45,6 +49,11 @@
                                 <i class="fas fa-sun"></i>
                             </button>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo $is_logged_in ? 'php/profile.php' : 'php/login.php'; ?>" title="Perfil">
+                                <i class="fas fa-user"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -55,7 +64,7 @@
             <div class="hero-content">
                 <h1 class="hero-title">Descubre Granada</h1>
                 <p class="hero-subtitle">Explora los lugares más increíbles de Granada con nuestra guía interactiva</p>
-                <a href="mapa.html" class="btn cta-button" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                <a href="<?php echo $is_logged_in ? 'mapa.php' : 'php/login.php'; ?>" class="btn cta-button" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                     <i class="fas fa-map-marked-alt me-2"></i>Explorar Mapa
                 </a>
             </div>
@@ -307,7 +316,7 @@
                                     <li><a href="#about">Sobre Nosotros</a></li>
                                     <li><a href="#features">Características</a></li>
                                     <li><a href="#team">Equipo</a></li>
-                                    <li><a href="mapa.html">Explorar Mapa</a></li>
+                                    <li><a href="mapa.php">Explorar Mapa</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -363,6 +372,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="js/theme.js" type="module"></script>
+        <script src="js/theme-handler.js"></script>
         <script>
             // Initialize AOS
             AOS.init({
@@ -370,34 +380,6 @@
                 once: true,
                 offset: 100
             });
-
-            // Theme toggle functionality
-            const themeToggle = document.getElementById('themeToggle');
-            const icon = themeToggle.querySelector('i');
-            
-            // Set dark mode as default
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-            
-            // Check for saved theme preference
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                document.documentElement.setAttribute('data-theme', savedTheme);
-                updateIcon(savedTheme);
-            }
-
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateIcon(newTheme);
-            });
-
-            function updateIcon(theme) {
-                icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-            }
         </script>
     </body>
 </html>

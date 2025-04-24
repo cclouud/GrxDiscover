@@ -212,7 +212,7 @@
                                 </div>
                             </div>
                             <div class="profile-social">
-                                <a href="https://linkedin.com/in/alejandrogarcia" target="_blank" title="LinkedIn">
+                                <a href="www.linkedin.com/in/alejandro-garcía-pereira-820b18271" target="_blank" title="LinkedIn">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
                                 <a href="https://cclouud.dev" target="_blank" title="Portfolio">

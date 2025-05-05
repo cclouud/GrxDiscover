@@ -3,44 +3,245 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: var(--background-color); /* Corrected variable name */
-    color: var(--text-color); /* Correct */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 30px; /* Increased padding */
 }
+
 .login-container {
-    background-color: var(--card-bg); /* Correct */
-    padding: 30px;
+    background-color: var(--card-bg);
+    padding: 40px; /* Increased padding */
     border-radius: 8px;
-    box-shadow: var(--card-shadow); /* Corrected variable name */
-    width: 100%;
-    max-width: 400px;
+    box-shadow: var(--card-shadow);
+    max-width: 450px; /* Slightly increased max-width */
+    transition: all 0.3s ease; /* Smooth transition for responsive changes */
 }
+
+/* Back link styles */
+.back-link {
+    margin-bottom: 15px;
+}
+
+.back-link a {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.back-link a i {
+    margin-right: 5px;
+    font-size: 0.8rem;
+}
+
+.back-link a:hover {
+    color: var(--primary-color);
+    transform: translateX(-3px);
+}
+
 .login-container h2 {
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Increased margin */
     text-align: center;
-    color: var(--title-color); /* Corrected variable name */
+    color: var(--title-color);
+    font-size: 2rem; /* Larger heading */
 }
+
 .form-label {
-    color: var(--text-color); /* Correct */
+    color: var(--text-color);
+    margin-bottom: 0.6rem; /* Increased margin */
+    font-weight: 600; /* Make labels bolder */
 }
+
+/* Input group styling */
+.input-group {
+    margin-bottom: 20px; /* Add margin below input group */
+}
+
+.input-group-text {
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    border-color: var(--border-color);
+    transition: all 0.2s ease;
+    padding: 0.8rem 1rem; /* Increased padding */
+    font-size: 1.1rem; /* Larger icon */
+}
+
 .form-control {
-    background-color: var(--card-bg); /* Using existing variable */
-    color: var(--text-color); /* Using existing variable */
-    border-color: var(--border-color); /* Using existing variable */
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+    padding: 0.8rem 1rem; /* Increased padding */
+    transition: all 0.2s ease;
+    font-size: 1rem;
 }
+
+.input-group:focus-within .input-group-text {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
 .form-control:focus {
-    background-color: var(--card-bg); /* Using existing variable */
-    color: var(--text-color); /* Using existing variable */
-    border-color: var(--primary-color); /* Using existing variable */
-    box-shadow: 0 0 0 0.25rem rgba(255, 90, 95, 0.25); /* Using hardcoded primary color RGB for consistency with style.css */
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(255, 90, 95, 0.25);
 }
+
 .btn-primary {
-    background-color: var(--primary-color); /* Correct */
-    border-color: var(--primary-color); /* Correct */
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    padding: 0.8rem 1rem; /* Increased padding */
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem; /* Slightly larger font */
+    font-weight: 600; /* Bolder text */
+    border-radius: 5px; /* Slightly more rounded corners */
 }
+
 .btn-primary:hover {
-    background-color: #ff4449; /* Using hardcoded hover color from style.css */
-    border-color: #ff4449; /* Using hardcoded hover color from style.css */
+    background-color: #ff4449;
+    border-color: #ff4449;
+    transform: translateY(-2px); /* Subtle hover effect */
 }
+
 .alert {
     margin-top: 15px;
+    font-size: 0.9rem; /* Slightly smaller font for alerts */
+}
+
+/* OR separator styling */
+.or-separator {
+    text-align: center;
+    margin: 20px 0; /* Add vertical space */
+    position: relative;
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+}
+
+.or-separator::before,
+.or-separator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%; /* Adjust line length */
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.or-separator::before {
+    left: 0;
+}
+
+.or-separator::after {
+    right: 0;
+}
+
+/* Link styling */
+.login-container p {
+    text-align: center; /* Center the paragraph */
+    margin-top: 20px; /* Add space above the paragraph */
+}
+
+.login-container p a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.login-container p a:hover {
+    color: #ff4449;
+    text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+    body {
+        padding: 20px; /* Increased padding */
+        align-items: flex-start; /* Align to top on very small screens */
+        padding-top: 60px; /* Increased top padding */
+    }
+    
+    .login-container {
+        padding: 30px 25px; /* Increased padding for mobile */
+        max-width: 95%; /* Slightly less than full width */
+        margin-bottom: 30px; /* Increased bottom margin */
+    }
+    
+    .login-container h2 {
+        font-size: 1.8rem; /* Larger heading on mobile */
+        margin-bottom: 25px; /* Increased margin */
+    }
+    
+    .form-label {
+        font-size: 1rem; /* Slightly larger labels */
+        margin-bottom: 0.8rem; /* Increased margin */
+    }
+    
+    .input-group-text {
+        padding: 0.8rem 1rem; /* Increased padding */
+        font-size: 1.1rem; /* Larger icon container */
+    }
+    
+    .form-control {
+        padding: 0.8rem 1rem; /* Increased padding */
+        font-size: 1rem; /* Slightly larger font */
+    }
+    
+    .mb-3 {
+        margin-bottom: 1.8rem !important; /* Increased margin */
+    }
+    
+    .btn-primary {
+        padding: 0.8rem 1.2rem; /* Increased padding */
+        font-size: 1.1rem; /* Slightly larger font */
+    }
+    
+    .alert {
+        padding: 0.75rem 1rem; /* Increased padding */
+        margin-top: 20px; /* Increased margin */
+    }
+    
+    .back-link {
+        margin-bottom: 20px; /* Increased margin */
+    }
+    
+    .or-separator {
+        margin: 20px 0; /* Adjusted margin for mobile */
+    }
+}
+
+/* Medium screens */
+@media (min-width: 577px) and (max-width: 768px) {
+    .login-container {
+        padding: 25px 20px;
+        max-width: 90%;
+    }
+    
+    .login-container h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    body {
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+    
+    .login-container {
+        padding: 15px;
+    }
+    
+    .login-container h2 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+    
+    .mb-3 {
+        margin-bottom: 0.6rem !important;
+    }
 }

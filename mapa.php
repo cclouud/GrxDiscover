@@ -1,10 +1,3 @@
-<?php
-    session_start();
-    if (!isset($_SESSION['user_email'])) {
-        header('Location: php/login.php');
-        exit();
-    }
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,7 +29,7 @@
                 <button class="theme-toggle" id="themeToggle">
                     <i class="fas fa-sun"></i>
                 </button>
-                <a class="nav-link" href="php/profile.php" title="Perfil">
+                <a class="nav-link" href="<?php session_start(); echo isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true ? 'php/profile.php' : 'php/login.php?redirect=' . urlencode($_SERVER['REQUEST_URI']); ?>" title="Perfil">
                     <i class="fas fa-user"></i>
                 </a>
             </div>

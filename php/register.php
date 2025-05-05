@@ -7,31 +7,53 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/estilosinicio.css"> <!-- Assuming estilosinicio.css has relevant styles -->
+    <link rel="stylesheet" href="../css/estilosinicio.css">
     <link rel="stylesheet" href="../css/login.css"> <!-- Using login.css for shared form styles -->
 </head>
 <body>
     <div class="login-container"> <!-- Using the same container class for consistent styling -->
+        <div class="back-link mb-3">
+            <a href="#" onclick="history.back();" class="text-decoration-none">
+                <i class="fas fa-arrow-left"></i> Volver
+            </a>
+        </div>
         <h2>Registrarse</h2>
         <form action="register.php" method="POST">
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Tu nombre" required>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="password" name="password" required>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="confirm_password" class="form-label">Confirmar Contraseña</label>
-                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-check-circle"></i></span>
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary w-100 mb-3">Registrarse</button>
+            <button type="submit" class="btn btn-primary w-100 mb-3">
+                <i class="fas fa-user-plus me-2"></i>Registrarse
+            </button>
         </form>
+
+        <div class="or-separator">OR</div>
+
         <p class="text-center">¿Ya tienes cuenta? <a href="login.php">Inicia Sesión aquí</a></p>
         <?php
             session_start();

@@ -50,7 +50,7 @@
                             </button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo $is_logged_in ? 'php/profile.php' : 'php/login.php'; ?>" title="Perfil">
+                            <a class="nav-link" href="<?php echo $is_logged_in ? 'php/profile.php' : 'php/login.php?redirect=' . urlencode($_SERVER['REQUEST_URI']); ?>" title="Perfil">
                                 <i class="fas fa-user"></i>
                             </a>
                         </li>
@@ -64,7 +64,7 @@
             <div class="hero-content">
                 <h1 class="hero-title">Descubre Granada</h1>
                 <p class="hero-subtitle">Explora los lugares más increíbles de Granada con nuestra guía interactiva</p>
-                <a href="<?php echo $is_logged_in ? 'mapa.php' : 'php/login.php'; ?>" class="btn cta-button" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                <a href="mapa.php" class="btn cta-button" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                     <i class="fas fa-map-marked-alt me-2"></i>Explorar Mapa
                 </a>
             </div>

@@ -7,26 +7,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/estilosinicio.css"> <!-- Assuming estilosinicio.css has relevant styles -->
+    <link rel="stylesheet" href="../css/estilosinicio.css">
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
 
-
-
     <div class="login-container">
+        <div class="back-link mb-3">
+            <a href="#" onclick="history.back();" class="text-decoration-none">
+                <i class="fas fa-arrow-left"></i> Volver
+            </a>
+        </div>
         <h2>Iniciar Sesión</h2>
         <form action="login.php" method="POST">
             <div class="mb-3">
                 <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="password" name="password" required>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary w-100 mb-3">Iniciar Sesión</button>
+            <button type="submit" class="btn btn-primary w-100 mb-3">
+                <i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión
+            </button>
         </form>
+
+        <div class="or-separator">OR</div>
+
         <p class="text-center">¿No tienes cuenta? <a href="register.php">Regístrate aquí</a></p>
         <?php
             session_start();
@@ -69,8 +83,13 @@
                         $_SESSION['user_name'] = $name; // Store user's name in session
                         $_SESSION['loggedin'] = true;
 
-                        // Redirect to the map page
-                        header("Location: ../mapa.php");
+                        // Redirect to the previous page or a default page
+                        if (isset($_GET['redirect'])) {
+                            $redirect_url = urldecode($_GET['redirect']);
+                            header("Location: ../" . ltrim($redirect_url, '/'));
+                        } else {
+                            header("Location: ../index.php"); // Default redirect
+                        }
                         exit();
                     } else {
                         $error_message = "Correo electrónico o contraseña incorrectos.";

@@ -373,8 +373,10 @@
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="js/theme.js" type="module"></script>
         <script src="js/theme-handler.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-        <script src="config/supabase.js"></script>
+        <script type="module">
+            import { initSupabase } from './config/supabase.js';
+            window.initSupabase = initSupabase;
+        </script>
         <script>
             // Initialize AOS
             AOS.init({
@@ -387,7 +389,7 @@
             async function handleOAuthCallback() {
                 if (<?php echo isset($_SESSION['oauth_pending']) ? 'true' : 'false'; ?>) {
                     try {
-                        const supabase = initSupabase();
+                        const supabase = window.initSupabase();
                         
                         // Get the user session
                         const { data: { session }, error: sessionError } = await supabase.auth.getSession();

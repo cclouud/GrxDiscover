@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="../css/estilosinicio.css">
     <link rel="stylesheet" href="../css/login.css">
     <!-- Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../config/supabase.js"></script>
+    <script type="module">
+        import { initSupabase } from '../config/supabase.js';
+        window.initSupabase = initSupabase;
+    </script>
 </head>
 <body>
     <div class="login-container">
@@ -68,9 +70,9 @@
         <div id="error-message" class="alert alert-danger d-none" role="alert"></div>
     </div>
 
-    <script>
+    <script type="module">
         // Initialize Supabase client
-        const supabase = initSupabase();
+        const supabase = window.initSupabase();
 
         // Handle form submission
         document.getElementById('registerForm').addEventListener('submit', async (e) => {

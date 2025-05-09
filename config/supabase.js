@@ -9,9 +9,19 @@ const options = {
         persistSession: true,
         detectSessionInUrl: true,
         flowType: 'pkce',
-        redirectTo: 'http://localhost/GrxDiscover/php/session_handler.php?action=oauth_callback'
+        debug: true,
+        redirectTo: window.location.origin + '/GrxDiscover/php/session_handler.php?action=oauth_callback',
+        storageKey: 'grxdiscover-auth',
+        storage: window.localStorage
     }
 };
+
+// Log configuration for debugging
+console.log('Supabase Configuration:', {
+    url: supabaseUrl,
+    options: options,
+    redirectUrl: options.auth.redirectTo
+});
 
 // Create Supabase client
 const supabase = createClient(supabaseUrl, supabaseKey, options);

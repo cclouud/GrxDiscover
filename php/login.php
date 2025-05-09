@@ -12,7 +12,38 @@
     <!-- Supabase -->
     <script type="module">
         import { initSupabase } from '../config/supabase.js';
-        window.initSupabase = initSupabase;
+        
+        // Make supabase instance available globally
+        const supabase = initSupabase();
+        window.supabase = supabase;
+        
+        // Make login function available globally
+        window.signInWithGoogle = async () => {
+            try {
+                const { data, error } = await supabase.auth.signInWithOAuth({
+                    provider: 'google',
+                    options: {
+                        queryParams: {
+                            access_type: 'offline',
+                            prompt: 'consent'
+                        }
+                    }
+                });
+                
+                if (error) {
+                    document.getElementById('error-message').textContent = 'Error al iniciar sesión con Google: ' + error.message;
+                    document.getElementById('error-message').classList.remove('d-none');
+                    console.error('Error:', error);
+                }
+                
+                console.log('Auth response:', data);
+                
+            } catch (error) {
+                document.getElementById('error-message').textContent = 'Error al iniciar sesión con Google: ' + error.message;
+                document.getElementById('error-message').classList.remove('d-none');
+                console.error('Error:', error);
+            }
+        };
     </script>
 </head>
 <body>
@@ -56,10 +87,7 @@
         <div id="error-message" class="alert alert-danger d-none" role="alert"></div>
     </div>
 
-    <script type="module">
-        // Initialize Supabase client
-        const supabase = window.initSupabase();
-
+    <script>
         // Handle form submission
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault()
@@ -109,26 +137,6 @@
             }
         })
 
-        // Social login handler
-        async function signInWithGoogle() {
-            try {
-                const { data, error } = await supabase.auth.signInWithOAuth({
-                    provider: 'google',
-                    options: {
-                        queryParams: {
-                            access_type: 'offline',
-                            prompt: 'consent'
-                        }
-                    }
-                });
-                
-                if (error) throw error;
-                
-            } catch (error) {
-                document.getElementById('error-message').textContent = 'Error al iniciar sesión con Google: ' + error.message;
-                document.getElementById('error-message').classList.remove('d-none');
-            }
-        }
 
     </script>
 

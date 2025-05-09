@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/estilosinicio.css">
     <link rel="stylesheet" href="../css/login.css">
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../config/supabase.js"></script>
 </head>
 <body>
-
     <div class="login-container">
         <div class="back-link mb-3">
             <a href="#" onclick="history.back();" class="text-decoration-none">
@@ -19,7 +21,7 @@
             </a>
         </div>
         <h2>Iniciar Sesión</h2>
-        <form action="login.php" method="POST">
+        <form id="loginForm">
             <div class="mb-3">
                 <label for="email" class="form-label">Correo Electrónico</label>
                 <div class="input-group">
@@ -39,76 +41,96 @@
             </button>
         </form>
 
-        <div class="or-separator">OR</div>
+        <div class="or-separator">O</div>
+
+        <div class="social-login mb-3">
+            <button onclick="signInWithGoogle()" class="btn btn-outline-dark w-100 mb-2">
+                <i class="fab fa-google me-2"></i>Continuar con Google
+            </button>
+            <button onclick="signInWithGithub()" class="btn btn-outline-dark w-100">
+                <i class="fab fa-github me-2"></i>Continuar con GitHub
+            </button>
+        </div>
 
         <p class="text-center">¿No tienes cuenta? <a href="register.php">Regístrate aquí</a></p>
-        <?php
-            session_start();
 
-            // Database connection details
-            $servername = "localhost"; // Replace with your database server name
-            $username = "root"; // Replace with your database username
-            $password = ""; // Replace with your database password
-            $dbname = "grxdisc";
-
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            $error_message = "";
-
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-
-                // Prepare and execute the query
-                $stmt = $conn->prepare("SELECT id, name, password FROM users WHERE email = ?");
-                $stmt->bind_param("s", $email);
-                $stmt->execute();
-                $stmt->store_result();
-
-                if ($stmt->num_rows == 1) {
-                    $stmt->bind_result($id, $name, $hashed_password);
-                    $stmt->fetch();
-
-                    // Verify the password
-                    if (password_verify($password, $hashed_password)) {
-                        // Password is correct, start a new session
-                        $_SESSION['user_id'] = $id;
-                        $_SESSION['user_email'] = $email;
-                        $_SESSION['user_name'] = $name; // Store user's name in session
-                        $_SESSION['loggedin'] = true;
-
-                        // Redirect to the previous page or a default page
-                        if (isset($_GET['redirect'])) {
-                            $redirect_url = urldecode($_GET['redirect']);
-                            header("Location: ../" . ltrim($redirect_url, '/'));
-                        } else {
-                            header("Location: ../index.php"); // Default redirect
-                        }
-                        exit();
-                    } else {
-                        $error_message = "Correo electrónico o contraseña incorrectos.";
-                    }
-                } else {
-                    $error_message = "Correo electrónico o contraseña incorrectos.";
-                }
-
-                $stmt->close();
-            }
-
-            $conn->close();
-        ?>
-        <?php if (!empty($error_message)): ?>
-            <div class="alert alert-danger" role="alert">
-                <?php echo $error_message; ?>
-            </div>
-        <?php endif; ?>
+        <div id="error-message" class="alert alert-danger d-none" role="alert"></div>
     </div>
+
+    <script>
+        // Initialize Supabase client
+        const supabase = initSupabase();
+
+        // Handle form submission
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault()
+            
+            const email = document.getElementById('email').value
+            const password = document.getElementById('password').value
+            const errorDiv = document.getElementById('error-message')
+            
+            try {
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                })
+
+                if (error) throw error
+
+                // Get user details after successful login
+                const { data: { user } } = await supabase.auth.getUser()
+                
+                // Start PHP session and store user info
+                const response = await fetch('session_handler.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        action: 'login',
+                        user: {
+                            id: user.id,
+                            email: user.email,
+                            name: user.user_metadata.name || user.email
+                        },
+                        session: data.session
+                    })
+                })
+
+                if (!response.ok) throw new Error('Error al iniciar sesión')
+
+                // Redirect after successful login
+                const urlParams = new URLSearchParams(window.location.search)
+                const redirectUrl = urlParams.get('redirect')
+                window.location.href = redirectUrl ? '../' + redirectUrl.replace(/^\//, '') : '../index.php'
+
+            } catch (error) {
+                errorDiv.textContent = 'Error al iniciar sesión: ' + error.message
+                errorDiv.classList.remove('d-none')
+            }
+        })
+
+        // Social login handlers
+        async function signInWithGoogle() {
+            const { data, error } = await supabase.auth.signInWithOAuth({
+                provider: 'google'
+            })
+            if (error) {
+                document.getElementById('error-message').textContent = 'Error al iniciar sesión con Google'
+                document.getElementById('error-message').classList.remove('d-none')
+            }
+        }
+
+        async function signInWithGithub() {
+            const { data, error } = await supabase.auth.signInWithOAuth({
+                provider: 'github'
+            })
+            if (error) {
+                document.getElementById('error-message').textContent = 'Error al iniciar sesión con GitHub'
+                document.getElementById('error-message').classList.remove('d-none')
+            }
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/theme-handler.js"></script>

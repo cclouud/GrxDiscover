@@ -8,38 +8,15 @@
         exit();
     }
 
-    $servername = "localhost"; 
-    $username = "root"; 
-    $password = ""; 
-    $dbname = "grxdisc";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
+    // Get user data from session
     $user_id = $_SESSION['user_id'];
-    $userName = '';
-    $userEmail = '';
+    $userName = $_SESSION['user_name'] ?? '';
+    $userEmail = $_SESSION['user_email'] ?? '';
     $error_message = '';
     $success_message = '';
-    $profilePicturePath = '../uploads/profile_pictures/chinese.png'; // Default placeholder
-
-    // Fetch user data including profile picture path
-    // **ASSUMPTION: 'profile_picture_path' column exists in 'users' table**
-    $stmt = $conn->prepare("SELECT name, email, profile_picture_path FROM users WHERE id = ?");
-    $stmt->bind_param("i", $user_id);
-    $stmt->execute();
-    $stmt->bind_result($userName, $userEmail, $dbProfilePicturePath);
-    $stmt->fetch();
-    $stmt->close();
-
-    if ($dbProfilePicturePath) {
-        $profilePicturePath = $dbProfilePicturePath;
-    }
+    
+    // Get profile picture from Google account if available
+    $profilePicturePath = $_SESSION['profile_picture'] ?? '../uploads/profile_pictures/chinese.png';
 
     // Handle form submissions
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -48,121 +25,29 @@
             $newName = htmlspecialchars($_POST['name']);
             $newEmail = htmlspecialchars($_POST['email']);
             
-            // Preserve existing profile picture path if no new picture is uploaded
-            $currentProfilePicturePath = $dbProfilePicturePath;
-
-            if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] !== UPLOAD_ERR_NO_FILE) {
-                $file = $_FILES['profile_picture'];
-                $uploadDir = '/home/cloud/Documentos/htdocs/Trabajos/GrxDisc/uploads/profile_pictures/';
-                $allowedTypes = ['jpg' => 'image/jpg', 'jpeg' => 'image/jpeg', 'png' => 'image/png'];
-                $maxFileSize = 5 * 1024 * 1024; // 5MB
-
-                if ($file['error'] !== UPLOAD_ERR_OK) {
-                    $error_message = "File upload error: " . $file['error']; // Report specific error code
-                } else {
-                    $fileInfo = finfo_open(FILEINFO_MIME_TYPE);
-                    $fileType = finfo_file($fileInfo, $file['tmp_name']);
-
-                    $fileExtension = array_search($fileType, $allowedTypes, true);
-
-                    if ($fileExtension === false) {
-                        $error_message = "Invalid file format. Only JPG, JPEG, PNG, and GIF are allowed.";
-                    } elseif ($file['size'] > $maxFileSize) {
-                        $error_message = "File size exceeds the maximum limit of 5MB.";
-                    } else {
-                        $fileName = uniqid('pfp_', true) . '.' . $fileExtension;
-                        $destination = $uploadDir . $fileName;
-
-                        // Add more detailed error reporting
-                        if (!is_dir($uploadDir)) {
-                            $error_message = "Upload directory does not exist: " . $uploadDir;
-                        }elseif (move_uploaded_file($file['tmp_name'], $destination)) {
-                            $webPath = '../uploads/profile_pictures/' . $fileName;
-                            $profilePicturePath = $webPath;
-                            $currentProfilePicturePath = $webPath; // Update current path
-                            $success_message = "Profile picture uploaded successfully.";
-                        }
-                    }
-                }
-            }
-
             // Validate email format
             if (!filter_var($newEmail, FILTER_VALIDATE_EMAIL)) {
                 $error_message = "Formato de correo electrónico inválido.";
             } else {
-                // Check if email already exists for another user
-                $stmt = $conn->prepare("SELECT id FROM users WHERE email = ? AND id != ?");
-                $stmt->bind_param("si", $newEmail, $user_id);
-                $stmt->execute();
-                $stmt->store_result();
+                try {
+                    // Update session data only
+                    $_SESSION['user_name'] = $newName;
+                    $_SESSION['user_email'] = $newEmail;
 
-                if ($stmt->num_rows > 0) {
-                    $error_message = "El correo electrónico ya está registrado por otro usuario.";
-                } else {
-                    $stmt->close();
-                    // Update user data including profile picture path
-                    if ($currentProfilePicturePath) {
-                        // **ASSUMPTION: 'profile_picture_path' column exists in 'users' table**
-                        $stmt = $conn->prepare("UPDATE users SET name = ?, email = ?, profile_picture_path = ? WHERE id = ?");
-                        $stmt->bind_param("sssi", $newName, $newEmail, $currentProfilePicturePath, $user_id);
-                    } else {
-                        $stmt = $conn->prepare("UPDATE users SET name = ?, email = ? WHERE id = ?");
-                        $stmt->bind_param("ssi", $newName, $newEmail, $user_id);
-                    }
-
-
-                    if ($stmt->execute()) {
-                        $_SESSION['user_name'] = $newName;
-                        $_SESSION['user_email'] = $newEmail;
-                        if ($currentProfilePicturePath) {
-                            $_SESSION['profile_picture_path'] = $currentProfilePicturePath;
-                            $profilePicturePath = $currentProfilePicturePath; // Update for display
-                        }
-                        if (empty($success_message)) {
-                            $success_message = "Profile updated successfully.";
-                        }
-                        $userName = $newName; // Update displayed name
-                        $userEmail = $newEmail; // Update displayed email
-                    } else {
-                        $error_message = "Error updating profile: " . $conn->error;
-                    }
+                    // Update session data
+                    $_SESSION['user_name'] = $newName;
+                    $_SESSION['user_email'] = $newEmail;
+                    
+                    $success_message = "Profile updated successfully.";
+                    $userName = $newName;
+                    $userEmail = $newEmail;
+                    
+                } catch (Exception $e) {
+                    $error_message = "Error updating profile: " . $e->getMessage();
                 }
-                $stmt->close();
-            }
-        } elseif (isset($_POST['update_password'])) { // This part seems to be for a separate password form, but the current HTML has password fields in the main form. I will keep this logic for now but the HTML structure might need adjustment if password update is part of the main form submission.
-            // Handle password update
-            $currentPassword = $_POST['current_password'];
-            $newPassword = $_POST['new_password'];
-            $confirmPassword = $_POST['confirm_password'];
-
-            // Fetch current hashed password
-            $stmt = $conn->prepare("SELECT password FROM users WHERE id = ?");
-            $stmt->bind_param("i", $user_id);
-            $stmt->execute();
-            $stmt->bind_result($hashed_password);
-            $stmt->fetch();
-            $stmt->close();
-
-            if (!password_verify($currentPassword, $hashed_password)) {
-                $error_message = "La contraseña actual es incorrecta.";
-            } elseif ($newPassword !== $confirmPassword) {
-                $error_message = "Las nuevas contraseñas no coinciden.";
-            } else {
-                $newHashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-                $stmt = $conn->prepare("UPDATE users SET password = ? WHERE id = ?");
-                $stmt->bind_param("si", $newHashedPassword, $user_id);
-
-                if ($stmt->execute()) {
-                    $success_message = "Contraseña actualizada correctamente.";
-                } else {
-                    $error_message = "Error al actualizar la contraseña: " . $conn->error;
-                }
-                $stmt->close();
             }
         }
     }
-
-    $conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="es">

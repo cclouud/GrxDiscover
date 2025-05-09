@@ -3,9 +3,22 @@ session_start();
 
 // Check if this is an OAuth callback
 if (isset($_GET['action']) && $_GET['action'] === 'oauth_callback') {
-    // For OAuth callbacks, we'll redirect to index with a success message
+    // For OAuth callbacks, ensure session is started and set login status
     $_SESSION['oauth_pending'] = true;
-    header('Location: ../index.php');
+    $_SESSION['loggedin'] = true;
+
+    // Get user data from Supabase
+    $supabase = json_decode(file_get_contents('php://input'), true);
+    if ($supabase && isset($supabase['event']) && $supabase['event'] === 'SIGNED_IN') {
+        $user = $supabase['user'];
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_email'] = $user['email'];
+        $_SESSION['user_name'] = $user['user_metadata']['full_name'] ?? $user['email'];
+        $_SESSION['profile_picture'] = $user['user_metadata']['avatar_url'] ?? null;
+    }
+    
+    // Redirect to profile page with full path
+    header('Location: profile.php');
     exit;
 }
 
@@ -34,6 +47,11 @@ switch ($data['action']) {
         $_SESSION['user_name'] = $data['user']['name'];
         $_SESSION['loggedin'] = true;
         $_SESSION['supabase_session'] = $data['session'];
+        
+        // Store profile picture if available from Google
+        if (isset($data['user']['user_metadata']['avatar_url'])) {
+            $_SESSION['profile_picture'] = $data['user']['user_metadata']['avatar_url'];
+        }
 
         // Store additional user data in Supabase if needed
         // You can add code here to store extra user information in your Supabase tables

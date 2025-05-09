@@ -6,7 +6,9 @@ const supabaseConfig = {
         auth: {
             autoRefreshToken: true,
             persistSession: true,
-            detectSessionInUrl: true
+            detectSessionInUrl: true,
+            flowType: 'pkce',
+            redirectTo: 'http://localhost/GrxDiscover/php/session_handler.php?action=oauth_callback'
         }
     }
 };

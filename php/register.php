@@ -58,11 +58,8 @@
         <div class="or-separator">O</div>
 
         <div class="social-login mb-3">
-            <button onclick="signInWithGoogle()" class="btn btn-outline-dark w-100 mb-2">
+            <button onclick="signInWithGoogle()" class="btn btn-outline-dark w-100">
                 <i class="fab fa-google me-2"></i>Continuar con Google
-            </button>
-            <button onclick="signInWithGithub()" class="btn btn-outline-dark w-100">
-                <i class="fab fa-github me-2"></i>Continuar con GitHub
             </button>
         </div>
 
@@ -137,24 +134,24 @@
             }
         })
 
-        // Social login handlers
+        // Social login handler
         async function signInWithGoogle() {
-            const { data, error } = await supabase.auth.signInWithOAuth({
-                provider: 'google'
-            })
-            if (error) {
-                document.getElementById('error-message').textContent = 'Error al iniciar sesión con Google'
-                document.getElementById('error-message').classList.remove('d-none')
-            }
-        }
-
-        async function signInWithGithub() {
-            const { data, error } = await supabase.auth.signInWithOAuth({
-                provider: 'github'
-            })
-            if (error) {
-                document.getElementById('error-message').textContent = 'Error al iniciar sesión con GitHub'
-                document.getElementById('error-message').classList.remove('d-none')
+            try {
+                const { data, error } = await supabase.auth.signInWithOAuth({
+                    provider: 'google',
+                    options: {
+                        queryParams: {
+                            access_type: 'offline',
+                            prompt: 'consent'
+                        }
+                    }
+                });
+                
+                if (error) throw error;
+                
+            } catch (error) {
+                document.getElementById('error-message').textContent = 'Error al iniciar sesión con Google: ' + error.message;
+                document.getElementById('error-message').classList.remove('d-none');
             }
         }
     </script>

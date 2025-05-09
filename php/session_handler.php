@@ -1,7 +1,15 @@
 <?php
 session_start();
 
-// Get JSON data from request body
+// Check if this is an OAuth callback
+if (isset($_GET['action']) && $_GET['action'] === 'oauth_callback') {
+    // For OAuth callbacks, we'll redirect to index with a success message
+    $_SESSION['oauth_pending'] = true;
+    header('Location: ../index.php');
+    exit;
+}
+
+// For regular AJAX requests
 $json = file_get_contents('php://input');
 $data = json_decode($json, true);
 
@@ -26,6 +34,9 @@ switch ($data['action']) {
         $_SESSION['user_name'] = $data['user']['name'];
         $_SESSION['loggedin'] = true;
         $_SESSION['supabase_session'] = $data['session'];
+
+        // Store additional user data in Supabase if needed
+        // You can add code here to store extra user information in your Supabase tables
 
         echo json_encode(['success' => true]);
         break;

@@ -373,6 +373,8 @@
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="js/theme.js" type="module"></script>
         <script src="js/theme-handler.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="config/supabase.js"></script>
         <script>
             // Initialize AOS
             AOS.init({
@@ -380,6 +382,53 @@
                 once: true,
                 offset: 100
             });
+
+            // Handle OAuth callback
+            async function handleOAuthCallback() {
+                if (<?php echo isset($_SESSION['oauth_pending']) ? 'true' : 'false'; ?>) {
+                    try {
+                        const supabase = initSupabase();
+                        
+                        // Get the user session
+                        const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+                        if (sessionError) throw sessionError;
+                        
+                        if (session) {
+                            // Get user details
+                            const { data: { user }, error: userError } = await supabase.auth.getUser();
+                            if (userError) throw userError;
+
+                            // Store session in PHP
+                            const response = await fetch('php/session_handler.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({
+                                    action: 'login',
+                                    user: {
+                                        id: user.id,
+                                        email: user.email,
+                                        name: user.user_metadata.name || user.email
+                                    },
+                                    session: session
+                                })
+                            });
+
+                            if (!response.ok) throw new Error('Error storing session');
+
+                            // Reload page to update UI
+                            window.location.reload();
+                        }
+                    } catch (error) {
+                        console.error('Error handling OAuth callback:', error);
+                    }
+                    <?php unset($_SESSION['oauth_pending']); ?>
+                }
+            }
+
+            // Call the handler when page loads
+            handleOAuthCallback();
         </script>
     </body>
 </html>

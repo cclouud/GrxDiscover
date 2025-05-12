@@ -1,3 +1,31 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start([
+        'cookie_lifetime' => 30 * 24 * 60 * 60,
+        'cookie_secure' => true,
+        'cookie_httponly' => true,
+        'cookie_samesite' => 'Lax',
+        'cookie_path' => '/GrxDiscover'
+    ]);
+}
+
+// Limpiar todas las variables de sesión
+$_SESSION = array();
+
+// Eliminar la cookie de sesión
+if (isset($_COOKIE[session_name()])) {
+    setcookie(session_name(), '', [
+        'expires' => time() - 3600,
+        'path' => '/GrxDiscover',
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'Lax'
+    ]);
+}
+
+// Destruir la sesión
+session_destroy();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,43 +33,15 @@
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="../config/supabase.js"></script>
+    <script type="module">
+        import { initSupabase } from '../config/supabase.js';
+        const supabase = initSupabase();
+        supabase.auth.signOut().finally(() => {
+            window.location.replace('../index.php');
+        });
+    </script>
 </head>
 <body>
-    <script>
-        async function handleLogout() {
-            try {
-                // Initialize Supabase client
-                const supabase = initSupabase();
-                
-                // Sign out from Supabase
-                await supabase.auth.signOut();
-                
-                // Clear PHP session
-                const response = await fetch('session_handler.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        action: 'logout'
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error('Error al cerrar sesión');
-                }
-                
-                // Redirect to home page
-                window.location.href = '../index.php';
-            } catch (error) {
-                console.error('Error during logout:', error);
-                // Redirect anyway to ensure user is logged out
-                window.location.href = '../index.php';
-            }
-        }
-
-        // Execute logout when page loads
-        handleLogout();
-    </script>
+    <p>Cerrando sesión...</p>
 </body>
 </html>

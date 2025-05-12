@@ -9,22 +9,114 @@ const options = {
         persistSession: true,
         detectSessionInUrl: true,
         flowType: 'pkce',
-        debug: true,
-        redirectTo: window.location.origin + '/GrxDiscover/php/session_handler.php?action=oauth_callback',
+        redirectTo: window.location.origin + '/GrxDiscover/php/oauth_callback.php',
         storageKey: 'grxdiscover-auth',
-        storage: window.localStorage
+        storage: window.localStorage,
+        onAuthStateChange: async (event, session) => {
+            if (event === 'SIGNED_IN' && session) {
+                try {
+                    const response = await fetch('/GrxDiscover/php/session_handler.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        credentials: 'same-origin',
+                        body: JSON.stringify({
+                            action: 'login',
+                            user: {
+                                id: session.user.id,
+                                email: session.user.email,
+                                name: session.user.user_metadata.name || session.user.email
+                            },
+                            session: session
+                        })
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error('Failed to store session');
+                    }
+                    
+                    // Verificar la sesión después de iniciar sesión
+                    await checkSession();
+                } catch (error) {
+                    console.error('Error storing session:', error);
+                }
+            } else if (event === 'SIGNED_OUT') {
+                try {
+                    await fetch('/GrxDiscover/php/session_handler.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        credentials: 'same-origin',
+                        body: JSON.stringify({
+                            action: 'logout'
+                        })
+                    });
+                } catch (error) {
+                    console.error('Error clearing session:', error);
+                }
+            }
+        }
     }
 };
 
-// Log configuration for debugging
-console.log('Supabase Configuration:', {
-    url: supabaseUrl,
-    options: options,
-    redirectUrl: options.auth.redirectTo
-});
-
 // Create Supabase client
 const supabase = createClient(supabaseUrl, supabaseKey, options);
+
+// Initialize session check
+async function checkSession() {
+    try {
+        const { data: { session }, error } = await supabase.auth.getSession();
+        
+        if (error) return;
+        
+        if (session) {
+            // Verificar la sesión en PHP
+            const response = await fetch('/GrxDiscover/php/session_handler.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                credentials: 'same-origin',
+                body: JSON.stringify({
+                    action: 'check'
+                })
+            });
+            
+            const data = await response.json();
+            if (!data.success || !data.is_logged_in) {
+                // Si la sesión PHP no es válida, intentar restaurarla
+                await fetch('/GrxDiscover/php/session_handler.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({
+                        action: 'login',
+                        user: {
+                            id: session.user.id,
+                            email: session.user.email,
+                            name: session.user.user_metadata.name || session.user.email
+                        },
+                        session: session
+                    })
+                });
+            }
+        }
+    } catch (error) {
+        // Silently handle errors
+    }
+}
+
+// Check session on load and every 5 minutes
+checkSession();
+setInterval(checkSession, 5 * 60 * 1000);
 
 // Export the client
 export const initSupabase = () => supabase;

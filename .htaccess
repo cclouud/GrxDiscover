@@ -1,0 +1,30 @@
+Options +FollowSymLinks
+Options -Indexes
+DirectoryIndex index.php
+
+# Set correct MIME types
+AddType application/javascript .js
+AddType application/javascript .mjs
+AddType text/javascript .js
+AddType text/javascript .mjs
+
+# Enable CORS
+Header set Access-Control-Allow-Origin "*"
+
+# Handle JavaScript modules
+<FilesMatch "\.(js|mjs)$">
+    Header set Content-Type "application/javascript"
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /GrxDiscover/
+    
+    # Allow direct access to files
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [L]
+</IfModule>
+
+# Set default character set
+AddDefaultCharset UTF-8 

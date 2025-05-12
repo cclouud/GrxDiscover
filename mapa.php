@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header('Location: php/login.php?redirect=' . urlencode($_SERVER['REQUEST_URI']));
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -29,7 +38,7 @@
                 <button class="theme-toggle" id="themeToggle">
                     <i class="fas fa-sun"></i>
                 </button>
-                <a class="nav-link" href="<?php session_start(); echo isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true ? 'php/profile.php' : 'php/login.php?redirect=' . urlencode($_SERVER['REQUEST_URI']); ?>" title="Perfil">
+                <a class="nav-link" href="<?php echo isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true ? '/GrxDiscover/php/profile.php' : '/GrxDiscover/php/login.php?redirect=' . urlencode($_SERVER['REQUEST_URI']); ?>" title="Perfil">
                     <i class="fas fa-user"></i>
                 </a>
             </div>

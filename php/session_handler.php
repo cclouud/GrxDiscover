@@ -1,77 +1,179 @@
 <?php
-session_start();
+// Configurar la duración de la sesión (30 días)
+ini_set('session.gc_maxlifetime', 30 * 24 * 60 * 60);
+ini_set('session.cookie_lifetime', 30 * 24 * 60 * 60);
 
-// Check if this is an OAuth callback
-if (isset($_GET['action']) && $_GET['action'] === 'oauth_callback') {
-    // For OAuth callbacks, ensure session is started and set login status
-    $_SESSION['oauth_pending'] = true;
-    $_SESSION['loggedin'] = true;
+// Iniciar sesión si no está iniciada
+if (session_status() === PHP_SESSION_NONE) {
+    session_start([
+        'cookie_lifetime' => 30 * 24 * 60 * 60, // 30 días
+        'cookie_secure' => true,
+        'cookie_httponly' => true,
+        'cookie_samesite' => 'Lax',
+        'cookie_path' => '/GrxDiscover'
+    ]);
+}
 
-    // Get user data from Supabase
-    $supabase = json_decode(file_get_contents('php://input'), true);
-    if ($supabase && isset($supabase['event']) && $supabase['event'] === 'SIGNED_IN') {
-        $user = $supabase['user'];
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['user_email'] = $user['email'];
-        $_SESSION['user_name'] = $user['user_metadata']['full_name'] ?? $user['email'];
-        $_SESSION['profile_picture'] = $user['user_metadata']['avatar_url'] ?? null;
+// Habilitar reporte de errores para debugging
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+// Establecer el tipo de contenido como JSON
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, X-Requested-With');
+
+// Función para logging
+function logDebug($message, $data = null) {
+    $logFile = __DIR__ . '/oauth_log.txt';
+    $timestamp = date('Y-m-d H:i:s');
+    $logMessage = "[$timestamp] $message";
+    if ($data) {
+        $logMessage .= "\n" . print_r($data, true);
+    }
+    $logMessage .= "\n\n";
+    file_put_contents($logFile, $logMessage, FILE_APPEND);
+}
+
+// Log de la petición
+logDebug('Request received', [
+    'method' => $_SERVER['REQUEST_METHOD'],
+    'headers' => getallheaders(),
+    'get' => $_GET,
+    'post' => $_POST,
+    'input' => file_get_contents('php://input'),
+    'session_id' => session_id(),
+    'session_data' => $_SESSION
+]);
+
+try {
+    // Obtener datos JSON del input
+    $json = file_get_contents('php://input');
+    $data = json_decode($json, true);
+    
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        throw new Exception('Error al decodificar JSON: ' . json_last_error_msg());
     }
     
-    // Redirect to profile page with full path
-    header('Location: profile.php');
-    exit;
-}
-
-// For regular AJAX requests
-$json = file_get_contents('php://input');
-$data = json_decode($json, true);
-
-if (!$data) {
+    logDebug('Decoded JSON data', $data);
+    
+    // Verificar acción
+    if (!isset($data['action'])) {
+        throw new Exception('No se especificó la acción');
+    }
+    
+    switch ($data['action']) {
+        case 'login':
+            if (!isset($data['user']) || !isset($data['session'])) {
+                throw new Exception('Datos de usuario o sesión incompletos');
+            }
+            
+            // Guardar datos en la sesión
+            $_SESSION['user'] = $data['user'];
+            $_SESSION['session'] = $data['session'];
+            $_SESSION['last_activity'] = time();
+            $_SESSION['loggedin'] = true;
+            
+            // Regenerar ID de sesión para mayor seguridad
+            session_regenerate_id(true);
+            
+            // Establecer cookie de sesión
+            setcookie(session_name(), session_id(), [
+                'expires' => time() + (30 * 24 * 60 * 60),
+                'path' => '/GrxDiscover',
+                'secure' => true,
+                'httponly' => true,
+                'samesite' => 'Lax'
+            ]);
+            
+            logDebug('Session data stored', [
+                'user' => $data['user'],
+                'session_id' => session_id()
+            ]);
+            
+            echo json_encode([
+                'success' => true,
+                'message' => 'Sesión iniciada correctamente',
+                'session_id' => session_id()
+            ]);
+            break;
+            
+        case 'logout':
+            // Limpiar la sesión
+            $_SESSION = array();
+            
+            // Destruir la cookie de sesión
+            if (isset($_COOKIE[session_name()])) {
+                setcookie(session_name(), '', [
+                    'expires' => time() - 3600,
+                    'path' => '/GrxDiscover',
+                    'secure' => true,
+                    'httponly' => true,
+                    'samesite' => 'Lax'
+                ]);
+            }
+            
+            session_destroy();
+            
+            logDebug('Session destroyed');
+            
+            echo json_encode([
+                'success' => true,
+                'message' => 'Sesión cerrada correctamente'
+            ]);
+            break;
+            
+        case 'check':
+            // Verificar si hay una sesión activa y si no ha expirado
+            $is_logged_in = isset($_SESSION['user']) && 
+                           isset($_SESSION['last_activity']) && 
+                           isset($_SESSION['loggedin']) &&
+                           $_SESSION['loggedin'] === true &&
+                           (time() - $_SESSION['last_activity'] < 30 * 24 * 60 * 60);
+            
+            if ($is_logged_in) {
+                // Actualizar timestamp de última actividad
+                $_SESSION['last_activity'] = time();
+                
+                // Renovar la cookie de sesión
+                setcookie(session_name(), session_id(), [
+                    'expires' => time() + (30 * 24 * 60 * 60),
+                    'path' => '/GrxDiscover',
+                    'secure' => true,
+                    'httponly' => true,
+                    'samesite' => 'Lax'
+                ]);
+            }
+            
+            $response = [
+                'success' => true,
+                'is_logged_in' => $is_logged_in,
+                'session_id' => session_id()
+            ];
+            
+            if ($is_logged_in) {
+                $response['user'] = $_SESSION['user'];
+            }
+            
+            logDebug('Session check', $response);
+            
+            echo json_encode($response);
+            break;
+            
+        default:
+            throw new Exception('Acción no válida');
+    }
+} catch (Exception $e) {
+    logDebug('Error occurred', [
+        'error' => $e->getMessage(),
+        'trace' => $e->getTraceAsString()
+    ]);
+    
     http_response_code(400);
-    echo json_encode(['error' => 'Invalid JSON data']);
-    exit;
-}
-
-switch ($data['action']) {
-    case 'login':
-        // Validate required data
-        if (!isset($data['user']) || !isset($data['session'])) {
-            http_response_code(400);
-            echo json_encode(['error' => 'Missing user or session data']);
-            exit;
-        }
-
-        // Store user data in PHP session
-        $_SESSION['user_id'] = $data['user']['id'];
-        $_SESSION['user_email'] = $data['user']['email'];
-        $_SESSION['user_name'] = $data['user']['name'];
-        $_SESSION['loggedin'] = true;
-        $_SESSION['supabase_session'] = $data['session'];
-        
-        // Store profile picture if available from Google
-        if (isset($data['user']['user_metadata']['avatar_url'])) {
-            $_SESSION['profile_picture'] = $data['user']['user_metadata']['avatar_url'];
-        }
-
-        // Store additional user data in Supabase if needed
-        // You can add code here to store extra user information in your Supabase tables
-
-        echo json_encode(['success' => true]);
-        break;
-
-    case 'logout':
-        // Clear all session variables
-        $_SESSION = array();
-
-        // Destroy the session
-        session_destroy();
-
-        echo json_encode(['success' => true]);
-        break;
-
-    default:
-        http_response_code(400);
-        echo json_encode(['error' => 'Invalid action']);
-        break;
+    echo json_encode([
+        'success' => false,
+        'error' => $e->getMessage()
+    ]);
 }
 ?>

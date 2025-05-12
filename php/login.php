@@ -1,3 +1,10 @@
+<?php
+// Agregar headers necesarios
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Content-Security-Policy: default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data:;");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,6 +30,7 @@
                 const { data, error } = await supabase.auth.signInWithOAuth({
                     provider: 'google',
                     options: {
+                        redirectTo: window.location.origin + '/GrxDiscover/php/oauth_callback.php',
                         queryParams: {
                             access_type: 'offline',
                             prompt: 'consent'
@@ -106,6 +114,14 @@
 
                 // Get user details after successful login
                 const { data: { user } } = await supabase.auth.getUser()
+                
+                // Comprobar si el correo está verificado
+                if (!user.email_confirmed_at) {
+                    errorDiv.textContent = 'Debes verificar tu correo electrónico antes de iniciar sesión.';
+                    errorDiv.classList.remove('d-none');
+                    await supabase.auth.signOut();
+                    return;
+                }
                 
                 // Start PHP session and store user info
                 const response = await fetch('session_handler.php', {

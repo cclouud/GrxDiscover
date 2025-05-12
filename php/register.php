@@ -133,33 +133,22 @@
 
                 if (error) throw error
 
-                // Get user details after successful registration
-                const { data: { user } } = await supabase.auth.getUser()
+                // Mostrar mensaje de éxito y redirigir al login
+                errorDiv.textContent = '¡Registro exitoso! Por favor, verifica tu correo electrónico para activar tu cuenta.'
+                errorDiv.classList.remove('alert-danger')
+                errorDiv.classList.add('alert-success')
                 
-                // Start PHP session and store user info
-                const response = await fetch('session_handler.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        action: 'login',
-                        user: {
-                            id: user.id,
-                            email: user.email,
-                            name: name
-                        },
-                        session: data.session
-                    })
-                })
-
-                if (!response.ok) throw new Error('Error al registrar usuario')
-
-                // Redirect after successful registration
-                window.location.href = '../index.php'
+                // Redirigir al login después de 3 segundos
+                setTimeout(() => {
+                    window.location.href = 'login.php'
+                }, 3000)
 
             } catch (error) {
-                errorDiv.textContent = 'Error al registrar: ' + error.message
+                if (error.message.includes('User already registered')) {
+                    errorDiv.textContent = 'El correo electrónico ya está registrado'
+                } else {
+                    errorDiv.textContent = 'Error al registrar: ' + error.message
+                }
                 errorDiv.classList.remove('d-none')
             }
         })

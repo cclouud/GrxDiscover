@@ -1,17 +1,26 @@
 <?php
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start([
+            'cookie_lifetime' => 30 * 24 * 60 * 60,
+            'cookie_secure' => true,
+            'cookie_httponly' => true,
+            'cookie_samesite' => 'Lax',
+            'cookie_path' => '/GrxDiscover'
+        ]);
+    }
 
     // Check if the user is logged in
-    if (!isset($_SESSION['user_id'])) {
+    if (!isset($_SESSION['user'])) {
         // If not logged in, redirect to login page
         header('Location: login.php');
         exit();
     }
 
     // Get user data from session
-    $user_id = $_SESSION['user_id'];
-    $userName = $_SESSION['user_name'] ?? '';
-    $userEmail = $_SESSION['user_email'] ?? '';
+    $user = $_SESSION['user'];
+    $user_id = $user['id'];
+    $userName = $user['name'] ?? '';
+    $userEmail = $user['email'] ?? '';
     $error_message = '';
     $success_message = '';
     
@@ -64,7 +73,7 @@
     <div class="profile-page-container">
         <div class="profile-header-section">
             <div class="back-link">
-                <a href="#" onclick="history.back();" class="text-decoration-none">
+                <a href="../index.php" class="text-decoration-none">
                     <i class="fas fa-arrow-left"></i> Volver
                 </a>
             </div>

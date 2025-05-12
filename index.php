@@ -1,6 +1,20 @@
 <?php
-    session_start();
-    $is_logged_in = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start([
+            'cookie_lifetime' => 30 * 24 * 60 * 60,
+            'cookie_secure' => true,
+            'cookie_httponly' => true,
+            'cookie_samesite' => 'Lax',
+            'cookie_path' => '/GrxDiscover'
+        ]);
+    }
+    
+    // Comprobar sesión directamente
+    $is_logged_in = isset($_SESSION['user']) && !empty($_SESSION['user']);
+    
+    if ($is_logged_in && isset($_SESSION['user'])) {
+        // Ya está en sesión, no hace falta nada más
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -50,8 +64,9 @@
                             </button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo $is_logged_in ? 'php/profile.php' : 'php/login.php?redirect=' . urlencode($_SERVER['REQUEST_URI']); ?>" title="Perfil">
+                            <a class="nav-link" href="<?php echo $is_logged_in ? '/GrxDiscover/php/profile.php' : '/GrxDiscover/php/login.php'; ?>" title="<?php echo $is_logged_in ? 'Mi Perfil' : 'Iniciar Sesión'; ?>">
                                 <i class="fas fa-user"></i>
+                                <span class="d-none d-md-inline ms-1"><?php echo $is_logged_in ? '' : ''; ?></span>
                             </a>
                         </li>
                     </ul>
@@ -369,10 +384,11 @@
         </footer>
         <!-- Footer -->
 
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="js/theme.js" type="module"></script>
-        <script src="js/theme-handler.js"></script>
+        <script src="js/theme-handler.js" type="module"></script>
         <script type="module">
             import { initSupabase } from './config/supabase.js';
             window.initSupabase = initSupabase;
@@ -385,52 +401,47 @@
                 offset: 100
             });
 
-            // Handle OAuth callback
+            // Handle OAuth callback silently
             async function handleOAuthCallback() {
                 if (<?php echo isset($_SESSION['oauth_pending']) ? 'true' : 'false'; ?>) {
                     try {
                         const supabase = window.initSupabase();
-                        
-                        // Get the user session
                         const { data: { session }, error: sessionError } = await supabase.auth.getSession();
-                        if (sessionError) throw sessionError;
                         
-                        if (session) {
-                            // Get user details
-                            const { data: { user }, error: userError } = await supabase.auth.getUser();
-                            if (userError) throw userError;
+                        if (sessionError) throw sessionError;
+                        if (!session) throw new Error('No session found');
 
-                            // Store session in PHP
-                            const response = await fetch('php/session_handler.php', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
+                        const { data: { user }, error: userError } = await supabase.auth.getUser();
+                        if (userError) throw userError;
+                        if (!user) throw new Error('No user found');
+
+                        const response = await fetch('php/session_handler.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-Requested-With': 'XMLHttpRequest'
+                            },
+                            body: JSON.stringify({
+                                action: 'login',
+                                user: {
+                                    id: user.id,
+                                    email: user.email,
+                                    name: user.user_metadata.name || user.email
                                 },
-                                body: JSON.stringify({
-                                    action: 'login',
-                                    user: {
-                                        id: user.id,
-                                        email: user.email,
-                                        name: user.user_metadata.name || user.email
-                                    },
-                                    session: session
-                                })
-                            });
+                                session: session
+                            })
+                        });
 
-                            if (!response.ok) throw new Error('Error storing session');
-
-                            // Reload page to update UI
-                            window.location.reload();
-                        }
+                        if (!response.ok) throw new Error('Session storage failed');
+                        window.location.reload();
                     } catch (error) {
-                        console.error('Error handling OAuth callback:', error);
+                        window.location.href = 'php/login.php?error=auth_failed';
                     }
                     <?php unset($_SESSION['oauth_pending']); ?>
                 }
             }
 
-            // Call the handler when page loads
-            handleOAuthCallback();
+            document.addEventListener('DOMContentLoaded', handleOAuthCallback);
         </script>
     </body>
 </html>

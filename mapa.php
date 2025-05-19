@@ -105,9 +105,122 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
+        // Crear icono personalizado
+        const createCustomIcon = (category) => {
+            const iconColors = {
+                'restaurantes': '#ff5a5f',
+                'monumentos': '#2c3e50',
+                'ocio': '#27ae60',
+                'rutas': '#f39c12'
+            };
+
+            return L.divIcon({
+                className: 'custom-marker',
+                html: `<div style="background-color: ${iconColors[category] || '#ff5a5f'}; width: 100%; height: 100%; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+                    <i class="fas ${getCategoryIcon(category)}"></i>
+                </div>`,
+                iconSize: [30, 30],
+                iconAnchor: [15, 15],
+                popupAnchor: [0, -15]
+            });
+        };
+
+        // Función para obtener el icono según la categoría
+        const getCategoryIcon = (category) => {
+            const icons = {
+                'restaurantes': 'fa-utensils',
+                'monumentos': 'fa-landmark',
+                'ocio': 'fa-theater-masks',
+                'rutas': 'fa-route'
+            };
+            return icons[category] || 'fa-map-marker-alt';
+        };
+
         // Objeto para almacenar los marcadores
         let markers = L.layerGroup().addTo(map);
         let currentCategory = null;
+
+        // Función para obtener imágenes de Wikimedia Commons
+        async function getWikimediaImage(name) {
+            try {
+                // Limpiamos el nombre para la búsqueda
+                const searchName = name.replace(/[^a-zA-Z0-9\s]/g, ' ').trim();
+                const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrnamespace=6&gsrsearch=${encodeURIComponent(searchName)}&gsrlimit=1&prop=imageinfo&iiprop=url&format=json&origin=*`;
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                if (data.query && data.query.pages) {
+                    const page = Object.values(data.query.pages)[0];
+                    if (page.imageinfo && page.imageinfo[0]) {
+                        return page.imageinfo[0].url;
+                    }
+                }
+                return null;
+            } catch (error) {
+                console.error('Error obteniendo imagen de Wikimedia:', error);
+                return null;
+            }
+        }
+
+        // Función para obtener información de OpenStreetMap
+        async function getOSMData(lat, lon, name) {
+            try {
+                const radius = 200;
+                const url = `https://overpass-api.de/api/interpreter?data=[out:json];
+                    (
+                        node["name"~"${name}",i](around:${radius},${lat},${lon});
+                        node["tourism"](around:${radius},${lat},${lon});
+                        node["historic"](around:${radius},${lat},${lon});
+                        node["amenity"](around:${radius},${lat},${lon});
+                    );
+                    out body;>;out skel qt;`;
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                let imageUrl = null;
+                let osmId = null;
+                let tags = {};
+
+                if (data.elements && data.elements.length > 0) {
+                    const elementsWithImages = data.elements.filter(element => 
+                        element.tags?.image || 
+                        element.tags?.['image:0'] || 
+                        element.tags?.['image:1'] || 
+                        element.tags?.wikimedia_commons ||
+                        element.tags?.['image:url'] ||
+                        element.tags?.['image:front']
+                    );
+
+                    if (elementsWithImages.length > 0) {
+                        const place = elementsWithImages[0];
+                        imageUrl = place.tags?.image || 
+                                 place.tags?.['image:0'] || 
+                                 place.tags?.['image:1'] || 
+                                 place.tags?.wikimedia_commons ||
+                                 place.tags?.['image:url'] ||
+                                 place.tags?.['image:front'];
+                        osmId = place.id;
+                        tags = place.tags || {};
+                    }
+                }
+
+                // Si no encontramos imagen en OSM, buscamos en Wikimedia
+                if (!imageUrl) {
+                    imageUrl = await getWikimediaImage(name);
+                }
+                
+                return {
+                    imageUrl,
+                    osmId,
+                    tags
+                };
+            } catch (error) {
+                console.error('Error obteniendo datos de OSM:', error);
+                return null;
+            }
+        }
 
         // Función para cargar los lugares
         async function loadPlaces(category = null, search = null) {
@@ -142,18 +255,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
                 // Añadir nuevos marcadores
                 if (data && Array.isArray(data)) {
-                    data.forEach(place => {
-                        const marker = L.marker([place.latitude, place.longitude])
-                            .bindPopup(`
-                                <h3>${place.name}</h3>
-                                <p>${place.description || ''}</p>
-                                ${place.rating ? `<p>⭐ ${place.rating}</p>` : ''}
-                                ${place.address ? `<p>📍 ${place.address}</p>` : ''}
-                                ${place.phone ? `<p>📞 ${place.phone}</p>` : ''}
-                                ${place.website ? `<p><a href="${place.website}" target="_blank">🌐 Visitar web</a></p>` : ''}
-                            `);
+                    for (const place of data) {
+                        // Obtener datos de OSM
+                        const osmData = await getOSMData(place.latitude, place.longitude, place.name);
+                        
+                        const marker = createMarker(place);
+
                         markers.addLayer(marker);
-                    });
+                    }
                 } else {
                     console.warn('No se recibieron datos válidos');
                 }
@@ -209,6 +318,91 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
         // Cargar todos los lugares al inicio
         loadPlaces();
+
+        function createMarker(place) {
+            const icon = createCustomIcon(place.category);
+            const marker = L.marker([place.latitude, place.longitude], { icon }).addTo(markers);
+            
+            // Crear el contenido del popup
+            const popupContent = `
+                <div class="popup-content">
+                    <div class="popup-header">
+                        <h3>${place.name}</h3>
+                        ${place.rating ? `
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                ${place.rating}
+                            </div>
+                        ` : ''}
+                    </div>
+                    ${place.images && place.images.length > 0 ? `
+                        <div class="popup-image">
+                            <img src="${place.images[0]}" alt="${place.name}" loading="lazy">
+                        </div>
+                    ` : ''}
+                    <div class="popup-info">
+                        ${place.description ? `
+                            <div class="description">${place.description}</div>
+                        ` : ''}
+                        ${place.address ? `
+                            <p><i class="fas fa-map-marker-alt"></i> ${place.address}</p>
+                        ` : ''}
+                        ${place.phone ? `
+                            <p><i class="fas fa-phone"></i> ${place.phone}</p>
+                        ` : ''}
+                        ${place.website ? `
+                            <p><i class="fas fa-globe"></i> <a href="${place.website}" target="_blank" rel="noopener noreferrer">Visitar sitio web</a></p>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+
+            // Crear el popup con opciones personalizadas
+            const popup = L.popup({
+                maxWidth: 400,
+                minWidth: 300,
+                maxHeight: '70vh',
+                className: 'custom-popup',
+                closeButton: true,
+                autoPan: true,
+                autoPanPadding: [50, 50],
+                offset: [0, 20] // Aparece debajo del marcador
+            }).setContent(popupContent);
+
+            // Agregar el popup al marcador
+            marker.bindPopup(popup);
+
+            // Centrar el mapa en el marcador cuando se hace clic
+            marker.on('click', function() {
+                // Obtener las dimensiones del mapa
+                const mapHeight = document.getElementById('map').offsetHeight;
+                
+                // Calcular el punto donde queremos que aparezca el marcador (aproximadamente a 1/4 desde abajo)
+                const targetY = mapHeight * 0.75;
+                
+                // Convertir las coordenadas originales del marcador a píxeles
+                const markerPoint = map.latLngToContainerPoint([place.latitude, place.longitude]);
+                
+                // Calcular el offset necesario para mover el punto a la posición deseada
+                const offsetY = targetY - markerPoint.y;
+                
+                // Convertir el offset de píxeles a coordenadas
+                const offsetLatLng = map.containerPointToLatLng([markerPoint.x, markerPoint.y + offsetY]);
+                
+                // Centrar el mapa en la nueva posición con una animación suave
+                map.setView([offsetLatLng.lat, offsetLatLng.lng], map.getZoom(), {
+                    animate: true,
+                    duration: 0.5
+                });
+
+                // Forzar la actualización del popup después de la animación
+                setTimeout(() => {
+                    marker.openPopup();
+                }, 100);
+            });
+
+            return marker;
+        }
     </script>
     <script src="js/theme-handler.js"></script>
 </body>

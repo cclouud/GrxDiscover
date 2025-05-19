@@ -79,6 +79,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     </button>
                 </div>
             </div>
+            <!-- Lista de lugares -->
+            <div id="places-list" style="padding: 0.8rem;"></div>
         </div>
 
         <!-- Map Section -->
@@ -98,12 +100,63 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
         // Inicializar el mapa
-        const map = L.map('map').setView([37.1882, -3.6067], 13); // Coordenadas de Granada
+        const map = L.map('map', {
+            zoomControl: false, // Desactivamos el control de zoom por defecto
+            touchZoom: true,
+            scrollWheelZoom: true,
+            doubleClickZoom: true,
+            boxZoom: true,
+            keyboard: true,
+            dragging: true,
+            attributionControl: true
+        }).setView([37.1882, -3.6067], 13);
 
         // Añadir el tile layer (OpenStreetMap)
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
+
+        // Añadir control de zoom personalizado
+        L.control.zoom({
+            position: 'bottomright'
+        }).addTo(map);
+
+        // Ajustar el mapa cuando cambia el tamaño de la ventana
+        function adjustMapSize() {
+            const isMobile = window.innerWidth <= 768;
+            const mapElement = document.getElementById('map');
+            const sidebarElement = document.querySelector('.sidebar');
+            
+            if (isMobile) {
+                // En móvil, el mapa ocupa toda la altura menos el espacio del sidebar
+                mapElement.style.height = 'calc(100vh - 60px)';
+                sidebarElement.style.height = '85vh';
+            } else {
+                // En escritorio, el mapa ocupa toda la altura menos la navbar
+                mapElement.style.height = 'calc(100vh - 56px)';
+                sidebarElement.style.height = 'calc(100vh - 56px)';
+            }
+            
+            // Forzar actualización del mapa
+            map.invalidateSize();
+        }
+
+        // Ajustar el tamaño inicial
+        adjustMapSize();
+
+        // Ajustar cuando cambia el tamaño de la ventana
+        window.addEventListener('resize', adjustMapSize);
+
+        // Manejar eventos táctiles
+        map.on('touchstart', function(e) {
+            if (e.touches.length === 1) {
+                map.dragging.enable();
+            }
+        });
+
+        map.on('touchend', function() {
+            map.dragging.disable();
+        });
 
         // Crear icono personalizado
         const createCustomIcon = (category) => {
@@ -139,6 +192,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         // Objeto para almacenar los marcadores
         let markers = L.layerGroup().addTo(map);
         let currentCategory = null;
+        let markerMap = new Map(); // Relaciona el id del lugar con el marcador
 
         // Función para obtener imágenes de Wikimedia Commons
         async function getWikimediaImage(name) {
@@ -250,21 +304,43 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
                 console.log('Datos recibidos:', data);
 
-                // Limpiar marcadores existentes
+                markerMap.clear();
                 markers.clearLayers();
-
-                // Añadir nuevos marcadores
+                const placesList = document.getElementById('places-list');
+                placesList.innerHTML = '';
+                let listHTML = '';
                 if (data && Array.isArray(data)) {
                     for (const place of data) {
                         // Obtener datos de OSM
                         const osmData = await getOSMData(place.latitude, place.longitude, place.name);
                         
                         const marker = createMarker(place);
-
+                        markerMap.set(place.id, marker);
                         markers.addLayer(marker);
+                        // Renderiza el item de la lista
+                        listHTML += `
+                        <div class="place-list-item" data-place-id="${place.id}" style="cursor:pointer;display:flex;align-items:center;gap:0.7rem;padding:0.7rem 0;border-bottom:1px solid var(--border-color);">
+                            ${place.images && place.images.length > 0 ? `<img src="${place.images[0]}" alt="${place.name}" style="width:48px;height:48px;object-fit:cover;border-radius:8px;">` : `<div style="width:48px;height:48px;background:#eee;border-radius:8px;display:flex;align-items:center;justify-content:center;"><i class="fas ${getCategoryIcon(place.category)}" style="color:#bbb;font-size:1.5rem;"></i></div>`}
+                            <div style="flex:1;">
+                                <div style="font-weight:600;">${place.name}</div>
+                                <div style="font-size:0.95em;color:var(--secondary-text);">${place.category.charAt(0).toUpperCase() + place.category.slice(1)}</div>
+                            </div>
+                        </div>`;
                     }
+                    placesList.innerHTML = listHTML;
+                    // Añade eventos a los items
+                    document.querySelectorAll('.place-list-item').forEach(item => {
+                        item.addEventListener('click', function() {
+                            const placeId = this.getAttribute('data-place-id');
+                            const marker = markerMap.get(placeId);
+                            if (marker) {
+                                map.setView(marker.getLatLng(), 16, { animate: true });
+                                marker.openPopup();
+                            }
+                        });
+                    });
                 } else {
-                    console.warn('No se recibieron datos válidos');
+                    placesList.innerHTML = '<div style="color:var(--secondary-text);padding:1rem;">No hay lugares para mostrar.</div>';
                 }
 
             } catch (error) {
@@ -319,6 +395,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         // Cargar todos los lugares al inicio
         loadPlaces();
 
+        // Función para crear marcador
         function createMarker(place) {
             const icon = createCustomIcon(place.category);
             const marker = L.marker([place.latitude, place.longitude], { icon }).addTo(markers);
@@ -366,7 +443,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 closeButton: true,
                 autoPan: true,
                 autoPanPadding: [50, 50],
-                offset: [0, 20] // Aparece debajo del marcador
+                offset: [0, 20]
             }).setContent(popupContent);
 
             // Agregar el popup al marcador
@@ -374,26 +451,27 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
             // Centrar el mapa en el marcador cuando se hace clic
             marker.on('click', function() {
-                // Obtener las dimensiones del mapa
-                const mapHeight = document.getElementById('map').offsetHeight;
+                const isMobile = window.innerWidth <= 768;
                 
-                // Calcular el punto donde queremos que aparezca el marcador (aproximadamente a 1/4 desde abajo)
-                const targetY = mapHeight * 0.75;
-                
-                // Convertir las coordenadas originales del marcador a píxeles
-                const markerPoint = map.latLngToContainerPoint([place.latitude, place.longitude]);
-                
-                // Calcular el offset necesario para mover el punto a la posición deseada
-                const offsetY = targetY - markerPoint.y;
-                
-                // Convertir el offset de píxeles a coordenadas
-                const offsetLatLng = map.containerPointToLatLng([markerPoint.x, markerPoint.y + offsetY]);
-                
-                // Centrar el mapa en la nueva posición con una animación suave
-                map.setView([offsetLatLng.lat, offsetLatLng.lng], map.getZoom(), {
-                    animate: true,
-                    duration: 0.5
-                });
+                if (isMobile) {
+                    // En móvil, centramos el mapa y ajustamos el zoom
+                    map.setView([place.latitude, place.longitude], 16, {
+                        animate: true,
+                        duration: 0.5
+                    });
+                } else {
+                    // En escritorio, usamos la lógica anterior
+                    const mapHeight = document.getElementById('map').offsetHeight;
+                    const targetY = mapHeight * 0.75;
+                    const markerPoint = map.latLngToContainerPoint([place.latitude, place.longitude]);
+                    const offsetY = targetY - markerPoint.y;
+                    const offsetLatLng = map.containerPointToLatLng([markerPoint.x, markerPoint.y + offsetY]);
+                    
+                    map.setView([offsetLatLng.lat, offsetLatLng.lng], map.getZoom(), {
+                        animate: true,
+                        duration: 0.5
+                    });
+                }
 
                 // Forzar la actualización del popup después de la animación
                 setTimeout(() => {

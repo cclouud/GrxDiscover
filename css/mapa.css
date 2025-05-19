@@ -125,46 +125,30 @@
 }
 
 .category-btn {
-    padding: 0.8rem 0.4rem;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    background: var(--card-bg);
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
+    background: var(--bg-secondary);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-.category-btn i {
-    font-size: 1rem;
-    color: var(--primary-color);
-    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .category-btn:hover {
-    background: rgba(255, 90, 95, 0.1);
-    border-color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-.category-btn:hover i {
-    transform: scale(1.1);
+    background: var(--accent-color);
+    color: white;
 }
 
 .category-btn.active {
-    background: var(--primary-color);
+    background: var(--accent-color);
     color: white;
-    border-color: var(--primary-color);
-    box-shadow: 0 4px 12px rgba(255, 90, 95, 0.2);
 }
 
-.category-btn.active i {
-    color: white;
+.category-btn i {
+    font-size: 1.2em;
 }
 
 /* Map Controls */
@@ -317,4 +301,28 @@
     .category-btn i {
         font-size: 0.85rem;
     }
+}
+
+/* Estilos para el popup del marcador */
+.leaflet-popup-content {
+    padding: 10px;
+}
+
+.leaflet-popup-content h3 {
+    margin: 0 0 10px 0;
+    color: var(--text-primary);
+}
+
+.leaflet-popup-content p {
+    margin: 5px 0;
+    color: var(--text-secondary);
+}
+
+.leaflet-popup-content a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.leaflet-popup-content a:hover {
+    text-decoration: underline;
 } 

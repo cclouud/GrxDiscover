@@ -90,7 +90,126 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
     <!-- Scripts -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="js/server.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Inicializar Supabase
+        const supabaseUrl = 'https://hoojcjagwvrelqytwgdg.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvb2pjamFnd3ZyZWxxeXR3Z2RnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY3ODY2MjEsImV4cCI6MjA2MjM2MjYyMX0.gEqnLIAWSNIjUcM2KndKI5VfEn5jPCA9sQ-MPl5Of6U';
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+        // Inicializar el mapa
+        const map = L.map('map').setView([37.1882, -3.6067], 13); // Coordenadas de Granada
+
+        // Añadir el tile layer (OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Objeto para almacenar los marcadores
+        let markers = L.layerGroup().addTo(map);
+        let currentCategory = null;
+
+        // Función para cargar los lugares
+        async function loadPlaces(category = null, search = null) {
+            try {
+                console.log('Cargando lugares...');
+                let query = supabaseClient
+                    .from('places')
+                    .select('*');
+
+                // Aplicar filtros si se proporcionan
+                if (category) {
+                    console.log('Filtrando por categoría:', category);
+                    query = query.eq('category', category);
+                }
+
+                if (search) {
+                    console.log('Filtrando por búsqueda:', search);
+                    query = query.or(`name.ilike.%${search}%,description.ilike.%${search}%`);
+                }
+
+                const { data, error } = await query;
+
+                if (error) {
+                    console.error('Error de Supabase:', error);
+                    throw error;
+                }
+
+                console.log('Datos recibidos:', data);
+
+                // Limpiar marcadores existentes
+                markers.clearLayers();
+
+                // Añadir nuevos marcadores
+                if (data && Array.isArray(data)) {
+                    data.forEach(place => {
+                        const marker = L.marker([place.latitude, place.longitude])
+                            .bindPopup(`
+                                <h3>${place.name}</h3>
+                                <p>${place.description || ''}</p>
+                                ${place.rating ? `<p>⭐ ${place.rating}</p>` : ''}
+                                ${place.address ? `<p>📍 ${place.address}</p>` : ''}
+                                ${place.phone ? `<p>📞 ${place.phone}</p>` : ''}
+                                ${place.website ? `<p><a href="${place.website}" target="_blank">🌐 Visitar web</a></p>` : ''}
+                            `);
+                        markers.addLayer(marker);
+                    });
+                } else {
+                    console.warn('No se recibieron datos válidos');
+                }
+
+            } catch (error) {
+                console.error('Error cargando lugares:', error);
+                alert('Error al cargar los lugares. Por favor, intenta de nuevo.');
+            }
+        }
+
+        // Manejar los botones de categoría
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                console.log('Botón de categoría clickeado:', button.dataset.category);
+
+                // Remover clase activa de todos los botones
+                document.querySelectorAll('.category-btn').forEach(btn => 
+                    btn.classList.remove('active'));
+                
+                // Añadir clase activa al botón clickeado
+                button.classList.add('active');
+
+                // Obtener la categoría
+                const category = button.dataset.category;
+                
+                // Si se clickea la misma categoría, mostrar todos
+                if (currentCategory === category) {
+                    console.log('Desactivando filtro de categoría');
+                    currentCategory = null;
+                    button.classList.remove('active');
+                    loadPlaces();
+                } else {
+                    console.log('Activando filtro de categoría:', category);
+                    currentCategory = category;
+                    loadPlaces(category);
+                }
+            });
+        });
+
+        // Manejar el buscador
+        const searchInput = document.querySelector('.search-box input');
+        let searchTimeout;
+
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const search = e.target.value.trim();
+                loadPlaces(currentCategory, search);
+            }, 300);
+        });
+
+        // Cargar todos los lugares al inicio
+        loadPlaces();
+    </script>
     <script src="js/theme-handler.js"></script>
 </body>
 </html>

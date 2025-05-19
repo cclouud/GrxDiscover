@@ -22927,3 +22927,2561 @@ Array
 )
 
 
+[2025-05-19 12:56:32] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/php/oauth_callback.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 18
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=bgi0taaf6uih7tdhqm8lt2ghqn
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"check"}
+    [session_id] => bgi0taaf6uih7tdhqm8lt2ghqn
+    [session_data] => Array
+        (
+        )
+
+)
+
+
+[2025-05-19 12:56:32] Decoded JSON data
+Array
+(
+    [action] => check
+)
+
+
+[2025-05-19 12:56:32] Session check
+Array
+(
+    [success] => 1
+    [is_logged_in] => 
+    [session_id] => bgi0taaf6uih7tdhqm8lt2ghqn
+)
+
+
+[2025-05-19 12:56:32] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/php/oauth_callback.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 3694
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=bgi0taaf6uih7tdhqm8lt2ghqn
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"login","user":{"id":"b512037f-6521-4b94-9b19-6e9db4086bfd","email":"alexgarciap3108@gmail.com","name":"Cloud"},"session":{"access_token":"eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8","token_type":"bearer","expires_in":3600,"expires_at":1747655792,"refresh_token":"6f66nxajvsm7","user":{"id":"b512037f-6521-4b94-9b19-6e9db4086bfd","aud":"authenticated","role":"authenticated","email":"alexgarciap3108@gmail.com","email_confirmed_at":"2025-05-19T10:56:32.081345Z","phone":"","confirmation_sent_at":"2025-05-12T18:54:02.572857Z","confirmed_at":"2025-05-19T10:56:32.081345Z","last_sign_in_at":"2025-05-19T10:56:32.647206369Z","app_metadata":{"provider":"google","providers":["google"]},"user_metadata":{"avatar_url":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","email":"alexgarciap3108@gmail.com","email_verified":true,"full_name":"Cloud","iss":"https://accounts.google.com","name":"Cloud","phone_verified":false,"picture":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","provider_id":"105104944540551476675","sub":"105104944540551476675"},"identities":[{"identity_id":"98a14722-e746-4e67-89bc-c46ea0037fc1","id":"105104944540551476675","user_id":"b512037f-6521-4b94-9b19-6e9db4086bfd","identity_data":{"avatar_url":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","email":"alexgarciap3108@gmail.com","email_verified":true,"full_name":"Cloud","iss":"https://accounts.google.com","name":"Cloud","phone_verified":false,"picture":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","provider_id":"105104944540551476675","sub":"105104944540551476675"},"provider":"google","last_sign_in_at":"2025-05-19T10:56:32.046451Z","created_at":"2025-05-19T10:56:32.046509Z","updated_at":"2025-05-19T10:56:32.046509Z","email":"alexgarciap3108@gmail.com"}],"created_at":"2025-05-12T18:54:02.560946Z","updated_at":"2025-05-19T10:56:32.68433Z","is_anonymous":false},"provider_token":"ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175","provider_refresh_token":"1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec"}}
+    [session_id] => bgi0taaf6uih7tdhqm8lt2ghqn
+    [session_data] => Array
+        (
+        )
+
+)
+
+
+[2025-05-19 12:56:32] Decoded JSON data
+Array
+(
+    [action] => login
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+    [session] => Array
+        (
+            [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8
+            [token_type] => bearer
+            [expires_in] => 3600
+            [expires_at] => 1747655792
+            [refresh_token] => 6f66nxajvsm7
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [aud] => authenticated
+                    [role] => authenticated
+                    [email] => alexgarciap3108@gmail.com
+                    [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                    [phone] => 
+                    [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                    [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                    [last_sign_in_at] => 2025-05-19T10:56:32.647206369Z
+                    [app_metadata] => Array
+                        (
+                            [provider] => google
+                            [providers] => Array
+                                (
+                                    [0] => google
+                                )
+
+                        )
+
+                    [user_metadata] => Array
+                        (
+                            [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                            [email] => alexgarciap3108@gmail.com
+                            [email_verified] => 1
+                            [full_name] => Cloud
+                            [iss] => https://accounts.google.com
+                            [name] => Cloud
+                            [phone_verified] => 
+                            [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                            [provider_id] => 105104944540551476675
+                            [sub] => 105104944540551476675
+                        )
+
+                    [identities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                    [id] => 105104944540551476675
+                                    [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                    [identity_data] => Array
+                                        (
+                                            [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                            [email] => alexgarciap3108@gmail.com
+                                            [email_verified] => 1
+                                            [full_name] => Cloud
+                                            [iss] => https://accounts.google.com
+                                            [name] => Cloud
+                                            [phone_verified] => 
+                                            [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                            [provider_id] => 105104944540551476675
+                                            [sub] => 105104944540551476675
+                                        )
+
+                                    [provider] => google
+                                    [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                    [created_at] => 2025-05-19T10:56:32.046509Z
+                                    [updated_at] => 2025-05-19T10:56:32.046509Z
+                                    [email] => alexgarciap3108@gmail.com
+                                )
+
+                        )
+
+                    [created_at] => 2025-05-12T18:54:02.560946Z
+                    [updated_at] => 2025-05-19T10:56:32.68433Z
+                    [is_anonymous] => 
+                )
+
+            [provider_token] => ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175
+            [provider_refresh_token] => 1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec
+        )
+
+)
+
+
+[2025-05-19 12:56:32] Session data stored
+Array
+(
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+    [session_id] => t8hj2lq10966h2lgf88u62qgde
+)
+
+
+[2025-05-19 12:56:33] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/php/oauth_callback.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 3694
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=t8hj2lq10966h2lgf88u62qgde
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"login","user":{"id":"b512037f-6521-4b94-9b19-6e9db4086bfd","email":"alexgarciap3108@gmail.com","name":"Cloud"},"session":{"access_token":"eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8","token_type":"bearer","expires_in":3600,"expires_at":1747655792,"refresh_token":"6f66nxajvsm7","user":{"id":"b512037f-6521-4b94-9b19-6e9db4086bfd","aud":"authenticated","role":"authenticated","email":"alexgarciap3108@gmail.com","email_confirmed_at":"2025-05-19T10:56:32.081345Z","phone":"","confirmation_sent_at":"2025-05-12T18:54:02.572857Z","confirmed_at":"2025-05-19T10:56:32.081345Z","last_sign_in_at":"2025-05-19T10:56:32.647206369Z","app_metadata":{"provider":"google","providers":["google"]},"user_metadata":{"avatar_url":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","email":"alexgarciap3108@gmail.com","email_verified":true,"full_name":"Cloud","iss":"https://accounts.google.com","name":"Cloud","phone_verified":false,"picture":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","provider_id":"105104944540551476675","sub":"105104944540551476675"},"identities":[{"identity_id":"98a14722-e746-4e67-89bc-c46ea0037fc1","id":"105104944540551476675","user_id":"b512037f-6521-4b94-9b19-6e9db4086bfd","identity_data":{"avatar_url":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","email":"alexgarciap3108@gmail.com","email_verified":true,"full_name":"Cloud","iss":"https://accounts.google.com","name":"Cloud","phone_verified":false,"picture":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","provider_id":"105104944540551476675","sub":"105104944540551476675"},"provider":"google","last_sign_in_at":"2025-05-19T10:56:32.046451Z","created_at":"2025-05-19T10:56:32.046509Z","updated_at":"2025-05-19T10:56:32.046509Z","email":"alexgarciap3108@gmail.com"}],"created_at":"2025-05-12T18:54:02.560946Z","updated_at":"2025-05-19T10:56:32.68433Z","is_anonymous":false},"provider_token":"ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175","provider_refresh_token":"1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec"}}
+    [session_id] => t8hj2lq10966h2lgf88u62qgde
+    [session_data] => Array
+        (
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [email] => alexgarciap3108@gmail.com
+                    [name] => Cloud
+                )
+
+            [session] => Array
+                (
+                    [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8
+                    [token_type] => bearer
+                    [expires_in] => 3600
+                    [expires_at] => 1747655792
+                    [refresh_token] => 6f66nxajvsm7
+                    [user] => Array
+                        (
+                            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                            [aud] => authenticated
+                            [role] => authenticated
+                            [email] => alexgarciap3108@gmail.com
+                            [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [phone] => 
+                            [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                            [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [last_sign_in_at] => 2025-05-19T10:56:32.647206369Z
+                            [app_metadata] => Array
+                                (
+                                    [provider] => google
+                                    [providers] => Array
+                                        (
+                                            [0] => google
+                                        )
+
+                                )
+
+                            [user_metadata] => Array
+                                (
+                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [email] => alexgarciap3108@gmail.com
+                                    [email_verified] => 1
+                                    [full_name] => Cloud
+                                    [iss] => https://accounts.google.com
+                                    [name] => Cloud
+                                    [phone_verified] => 
+                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [provider_id] => 105104944540551476675
+                                    [sub] => 105104944540551476675
+                                )
+
+                            [identities] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                            [id] => 105104944540551476675
+                                            [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                            [identity_data] => Array
+                                                (
+                                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [email] => alexgarciap3108@gmail.com
+                                                    [email_verified] => 1
+                                                    [full_name] => Cloud
+                                                    [iss] => https://accounts.google.com
+                                                    [name] => Cloud
+                                                    [phone_verified] => 
+                                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [provider_id] => 105104944540551476675
+                                                    [sub] => 105104944540551476675
+                                                )
+
+                                            [provider] => google
+                                            [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                            [created_at] => 2025-05-19T10:56:32.046509Z
+                                            [updated_at] => 2025-05-19T10:56:32.046509Z
+                                            [email] => alexgarciap3108@gmail.com
+                                        )
+
+                                )
+
+                            [created_at] => 2025-05-12T18:54:02.560946Z
+                            [updated_at] => 2025-05-19T10:56:32.68433Z
+                            [is_anonymous] => 
+                        )
+
+                    [provider_token] => ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175
+                    [provider_refresh_token] => 1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec
+                )
+
+            [last_activity] => 1747652192
+            [loggedin] => 1
+        )
+
+)
+
+
+[2025-05-19 12:56:33] Decoded JSON data
+Array
+(
+    [action] => login
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+    [session] => Array
+        (
+            [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8
+            [token_type] => bearer
+            [expires_in] => 3600
+            [expires_at] => 1747655792
+            [refresh_token] => 6f66nxajvsm7
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [aud] => authenticated
+                    [role] => authenticated
+                    [email] => alexgarciap3108@gmail.com
+                    [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                    [phone] => 
+                    [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                    [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                    [last_sign_in_at] => 2025-05-19T10:56:32.647206369Z
+                    [app_metadata] => Array
+                        (
+                            [provider] => google
+                            [providers] => Array
+                                (
+                                    [0] => google
+                                )
+
+                        )
+
+                    [user_metadata] => Array
+                        (
+                            [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                            [email] => alexgarciap3108@gmail.com
+                            [email_verified] => 1
+                            [full_name] => Cloud
+                            [iss] => https://accounts.google.com
+                            [name] => Cloud
+                            [phone_verified] => 
+                            [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                            [provider_id] => 105104944540551476675
+                            [sub] => 105104944540551476675
+                        )
+
+                    [identities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                    [id] => 105104944540551476675
+                                    [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                    [identity_data] => Array
+                                        (
+                                            [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                            [email] => alexgarciap3108@gmail.com
+                                            [email_verified] => 1
+                                            [full_name] => Cloud
+                                            [iss] => https://accounts.google.com
+                                            [name] => Cloud
+                                            [phone_verified] => 
+                                            [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                            [provider_id] => 105104944540551476675
+                                            [sub] => 105104944540551476675
+                                        )
+
+                                    [provider] => google
+                                    [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                    [created_at] => 2025-05-19T10:56:32.046509Z
+                                    [updated_at] => 2025-05-19T10:56:32.046509Z
+                                    [email] => alexgarciap3108@gmail.com
+                                )
+
+                        )
+
+                    [created_at] => 2025-05-12T18:54:02.560946Z
+                    [updated_at] => 2025-05-19T10:56:32.68433Z
+                    [is_anonymous] => 
+                )
+
+            [provider_token] => ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175
+            [provider_refresh_token] => 1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec
+        )
+
+)
+
+
+[2025-05-19 12:56:33] Session data stored
+Array
+(
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+)
+
+
+[2025-05-19 12:56:35] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/index.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 18
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=3tj4k2h2nl9oske9ouv3spmdpc
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"check"}
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+    [session_data] => Array
+        (
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [email] => alexgarciap3108@gmail.com
+                    [name] => Cloud
+                )
+
+            [session] => Array
+                (
+                    [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8
+                    [token_type] => bearer
+                    [expires_in] => 3600
+                    [expires_at] => 1747655792
+                    [refresh_token] => 6f66nxajvsm7
+                    [user] => Array
+                        (
+                            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                            [aud] => authenticated
+                            [role] => authenticated
+                            [email] => alexgarciap3108@gmail.com
+                            [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [phone] => 
+                            [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                            [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [last_sign_in_at] => 2025-05-19T10:56:32.647206369Z
+                            [app_metadata] => Array
+                                (
+                                    [provider] => google
+                                    [providers] => Array
+                                        (
+                                            [0] => google
+                                        )
+
+                                )
+
+                            [user_metadata] => Array
+                                (
+                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [email] => alexgarciap3108@gmail.com
+                                    [email_verified] => 1
+                                    [full_name] => Cloud
+                                    [iss] => https://accounts.google.com
+                                    [name] => Cloud
+                                    [phone_verified] => 
+                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [provider_id] => 105104944540551476675
+                                    [sub] => 105104944540551476675
+                                )
+
+                            [identities] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                            [id] => 105104944540551476675
+                                            [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                            [identity_data] => Array
+                                                (
+                                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [email] => alexgarciap3108@gmail.com
+                                                    [email_verified] => 1
+                                                    [full_name] => Cloud
+                                                    [iss] => https://accounts.google.com
+                                                    [name] => Cloud
+                                                    [phone_verified] => 
+                                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [provider_id] => 105104944540551476675
+                                                    [sub] => 105104944540551476675
+                                                )
+
+                                            [provider] => google
+                                            [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                            [created_at] => 2025-05-19T10:56:32.046509Z
+                                            [updated_at] => 2025-05-19T10:56:32.046509Z
+                                            [email] => alexgarciap3108@gmail.com
+                                        )
+
+                                )
+
+                            [created_at] => 2025-05-12T18:54:02.560946Z
+                            [updated_at] => 2025-05-19T10:56:32.68433Z
+                            [is_anonymous] => 
+                        )
+
+                    [provider_token] => ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175
+                    [provider_refresh_token] => 1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec
+                )
+
+            [last_activity] => 1747652193
+            [loggedin] => 1
+        )
+
+)
+
+
+[2025-05-19 12:56:35] Decoded JSON data
+Array
+(
+    [action] => check
+)
+
+
+[2025-05-19 12:56:35] Session check
+Array
+(
+    [success] => 1
+    [is_logged_in] => 1
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+)
+
+
+[2025-05-19 12:56:46] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/index.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 18
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=3tj4k2h2nl9oske9ouv3spmdpc
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"check"}
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+    [session_data] => Array
+        (
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [email] => alexgarciap3108@gmail.com
+                    [name] => Cloud
+                )
+
+            [session] => Array
+                (
+                    [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8
+                    [token_type] => bearer
+                    [expires_in] => 3600
+                    [expires_at] => 1747655792
+                    [refresh_token] => 6f66nxajvsm7
+                    [user] => Array
+                        (
+                            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                            [aud] => authenticated
+                            [role] => authenticated
+                            [email] => alexgarciap3108@gmail.com
+                            [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [phone] => 
+                            [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                            [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [last_sign_in_at] => 2025-05-19T10:56:32.647206369Z
+                            [app_metadata] => Array
+                                (
+                                    [provider] => google
+                                    [providers] => Array
+                                        (
+                                            [0] => google
+                                        )
+
+                                )
+
+                            [user_metadata] => Array
+                                (
+                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [email] => alexgarciap3108@gmail.com
+                                    [email_verified] => 1
+                                    [full_name] => Cloud
+                                    [iss] => https://accounts.google.com
+                                    [name] => Cloud
+                                    [phone_verified] => 
+                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [provider_id] => 105104944540551476675
+                                    [sub] => 105104944540551476675
+                                )
+
+                            [identities] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                            [id] => 105104944540551476675
+                                            [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                            [identity_data] => Array
+                                                (
+                                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [email] => alexgarciap3108@gmail.com
+                                                    [email_verified] => 1
+                                                    [full_name] => Cloud
+                                                    [iss] => https://accounts.google.com
+                                                    [name] => Cloud
+                                                    [phone_verified] => 
+                                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [provider_id] => 105104944540551476675
+                                                    [sub] => 105104944540551476675
+                                                )
+
+                                            [provider] => google
+                                            [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                            [created_at] => 2025-05-19T10:56:32.046509Z
+                                            [updated_at] => 2025-05-19T10:56:32.046509Z
+                                            [email] => alexgarciap3108@gmail.com
+                                        )
+
+                                )
+
+                            [created_at] => 2025-05-12T18:54:02.560946Z
+                            [updated_at] => 2025-05-19T10:56:32.68433Z
+                            [is_anonymous] => 
+                        )
+
+                    [provider_token] => ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175
+                    [provider_refresh_token] => 1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec
+                )
+
+            [last_activity] => 1747652195
+            [loggedin] => 1
+        )
+
+)
+
+
+[2025-05-19 12:56:46] Decoded JSON data
+Array
+(
+    [action] => check
+)
+
+
+[2025-05-19 12:56:46] Session check
+Array
+(
+    [success] => 1
+    [is_logged_in] => 1
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+)
+
+
+[2025-05-19 12:56:51] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/index.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 18
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=3tj4k2h2nl9oske9ouv3spmdpc
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"check"}
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+    [session_data] => Array
+        (
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [email] => alexgarciap3108@gmail.com
+                    [name] => Cloud
+                )
+
+            [session] => Array
+                (
+                    [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8
+                    [token_type] => bearer
+                    [expires_in] => 3600
+                    [expires_at] => 1747655792
+                    [refresh_token] => 6f66nxajvsm7
+                    [user] => Array
+                        (
+                            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                            [aud] => authenticated
+                            [role] => authenticated
+                            [email] => alexgarciap3108@gmail.com
+                            [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [phone] => 
+                            [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                            [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [last_sign_in_at] => 2025-05-19T10:56:32.647206369Z
+                            [app_metadata] => Array
+                                (
+                                    [provider] => google
+                                    [providers] => Array
+                                        (
+                                            [0] => google
+                                        )
+
+                                )
+
+                            [user_metadata] => Array
+                                (
+                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [email] => alexgarciap3108@gmail.com
+                                    [email_verified] => 1
+                                    [full_name] => Cloud
+                                    [iss] => https://accounts.google.com
+                                    [name] => Cloud
+                                    [phone_verified] => 
+                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [provider_id] => 105104944540551476675
+                                    [sub] => 105104944540551476675
+                                )
+
+                            [identities] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                            [id] => 105104944540551476675
+                                            [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                            [identity_data] => Array
+                                                (
+                                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [email] => alexgarciap3108@gmail.com
+                                                    [email_verified] => 1
+                                                    [full_name] => Cloud
+                                                    [iss] => https://accounts.google.com
+                                                    [name] => Cloud
+                                                    [phone_verified] => 
+                                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [provider_id] => 105104944540551476675
+                                                    [sub] => 105104944540551476675
+                                                )
+
+                                            [provider] => google
+                                            [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                            [created_at] => 2025-05-19T10:56:32.046509Z
+                                            [updated_at] => 2025-05-19T10:56:32.046509Z
+                                            [email] => alexgarciap3108@gmail.com
+                                        )
+
+                                )
+
+                            [created_at] => 2025-05-12T18:54:02.560946Z
+                            [updated_at] => 2025-05-19T10:56:32.68433Z
+                            [is_anonymous] => 
+                        )
+
+                    [provider_token] => ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175
+                    [provider_refresh_token] => 1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec
+                )
+
+            [last_activity] => 1747652206
+            [loggedin] => 1
+        )
+
+)
+
+
+[2025-05-19 12:56:51] Decoded JSON data
+Array
+(
+    [action] => check
+)
+
+
+[2025-05-19 12:56:51] Session check
+Array
+(
+    [success] => 1
+    [is_logged_in] => 1
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+)
+
+
+[2025-05-19 12:56:55] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/index.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 18
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=3tj4k2h2nl9oske9ouv3spmdpc
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"check"}
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+    [session_data] => Array
+        (
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [email] => alexgarciap3108@gmail.com
+                    [name] => Cloud
+                )
+
+            [session] => Array
+                (
+                    [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8
+                    [token_type] => bearer
+                    [expires_in] => 3600
+                    [expires_at] => 1747655792
+                    [refresh_token] => 6f66nxajvsm7
+                    [user] => Array
+                        (
+                            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                            [aud] => authenticated
+                            [role] => authenticated
+                            [email] => alexgarciap3108@gmail.com
+                            [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [phone] => 
+                            [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                            [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [last_sign_in_at] => 2025-05-19T10:56:32.647206369Z
+                            [app_metadata] => Array
+                                (
+                                    [provider] => google
+                                    [providers] => Array
+                                        (
+                                            [0] => google
+                                        )
+
+                                )
+
+                            [user_metadata] => Array
+                                (
+                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [email] => alexgarciap3108@gmail.com
+                                    [email_verified] => 1
+                                    [full_name] => Cloud
+                                    [iss] => https://accounts.google.com
+                                    [name] => Cloud
+                                    [phone_verified] => 
+                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [provider_id] => 105104944540551476675
+                                    [sub] => 105104944540551476675
+                                )
+
+                            [identities] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                            [id] => 105104944540551476675
+                                            [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                            [identity_data] => Array
+                                                (
+                                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [email] => alexgarciap3108@gmail.com
+                                                    [email_verified] => 1
+                                                    [full_name] => Cloud
+                                                    [iss] => https://accounts.google.com
+                                                    [name] => Cloud
+                                                    [phone_verified] => 
+                                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [provider_id] => 105104944540551476675
+                                                    [sub] => 105104944540551476675
+                                                )
+
+                                            [provider] => google
+                                            [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                            [created_at] => 2025-05-19T10:56:32.046509Z
+                                            [updated_at] => 2025-05-19T10:56:32.046509Z
+                                            [email] => alexgarciap3108@gmail.com
+                                        )
+
+                                )
+
+                            [created_at] => 2025-05-12T18:54:02.560946Z
+                            [updated_at] => 2025-05-19T10:56:32.68433Z
+                            [is_anonymous] => 
+                        )
+
+                    [provider_token] => ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175
+                    [provider_refresh_token] => 1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec
+                )
+
+            [last_activity] => 1747652211
+            [loggedin] => 1
+        )
+
+)
+
+
+[2025-05-19 12:56:55] Decoded JSON data
+Array
+(
+    [action] => check
+)
+
+
+[2025-05-19 12:56:55] Session check
+Array
+(
+    [success] => 1
+    [is_logged_in] => 1
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+)
+
+
+[2025-05-19 12:56:59] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/index.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 18
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=3tj4k2h2nl9oske9ouv3spmdpc
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"check"}
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+    [session_data] => Array
+        (
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [email] => alexgarciap3108@gmail.com
+                    [name] => Cloud
+                )
+
+            [session] => Array
+                (
+                    [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8
+                    [token_type] => bearer
+                    [expires_in] => 3600
+                    [expires_at] => 1747655792
+                    [refresh_token] => 6f66nxajvsm7
+                    [user] => Array
+                        (
+                            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                            [aud] => authenticated
+                            [role] => authenticated
+                            [email] => alexgarciap3108@gmail.com
+                            [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [phone] => 
+                            [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                            [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [last_sign_in_at] => 2025-05-19T10:56:32.647206369Z
+                            [app_metadata] => Array
+                                (
+                                    [provider] => google
+                                    [providers] => Array
+                                        (
+                                            [0] => google
+                                        )
+
+                                )
+
+                            [user_metadata] => Array
+                                (
+                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [email] => alexgarciap3108@gmail.com
+                                    [email_verified] => 1
+                                    [full_name] => Cloud
+                                    [iss] => https://accounts.google.com
+                                    [name] => Cloud
+                                    [phone_verified] => 
+                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [provider_id] => 105104944540551476675
+                                    [sub] => 105104944540551476675
+                                )
+
+                            [identities] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                            [id] => 105104944540551476675
+                                            [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                            [identity_data] => Array
+                                                (
+                                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [email] => alexgarciap3108@gmail.com
+                                                    [email_verified] => 1
+                                                    [full_name] => Cloud
+                                                    [iss] => https://accounts.google.com
+                                                    [name] => Cloud
+                                                    [phone_verified] => 
+                                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [provider_id] => 105104944540551476675
+                                                    [sub] => 105104944540551476675
+                                                )
+
+                                            [provider] => google
+                                            [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                            [created_at] => 2025-05-19T10:56:32.046509Z
+                                            [updated_at] => 2025-05-19T10:56:32.046509Z
+                                            [email] => alexgarciap3108@gmail.com
+                                        )
+
+                                )
+
+                            [created_at] => 2025-05-12T18:54:02.560946Z
+                            [updated_at] => 2025-05-19T10:56:32.68433Z
+                            [is_anonymous] => 
+                        )
+
+                    [provider_token] => ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175
+                    [provider_refresh_token] => 1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec
+                )
+
+            [last_activity] => 1747652215
+            [loggedin] => 1
+        )
+
+)
+
+
+[2025-05-19 12:56:59] Decoded JSON data
+Array
+(
+    [action] => check
+)
+
+
+[2025-05-19 12:56:59] Session check
+Array
+(
+    [success] => 1
+    [is_logged_in] => 1
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+)
+
+
+[2025-05-19 13:01:59] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/index.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 18
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=3tj4k2h2nl9oske9ouv3spmdpc
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"check"}
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+    [session_data] => Array
+        (
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [email] => alexgarciap3108@gmail.com
+                    [name] => Cloud
+                )
+
+            [session] => Array
+                (
+                    [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8
+                    [token_type] => bearer
+                    [expires_in] => 3600
+                    [expires_at] => 1747655792
+                    [refresh_token] => 6f66nxajvsm7
+                    [user] => Array
+                        (
+                            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                            [aud] => authenticated
+                            [role] => authenticated
+                            [email] => alexgarciap3108@gmail.com
+                            [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [phone] => 
+                            [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                            [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [last_sign_in_at] => 2025-05-19T10:56:32.647206369Z
+                            [app_metadata] => Array
+                                (
+                                    [provider] => google
+                                    [providers] => Array
+                                        (
+                                            [0] => google
+                                        )
+
+                                )
+
+                            [user_metadata] => Array
+                                (
+                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [email] => alexgarciap3108@gmail.com
+                                    [email_verified] => 1
+                                    [full_name] => Cloud
+                                    [iss] => https://accounts.google.com
+                                    [name] => Cloud
+                                    [phone_verified] => 
+                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [provider_id] => 105104944540551476675
+                                    [sub] => 105104944540551476675
+                                )
+
+                            [identities] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                            [id] => 105104944540551476675
+                                            [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                            [identity_data] => Array
+                                                (
+                                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [email] => alexgarciap3108@gmail.com
+                                                    [email_verified] => 1
+                                                    [full_name] => Cloud
+                                                    [iss] => https://accounts.google.com
+                                                    [name] => Cloud
+                                                    [phone_verified] => 
+                                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [provider_id] => 105104944540551476675
+                                                    [sub] => 105104944540551476675
+                                                )
+
+                                            [provider] => google
+                                            [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                            [created_at] => 2025-05-19T10:56:32.046509Z
+                                            [updated_at] => 2025-05-19T10:56:32.046509Z
+                                            [email] => alexgarciap3108@gmail.com
+                                        )
+
+                                )
+
+                            [created_at] => 2025-05-12T18:54:02.560946Z
+                            [updated_at] => 2025-05-19T10:56:32.68433Z
+                            [is_anonymous] => 
+                        )
+
+                    [provider_token] => ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175
+                    [provider_refresh_token] => 1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec
+                )
+
+            [last_activity] => 1747652219
+            [loggedin] => 1
+        )
+
+)
+
+
+[2025-05-19 13:01:59] Decoded JSON data
+Array
+(
+    [action] => check
+)
+
+
+[2025-05-19 13:01:59] Session check
+Array
+(
+    [success] => 1
+    [is_logged_in] => 1
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+)
+
+
+[2025-05-19 13:09:34] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/mapa.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 18
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=3tj4k2h2nl9oske9ouv3spmdpc
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+            [Pragma] => no-cache
+            [Cache-Control] => no-cache
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"check"}
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+    [session_data] => Array
+        (
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [email] => alexgarciap3108@gmail.com
+                    [name] => Cloud
+                )
+
+            [session] => Array
+                (
+                    [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8
+                    [token_type] => bearer
+                    [expires_in] => 3600
+                    [expires_at] => 1747655792
+                    [refresh_token] => 6f66nxajvsm7
+                    [user] => Array
+                        (
+                            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                            [aud] => authenticated
+                            [role] => authenticated
+                            [email] => alexgarciap3108@gmail.com
+                            [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [phone] => 
+                            [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                            [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [last_sign_in_at] => 2025-05-19T10:56:32.647206369Z
+                            [app_metadata] => Array
+                                (
+                                    [provider] => google
+                                    [providers] => Array
+                                        (
+                                            [0] => google
+                                        )
+
+                                )
+
+                            [user_metadata] => Array
+                                (
+                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [email] => alexgarciap3108@gmail.com
+                                    [email_verified] => 1
+                                    [full_name] => Cloud
+                                    [iss] => https://accounts.google.com
+                                    [name] => Cloud
+                                    [phone_verified] => 
+                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [provider_id] => 105104944540551476675
+                                    [sub] => 105104944540551476675
+                                )
+
+                            [identities] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                            [id] => 105104944540551476675
+                                            [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                            [identity_data] => Array
+                                                (
+                                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [email] => alexgarciap3108@gmail.com
+                                                    [email_verified] => 1
+                                                    [full_name] => Cloud
+                                                    [iss] => https://accounts.google.com
+                                                    [name] => Cloud
+                                                    [phone_verified] => 
+                                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [provider_id] => 105104944540551476675
+                                                    [sub] => 105104944540551476675
+                                                )
+
+                                            [provider] => google
+                                            [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                            [created_at] => 2025-05-19T10:56:32.046509Z
+                                            [updated_at] => 2025-05-19T10:56:32.046509Z
+                                            [email] => alexgarciap3108@gmail.com
+                                        )
+
+                                )
+
+                            [created_at] => 2025-05-12T18:54:02.560946Z
+                            [updated_at] => 2025-05-19T10:56:32.68433Z
+                            [is_anonymous] => 
+                        )
+
+                    [provider_token] => ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175
+                    [provider_refresh_token] => 1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec
+                )
+
+            [last_activity] => 1747652519
+            [loggedin] => 1
+        )
+
+)
+
+
+[2025-05-19 13:09:34] Decoded JSON data
+Array
+(
+    [action] => check
+)
+
+
+[2025-05-19 13:09:34] Session check
+Array
+(
+    [success] => 1
+    [is_logged_in] => 1
+    [session_id] => 3tj4k2h2nl9oske9ouv3spmdpc
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+)
+
+
+[2025-05-19 13:10:59] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/php/logout.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 18
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"check"}
+    [session_id] => ie3j0ak0s662bl64f7trijbhj1
+    [session_data] => Array
+        (
+        )
+
+)
+
+
+[2025-05-19 13:10:59] Decoded JSON data
+Array
+(
+    [action] => check
+)
+
+
+[2025-05-19 13:10:59] Session check
+Array
+(
+    [success] => 1
+    [is_logged_in] => 
+    [session_id] => ie3j0ak0s662bl64f7trijbhj1
+)
+
+
+[2025-05-19 13:10:59] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/php/logout.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 3694
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=ie3j0ak0s662bl64f7trijbhj1
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"login","user":{"id":"b512037f-6521-4b94-9b19-6e9db4086bfd","email":"alexgarciap3108@gmail.com","name":"Cloud"},"session":{"access_token":"eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8","token_type":"bearer","expires_in":3600,"expires_at":1747655792,"refresh_token":"6f66nxajvsm7","user":{"id":"b512037f-6521-4b94-9b19-6e9db4086bfd","aud":"authenticated","role":"authenticated","email":"alexgarciap3108@gmail.com","email_confirmed_at":"2025-05-19T10:56:32.081345Z","phone":"","confirmation_sent_at":"2025-05-12T18:54:02.572857Z","confirmed_at":"2025-05-19T10:56:32.081345Z","last_sign_in_at":"2025-05-19T10:56:32.647206369Z","app_metadata":{"provider":"google","providers":["google"]},"user_metadata":{"avatar_url":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","email":"alexgarciap3108@gmail.com","email_verified":true,"full_name":"Cloud","iss":"https://accounts.google.com","name":"Cloud","phone_verified":false,"picture":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","provider_id":"105104944540551476675","sub":"105104944540551476675"},"identities":[{"identity_id":"98a14722-e746-4e67-89bc-c46ea0037fc1","id":"105104944540551476675","user_id":"b512037f-6521-4b94-9b19-6e9db4086bfd","identity_data":{"avatar_url":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","email":"alexgarciap3108@gmail.com","email_verified":true,"full_name":"Cloud","iss":"https://accounts.google.com","name":"Cloud","phone_verified":false,"picture":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","provider_id":"105104944540551476675","sub":"105104944540551476675"},"provider":"google","last_sign_in_at":"2025-05-19T10:56:32.046451Z","created_at":"2025-05-19T10:56:32.046509Z","updated_at":"2025-05-19T10:56:32.046509Z","email":"alexgarciap3108@gmail.com"}],"created_at":"2025-05-12T18:54:02.560946Z","updated_at":"2025-05-19T10:56:32.68433Z","is_anonymous":false},"provider_token":"ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175","provider_refresh_token":"1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec"}}
+    [session_id] => ie3j0ak0s662bl64f7trijbhj1
+    [session_data] => Array
+        (
+        )
+
+)
+
+
+[2025-05-19 13:10:59] Decoded JSON data
+Array
+(
+    [action] => login
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+    [session] => Array
+        (
+            [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8
+            [token_type] => bearer
+            [expires_in] => 3600
+            [expires_at] => 1747655792
+            [refresh_token] => 6f66nxajvsm7
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [aud] => authenticated
+                    [role] => authenticated
+                    [email] => alexgarciap3108@gmail.com
+                    [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                    [phone] => 
+                    [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                    [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                    [last_sign_in_at] => 2025-05-19T10:56:32.647206369Z
+                    [app_metadata] => Array
+                        (
+                            [provider] => google
+                            [providers] => Array
+                                (
+                                    [0] => google
+                                )
+
+                        )
+
+                    [user_metadata] => Array
+                        (
+                            [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                            [email] => alexgarciap3108@gmail.com
+                            [email_verified] => 1
+                            [full_name] => Cloud
+                            [iss] => https://accounts.google.com
+                            [name] => Cloud
+                            [phone_verified] => 
+                            [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                            [provider_id] => 105104944540551476675
+                            [sub] => 105104944540551476675
+                        )
+
+                    [identities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                    [id] => 105104944540551476675
+                                    [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                    [identity_data] => Array
+                                        (
+                                            [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                            [email] => alexgarciap3108@gmail.com
+                                            [email_verified] => 1
+                                            [full_name] => Cloud
+                                            [iss] => https://accounts.google.com
+                                            [name] => Cloud
+                                            [phone_verified] => 
+                                            [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                            [provider_id] => 105104944540551476675
+                                            [sub] => 105104944540551476675
+                                        )
+
+                                    [provider] => google
+                                    [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                    [created_at] => 2025-05-19T10:56:32.046509Z
+                                    [updated_at] => 2025-05-19T10:56:32.046509Z
+                                    [email] => alexgarciap3108@gmail.com
+                                )
+
+                        )
+
+                    [created_at] => 2025-05-12T18:54:02.560946Z
+                    [updated_at] => 2025-05-19T10:56:32.68433Z
+                    [is_anonymous] => 
+                )
+
+            [provider_token] => ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175
+            [provider_refresh_token] => 1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec
+        )
+
+)
+
+
+[2025-05-19 13:10:59] Session data stored
+Array
+(
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+    [session_id] => pa5f3g4gv8mhe42p4t8l18plf6
+)
+
+
+[2025-05-19 13:11:35] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/php/logout.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 18
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"check"}
+    [session_id] => 4j974rki0si7ojh15tsi5unvoe
+    [session_data] => Array
+        (
+        )
+
+)
+
+
+[2025-05-19 13:11:35] Decoded JSON data
+Array
+(
+    [action] => check
+)
+
+
+[2025-05-19 13:11:35] Session check
+Array
+(
+    [success] => 1
+    [is_logged_in] => 
+    [session_id] => 4j974rki0si7ojh15tsi5unvoe
+)
+
+
+[2025-05-19 13:11:35] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/php/logout.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 3694
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=4j974rki0si7ojh15tsi5unvoe
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"login","user":{"id":"b512037f-6521-4b94-9b19-6e9db4086bfd","email":"alexgarciap3108@gmail.com","name":"Cloud"},"session":{"access_token":"eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8","token_type":"bearer","expires_in":3600,"expires_at":1747655792,"refresh_token":"6f66nxajvsm7","user":{"id":"b512037f-6521-4b94-9b19-6e9db4086bfd","aud":"authenticated","role":"authenticated","email":"alexgarciap3108@gmail.com","email_confirmed_at":"2025-05-19T10:56:32.081345Z","phone":"","confirmation_sent_at":"2025-05-12T18:54:02.572857Z","confirmed_at":"2025-05-19T10:56:32.081345Z","last_sign_in_at":"2025-05-19T10:56:32.647206369Z","app_metadata":{"provider":"google","providers":["google"]},"user_metadata":{"avatar_url":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","email":"alexgarciap3108@gmail.com","email_verified":true,"full_name":"Cloud","iss":"https://accounts.google.com","name":"Cloud","phone_verified":false,"picture":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","provider_id":"105104944540551476675","sub":"105104944540551476675"},"identities":[{"identity_id":"98a14722-e746-4e67-89bc-c46ea0037fc1","id":"105104944540551476675","user_id":"b512037f-6521-4b94-9b19-6e9db4086bfd","identity_data":{"avatar_url":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","email":"alexgarciap3108@gmail.com","email_verified":true,"full_name":"Cloud","iss":"https://accounts.google.com","name":"Cloud","phone_verified":false,"picture":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","provider_id":"105104944540551476675","sub":"105104944540551476675"},"provider":"google","last_sign_in_at":"2025-05-19T10:56:32.046451Z","created_at":"2025-05-19T10:56:32.046509Z","updated_at":"2025-05-19T10:56:32.046509Z","email":"alexgarciap3108@gmail.com"}],"created_at":"2025-05-12T18:54:02.560946Z","updated_at":"2025-05-19T10:56:32.68433Z","is_anonymous":false},"provider_token":"ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175","provider_refresh_token":"1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec"}}
+    [session_id] => 4j974rki0si7ojh15tsi5unvoe
+    [session_data] => Array
+        (
+        )
+
+)
+
+
+[2025-05-19 13:11:35] Decoded JSON data
+Array
+(
+    [action] => login
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+    [session] => Array
+        (
+            [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU1NzkyLCJpYXQiOjE3NDc2NTIxOTIsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTIxOTJ9XSwic2Vzc2lvbl9pZCI6ImNhMzg2MmQxLTIyYzItNDk2OS1hMzkzLTFmZjFiYWI1MTM2NCIsImlzX2Fub255bW91cyI6ZmFsc2V9.ijgqz6lMkue9ic5SODWb77xWJm10dSwDuNZrfVl2WQ8
+            [token_type] => bearer
+            [expires_in] => 3600
+            [expires_at] => 1747655792
+            [refresh_token] => 6f66nxajvsm7
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [aud] => authenticated
+                    [role] => authenticated
+                    [email] => alexgarciap3108@gmail.com
+                    [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                    [phone] => 
+                    [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                    [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                    [last_sign_in_at] => 2025-05-19T10:56:32.647206369Z
+                    [app_metadata] => Array
+                        (
+                            [provider] => google
+                            [providers] => Array
+                                (
+                                    [0] => google
+                                )
+
+                        )
+
+                    [user_metadata] => Array
+                        (
+                            [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                            [email] => alexgarciap3108@gmail.com
+                            [email_verified] => 1
+                            [full_name] => Cloud
+                            [iss] => https://accounts.google.com
+                            [name] => Cloud
+                            [phone_verified] => 
+                            [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                            [provider_id] => 105104944540551476675
+                            [sub] => 105104944540551476675
+                        )
+
+                    [identities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                    [id] => 105104944540551476675
+                                    [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                    [identity_data] => Array
+                                        (
+                                            [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                            [email] => alexgarciap3108@gmail.com
+                                            [email_verified] => 1
+                                            [full_name] => Cloud
+                                            [iss] => https://accounts.google.com
+                                            [name] => Cloud
+                                            [phone_verified] => 
+                                            [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                            [provider_id] => 105104944540551476675
+                                            [sub] => 105104944540551476675
+                                        )
+
+                                    [provider] => google
+                                    [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                    [created_at] => 2025-05-19T10:56:32.046509Z
+                                    [updated_at] => 2025-05-19T10:56:32.046509Z
+                                    [email] => alexgarciap3108@gmail.com
+                                )
+
+                        )
+
+                    [created_at] => 2025-05-12T18:54:02.560946Z
+                    [updated_at] => 2025-05-19T10:56:32.68433Z
+                    [is_anonymous] => 
+                )
+
+            [provider_token] => ya29.a0AW4XtxgB7-ewRduc9cBygzT_wQadwMaNZlM1eBBtbnbJ1Pu8Uw0Hbibvj4dwuZyBLms3rBNyvhze2JX81S-0YoEXhbbJbQzEYbui4GZWNNWhJfeTZojYc0Db1jYAGcq89Th4OBxVc69SO3GIX4DcLk8STPASeOtMhCNmGYVJaCgYKAa8SARISFQHGX2MiRemuEnX6SR7rvT8plJc5eg0175
+            [provider_refresh_token] => 1//03NelT5CH69uhCgYIARAAGAMSNwF-L9Irn58WKtj_HGWRPU5IIrpQ2cJpBrkYAWts3DS2iqNzrryx9NDXqRKy3mOOYVv-Pycijec
+        )
+
+)
+
+
+[2025-05-19 13:11:35] Session data stored
+Array
+(
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+    [session_id] => uqn8qb2qsj3sn36g3ltmen3r39
+)
+
+
+[2025-05-19 13:13:11] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/php/oauth_callback.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 18
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=be62r3i9442g60e30pn05aj35d
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"check"}
+    [session_id] => be62r3i9442g60e30pn05aj35d
+    [session_data] => Array
+        (
+        )
+
+)
+
+
+[2025-05-19 13:13:11] Decoded JSON data
+Array
+(
+    [action] => check
+)
+
+
+[2025-05-19 13:13:11] Session check
+Array
+(
+    [success] => 1
+    [is_logged_in] => 
+    [session_id] => be62r3i9442g60e30pn05aj35d
+)
+
+
+[2025-05-19 13:13:11] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/php/oauth_callback.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 3695
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=be62r3i9442g60e30pn05aj35d
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"login","user":{"id":"b512037f-6521-4b94-9b19-6e9db4086bfd","email":"alexgarciap3108@gmail.com","name":"Cloud"},"session":{"access_token":"eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU2NzkxLCJpYXQiOjE3NDc2NTMxOTEsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTMxOTF9XSwic2Vzc2lvbl9pZCI6IjIyNDFmNTE5LTJiOGEtNDJjYi1hZGM0LTk2ODRlZDJkNGRiNiIsImlzX2Fub255bW91cyI6ZmFsc2V9.WonhDbwIVRQtBReMXDzyy7GW0xetWF9VHsGOSPn70Ac","token_type":"bearer","expires_in":3600,"expires_at":1747656791,"refresh_token":"b63zaahblku4","user":{"id":"b512037f-6521-4b94-9b19-6e9db4086bfd","aud":"authenticated","role":"authenticated","email":"alexgarciap3108@gmail.com","email_confirmed_at":"2025-05-19T10:56:32.081345Z","phone":"","confirmation_sent_at":"2025-05-12T18:54:02.572857Z","confirmed_at":"2025-05-19T10:56:32.081345Z","last_sign_in_at":"2025-05-19T11:13:11.077049374Z","app_metadata":{"provider":"google","providers":["google"]},"user_metadata":{"avatar_url":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","email":"alexgarciap3108@gmail.com","email_verified":true,"full_name":"Cloud","iss":"https://accounts.google.com","name":"Cloud","phone_verified":false,"picture":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","provider_id":"105104944540551476675","sub":"105104944540551476675"},"identities":[{"identity_id":"98a14722-e746-4e67-89bc-c46ea0037fc1","id":"105104944540551476675","user_id":"b512037f-6521-4b94-9b19-6e9db4086bfd","identity_data":{"avatar_url":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","email":"alexgarciap3108@gmail.com","email_verified":true,"full_name":"Cloud","iss":"https://accounts.google.com","name":"Cloud","phone_verified":false,"picture":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","provider_id":"105104944540551476675","sub":"105104944540551476675"},"provider":"google","last_sign_in_at":"2025-05-19T10:56:32.046451Z","created_at":"2025-05-19T10:56:32.046509Z","updated_at":"2025-05-19T11:13:10.484998Z","email":"alexgarciap3108@gmail.com"}],"created_at":"2025-05-12T18:54:02.560946Z","updated_at":"2025-05-19T11:13:11.082596Z","is_anonymous":false},"provider_token":"ya29.a0AW4Xtxg5YXTqcGoEQB_kXFwHMVUbSTjImvYUxqz0QSmBPJW9ZJPWIFZq_7_7ab91ne5viea9RJn2s09_Oz2j0R7JnUv1lvC7vyDK3mDAooVzPXBP1id-FNn4x5tUZCevhdROJFWxFKIE7CalrZIo8FKBH6FavqrJDj0R7hgsaCgYKAWISARISFQHGX2Mi1k2EF1fXCzhlykknCjSAAg0175","provider_refresh_token":"1//03Rta3yPcua4ZCgYIARAAGAMSNwF-L9IrlDOyOeSg-siyIlQgkLJF4Fkcol68FnZ0Fg44ildEQwQvVg9FgOT8Iqtx3BGyX9JHPlQ"}}
+    [session_id] => be62r3i9442g60e30pn05aj35d
+    [session_data] => Array
+        (
+        )
+
+)
+
+
+[2025-05-19 13:13:11] Decoded JSON data
+Array
+(
+    [action] => login
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+    [session] => Array
+        (
+            [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU2NzkxLCJpYXQiOjE3NDc2NTMxOTEsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTMxOTF9XSwic2Vzc2lvbl9pZCI6IjIyNDFmNTE5LTJiOGEtNDJjYi1hZGM0LTk2ODRlZDJkNGRiNiIsImlzX2Fub255bW91cyI6ZmFsc2V9.WonhDbwIVRQtBReMXDzyy7GW0xetWF9VHsGOSPn70Ac
+            [token_type] => bearer
+            [expires_in] => 3600
+            [expires_at] => 1747656791
+            [refresh_token] => b63zaahblku4
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [aud] => authenticated
+                    [role] => authenticated
+                    [email] => alexgarciap3108@gmail.com
+                    [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                    [phone] => 
+                    [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                    [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                    [last_sign_in_at] => 2025-05-19T11:13:11.077049374Z
+                    [app_metadata] => Array
+                        (
+                            [provider] => google
+                            [providers] => Array
+                                (
+                                    [0] => google
+                                )
+
+                        )
+
+                    [user_metadata] => Array
+                        (
+                            [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                            [email] => alexgarciap3108@gmail.com
+                            [email_verified] => 1
+                            [full_name] => Cloud
+                            [iss] => https://accounts.google.com
+                            [name] => Cloud
+                            [phone_verified] => 
+                            [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                            [provider_id] => 105104944540551476675
+                            [sub] => 105104944540551476675
+                        )
+
+                    [identities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                    [id] => 105104944540551476675
+                                    [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                    [identity_data] => Array
+                                        (
+                                            [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                            [email] => alexgarciap3108@gmail.com
+                                            [email_verified] => 1
+                                            [full_name] => Cloud
+                                            [iss] => https://accounts.google.com
+                                            [name] => Cloud
+                                            [phone_verified] => 
+                                            [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                            [provider_id] => 105104944540551476675
+                                            [sub] => 105104944540551476675
+                                        )
+
+                                    [provider] => google
+                                    [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                    [created_at] => 2025-05-19T10:56:32.046509Z
+                                    [updated_at] => 2025-05-19T11:13:10.484998Z
+                                    [email] => alexgarciap3108@gmail.com
+                                )
+
+                        )
+
+                    [created_at] => 2025-05-12T18:54:02.560946Z
+                    [updated_at] => 2025-05-19T11:13:11.082596Z
+                    [is_anonymous] => 
+                )
+
+            [provider_token] => ya29.a0AW4Xtxg5YXTqcGoEQB_kXFwHMVUbSTjImvYUxqz0QSmBPJW9ZJPWIFZq_7_7ab91ne5viea9RJn2s09_Oz2j0R7JnUv1lvC7vyDK3mDAooVzPXBP1id-FNn4x5tUZCevhdROJFWxFKIE7CalrZIo8FKBH6FavqrJDj0R7hgsaCgYKAWISARISFQHGX2Mi1k2EF1fXCzhlykknCjSAAg0175
+            [provider_refresh_token] => 1//03Rta3yPcua4ZCgYIARAAGAMSNwF-L9IrlDOyOeSg-siyIlQgkLJF4Fkcol68FnZ0Fg44ildEQwQvVg9FgOT8Iqtx3BGyX9JHPlQ
+        )
+
+)
+
+
+[2025-05-19 13:13:11] Session data stored
+Array
+(
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+    [session_id] => 4pudikctq61fg12hm5avflc26o
+)
+
+
+[2025-05-19 13:13:11] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/php/oauth_callback.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 3695
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=4pudikctq61fg12hm5avflc26o
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"login","user":{"id":"b512037f-6521-4b94-9b19-6e9db4086bfd","email":"alexgarciap3108@gmail.com","name":"Cloud"},"session":{"access_token":"eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU2NzkxLCJpYXQiOjE3NDc2NTMxOTEsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTMxOTF9XSwic2Vzc2lvbl9pZCI6IjIyNDFmNTE5LTJiOGEtNDJjYi1hZGM0LTk2ODRlZDJkNGRiNiIsImlzX2Fub255bW91cyI6ZmFsc2V9.WonhDbwIVRQtBReMXDzyy7GW0xetWF9VHsGOSPn70Ac","token_type":"bearer","expires_in":3600,"expires_at":1747656791,"refresh_token":"b63zaahblku4","user":{"id":"b512037f-6521-4b94-9b19-6e9db4086bfd","aud":"authenticated","role":"authenticated","email":"alexgarciap3108@gmail.com","email_confirmed_at":"2025-05-19T10:56:32.081345Z","phone":"","confirmation_sent_at":"2025-05-12T18:54:02.572857Z","confirmed_at":"2025-05-19T10:56:32.081345Z","last_sign_in_at":"2025-05-19T11:13:11.077049374Z","app_metadata":{"provider":"google","providers":["google"]},"user_metadata":{"avatar_url":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","email":"alexgarciap3108@gmail.com","email_verified":true,"full_name":"Cloud","iss":"https://accounts.google.com","name":"Cloud","phone_verified":false,"picture":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","provider_id":"105104944540551476675","sub":"105104944540551476675"},"identities":[{"identity_id":"98a14722-e746-4e67-89bc-c46ea0037fc1","id":"105104944540551476675","user_id":"b512037f-6521-4b94-9b19-6e9db4086bfd","identity_data":{"avatar_url":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","email":"alexgarciap3108@gmail.com","email_verified":true,"full_name":"Cloud","iss":"https://accounts.google.com","name":"Cloud","phone_verified":false,"picture":"https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c","provider_id":"105104944540551476675","sub":"105104944540551476675"},"provider":"google","last_sign_in_at":"2025-05-19T10:56:32.046451Z","created_at":"2025-05-19T10:56:32.046509Z","updated_at":"2025-05-19T11:13:10.484998Z","email":"alexgarciap3108@gmail.com"}],"created_at":"2025-05-12T18:54:02.560946Z","updated_at":"2025-05-19T11:13:11.082596Z","is_anonymous":false},"provider_token":"ya29.a0AW4Xtxg5YXTqcGoEQB_kXFwHMVUbSTjImvYUxqz0QSmBPJW9ZJPWIFZq_7_7ab91ne5viea9RJn2s09_Oz2j0R7JnUv1lvC7vyDK3mDAooVzPXBP1id-FNn4x5tUZCevhdROJFWxFKIE7CalrZIo8FKBH6FavqrJDj0R7hgsaCgYKAWISARISFQHGX2Mi1k2EF1fXCzhlykknCjSAAg0175","provider_refresh_token":"1//03Rta3yPcua4ZCgYIARAAGAMSNwF-L9IrlDOyOeSg-siyIlQgkLJF4Fkcol68FnZ0Fg44ildEQwQvVg9FgOT8Iqtx3BGyX9JHPlQ"}}
+    [session_id] => 4pudikctq61fg12hm5avflc26o
+    [session_data] => Array
+        (
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [email] => alexgarciap3108@gmail.com
+                    [name] => Cloud
+                )
+
+            [session] => Array
+                (
+                    [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU2NzkxLCJpYXQiOjE3NDc2NTMxOTEsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTMxOTF9XSwic2Vzc2lvbl9pZCI6IjIyNDFmNTE5LTJiOGEtNDJjYi1hZGM0LTk2ODRlZDJkNGRiNiIsImlzX2Fub255bW91cyI6ZmFsc2V9.WonhDbwIVRQtBReMXDzyy7GW0xetWF9VHsGOSPn70Ac
+                    [token_type] => bearer
+                    [expires_in] => 3600
+                    [expires_at] => 1747656791
+                    [refresh_token] => b63zaahblku4
+                    [user] => Array
+                        (
+                            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                            [aud] => authenticated
+                            [role] => authenticated
+                            [email] => alexgarciap3108@gmail.com
+                            [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [phone] => 
+                            [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                            [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [last_sign_in_at] => 2025-05-19T11:13:11.077049374Z
+                            [app_metadata] => Array
+                                (
+                                    [provider] => google
+                                    [providers] => Array
+                                        (
+                                            [0] => google
+                                        )
+
+                                )
+
+                            [user_metadata] => Array
+                                (
+                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [email] => alexgarciap3108@gmail.com
+                                    [email_verified] => 1
+                                    [full_name] => Cloud
+                                    [iss] => https://accounts.google.com
+                                    [name] => Cloud
+                                    [phone_verified] => 
+                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [provider_id] => 105104944540551476675
+                                    [sub] => 105104944540551476675
+                                )
+
+                            [identities] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                            [id] => 105104944540551476675
+                                            [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                            [identity_data] => Array
+                                                (
+                                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [email] => alexgarciap3108@gmail.com
+                                                    [email_verified] => 1
+                                                    [full_name] => Cloud
+                                                    [iss] => https://accounts.google.com
+                                                    [name] => Cloud
+                                                    [phone_verified] => 
+                                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [provider_id] => 105104944540551476675
+                                                    [sub] => 105104944540551476675
+                                                )
+
+                                            [provider] => google
+                                            [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                            [created_at] => 2025-05-19T10:56:32.046509Z
+                                            [updated_at] => 2025-05-19T11:13:10.484998Z
+                                            [email] => alexgarciap3108@gmail.com
+                                        )
+
+                                )
+
+                            [created_at] => 2025-05-12T18:54:02.560946Z
+                            [updated_at] => 2025-05-19T11:13:11.082596Z
+                            [is_anonymous] => 
+                        )
+
+                    [provider_token] => ya29.a0AW4Xtxg5YXTqcGoEQB_kXFwHMVUbSTjImvYUxqz0QSmBPJW9ZJPWIFZq_7_7ab91ne5viea9RJn2s09_Oz2j0R7JnUv1lvC7vyDK3mDAooVzPXBP1id-FNn4x5tUZCevhdROJFWxFKIE7CalrZIo8FKBH6FavqrJDj0R7hgsaCgYKAWISARISFQHGX2Mi1k2EF1fXCzhlykknCjSAAg0175
+                    [provider_refresh_token] => 1//03Rta3yPcua4ZCgYIARAAGAMSNwF-L9IrlDOyOeSg-siyIlQgkLJF4Fkcol68FnZ0Fg44ildEQwQvVg9FgOT8Iqtx3BGyX9JHPlQ
+                )
+
+            [last_activity] => 1747653191
+            [loggedin] => 1
+        )
+
+)
+
+
+[2025-05-19 13:13:11] Decoded JSON data
+Array
+(
+    [action] => login
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+    [session] => Array
+        (
+            [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU2NzkxLCJpYXQiOjE3NDc2NTMxOTEsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTMxOTF9XSwic2Vzc2lvbl9pZCI6IjIyNDFmNTE5LTJiOGEtNDJjYi1hZGM0LTk2ODRlZDJkNGRiNiIsImlzX2Fub255bW91cyI6ZmFsc2V9.WonhDbwIVRQtBReMXDzyy7GW0xetWF9VHsGOSPn70Ac
+            [token_type] => bearer
+            [expires_in] => 3600
+            [expires_at] => 1747656791
+            [refresh_token] => b63zaahblku4
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [aud] => authenticated
+                    [role] => authenticated
+                    [email] => alexgarciap3108@gmail.com
+                    [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                    [phone] => 
+                    [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                    [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                    [last_sign_in_at] => 2025-05-19T11:13:11.077049374Z
+                    [app_metadata] => Array
+                        (
+                            [provider] => google
+                            [providers] => Array
+                                (
+                                    [0] => google
+                                )
+
+                        )
+
+                    [user_metadata] => Array
+                        (
+                            [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                            [email] => alexgarciap3108@gmail.com
+                            [email_verified] => 1
+                            [full_name] => Cloud
+                            [iss] => https://accounts.google.com
+                            [name] => Cloud
+                            [phone_verified] => 
+                            [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                            [provider_id] => 105104944540551476675
+                            [sub] => 105104944540551476675
+                        )
+
+                    [identities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                    [id] => 105104944540551476675
+                                    [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                    [identity_data] => Array
+                                        (
+                                            [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                            [email] => alexgarciap3108@gmail.com
+                                            [email_verified] => 1
+                                            [full_name] => Cloud
+                                            [iss] => https://accounts.google.com
+                                            [name] => Cloud
+                                            [phone_verified] => 
+                                            [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                            [provider_id] => 105104944540551476675
+                                            [sub] => 105104944540551476675
+                                        )
+
+                                    [provider] => google
+                                    [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                    [created_at] => 2025-05-19T10:56:32.046509Z
+                                    [updated_at] => 2025-05-19T11:13:10.484998Z
+                                    [email] => alexgarciap3108@gmail.com
+                                )
+
+                        )
+
+                    [created_at] => 2025-05-12T18:54:02.560946Z
+                    [updated_at] => 2025-05-19T11:13:11.082596Z
+                    [is_anonymous] => 
+                )
+
+            [provider_token] => ya29.a0AW4Xtxg5YXTqcGoEQB_kXFwHMVUbSTjImvYUxqz0QSmBPJW9ZJPWIFZq_7_7ab91ne5viea9RJn2s09_Oz2j0R7JnUv1lvC7vyDK3mDAooVzPXBP1id-FNn4x5tUZCevhdROJFWxFKIE7CalrZIo8FKBH6FavqrJDj0R7hgsaCgYKAWISARISFQHGX2Mi1k2EF1fXCzhlykknCjSAAg0175
+            [provider_refresh_token] => 1//03Rta3yPcua4ZCgYIARAAGAMSNwF-L9IrlDOyOeSg-siyIlQgkLJF4Fkcol68FnZ0Fg44ildEQwQvVg9FgOT8Iqtx3BGyX9JHPlQ
+        )
+
+)
+
+
+[2025-05-19 13:13:11] Session data stored
+Array
+(
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+    [session_id] => 6rn3cp0pjb0ibvig5shvurh5nm
+)
+
+
+[2025-05-19 13:13:51] Request received
+Array
+(
+    [method] => POST
+    [headers] => Array
+        (
+            [Host] => localhost
+            [User-Agent] => Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0
+            [Accept] => */*
+            [Accept-Language] => es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Referer] => http://localhost/GrxDiscover/index.php
+            [Content-Type] => application/json
+            [X-Requested-With] => XMLHttpRequest
+            [Content-Length] => 18
+            [Origin] => http://localhost
+            [Sec-GPC] => 1
+            [Connection] => keep-alive
+            [Cookie] => PHPSESSID=6rn3cp0pjb0ibvig5shvurh5nm
+            [Sec-Fetch-Dest] => empty
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Site] => same-origin
+            [Priority] => u=4
+        )
+
+    [get] => Array
+        (
+        )
+
+    [post] => Array
+        (
+        )
+
+    [input] => {"action":"check"}
+    [session_id] => 6rn3cp0pjb0ibvig5shvurh5nm
+    [session_data] => Array
+        (
+            [user] => Array
+                (
+                    [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                    [email] => alexgarciap3108@gmail.com
+                    [name] => Cloud
+                )
+
+            [session] => Array
+                (
+                    [access_token] => eyJhbGciOiJIUzI1NiIsImtpZCI6InEvdXpzdW43UUVYa0xmbU4iLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2hvb2pjamFnd3ZyZWxxeXR3Z2RnLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNTEyMDM3Zi02NTIxLTRiOTQtOWIxOS02ZTlkYjQwODZiZmQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjU2NzkxLCJpYXQiOjE3NDc2NTMxOTEsImVtYWlsIjoiYWxleGdhcmNpYXAzMTA4QGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZ29vZ2xlIiwicHJvdmlkZXJzIjpbImdvb2dsZSJdfSwidXNlcl9tZXRhZGF0YSI6eyJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS1FabjdDcVgtTnZUOTR0Wlp0eWNkZUVLN1N3aFJFNS04eFAyTTZBemN4cnRZN2UyLUU9czk2LWMiLCJlbWFpbCI6ImFsZXhnYXJjaWFwMzEwOEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiQ2xvdWQiLCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYW1lIjoiQ2xvdWQiLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NLUVpuN0NxWC1OdlQ5NHRaWnR5Y2RlRUs3U3doUkU1LTh4UDJNNkF6Y3hydFk3ZTItRT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1Iiwic3ViIjoiMTA1MTA0OTQ0NTQwNTUxNDc2Njc1In0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoib2F1dGgiLCJ0aW1lc3RhbXAiOjE3NDc2NTMxOTF9XSwic2Vzc2lvbl9pZCI6IjIyNDFmNTE5LTJiOGEtNDJjYi1hZGM0LTk2ODRlZDJkNGRiNiIsImlzX2Fub255bW91cyI6ZmFsc2V9.WonhDbwIVRQtBReMXDzyy7GW0xetWF9VHsGOSPn70Ac
+                    [token_type] => bearer
+                    [expires_in] => 3600
+                    [expires_at] => 1747656791
+                    [refresh_token] => b63zaahblku4
+                    [user] => Array
+                        (
+                            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                            [aud] => authenticated
+                            [role] => authenticated
+                            [email] => alexgarciap3108@gmail.com
+                            [email_confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [phone] => 
+                            [confirmation_sent_at] => 2025-05-12T18:54:02.572857Z
+                            [confirmed_at] => 2025-05-19T10:56:32.081345Z
+                            [last_sign_in_at] => 2025-05-19T11:13:11.077049374Z
+                            [app_metadata] => Array
+                                (
+                                    [provider] => google
+                                    [providers] => Array
+                                        (
+                                            [0] => google
+                                        )
+
+                                )
+
+                            [user_metadata] => Array
+                                (
+                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [email] => alexgarciap3108@gmail.com
+                                    [email_verified] => 1
+                                    [full_name] => Cloud
+                                    [iss] => https://accounts.google.com
+                                    [name] => Cloud
+                                    [phone_verified] => 
+                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                    [provider_id] => 105104944540551476675
+                                    [sub] => 105104944540551476675
+                                )
+
+                            [identities] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [identity_id] => 98a14722-e746-4e67-89bc-c46ea0037fc1
+                                            [id] => 105104944540551476675
+                                            [user_id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+                                            [identity_data] => Array
+                                                (
+                                                    [avatar_url] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [email] => alexgarciap3108@gmail.com
+                                                    [email_verified] => 1
+                                                    [full_name] => Cloud
+                                                    [iss] => https://accounts.google.com
+                                                    [name] => Cloud
+                                                    [phone_verified] => 
+                                                    [picture] => https://lh3.googleusercontent.com/a/ACg8ocKQZn7CqX-NvT94tZZtycdeEK7SwhRE5-8xP2M6AzcxrtY7e2-E=s96-c
+                                                    [provider_id] => 105104944540551476675
+                                                    [sub] => 105104944540551476675
+                                                )
+
+                                            [provider] => google
+                                            [last_sign_in_at] => 2025-05-19T10:56:32.046451Z
+                                            [created_at] => 2025-05-19T10:56:32.046509Z
+                                            [updated_at] => 2025-05-19T11:13:10.484998Z
+                                            [email] => alexgarciap3108@gmail.com
+                                        )
+
+                                )
+
+                            [created_at] => 2025-05-12T18:54:02.560946Z
+                            [updated_at] => 2025-05-19T11:13:11.082596Z
+                            [is_anonymous] => 
+                        )
+
+                    [provider_token] => ya29.a0AW4Xtxg5YXTqcGoEQB_kXFwHMVUbSTjImvYUxqz0QSmBPJW9ZJPWIFZq_7_7ab91ne5viea9RJn2s09_Oz2j0R7JnUv1lvC7vyDK3mDAooVzPXBP1id-FNn4x5tUZCevhdROJFWxFKIE7CalrZIo8FKBH6FavqrJDj0R7hgsaCgYKAWISARISFQHGX2Mi1k2EF1fXCzhlykknCjSAAg0175
+                    [provider_refresh_token] => 1//03Rta3yPcua4ZCgYIARAAGAMSNwF-L9IrlDOyOeSg-siyIlQgkLJF4Fkcol68FnZ0Fg44ildEQwQvVg9FgOT8Iqtx3BGyX9JHPlQ
+                )
+
+            [last_activity] => 1747653191
+            [loggedin] => 1
+        )
+
+)
+
+
+[2025-05-19 13:13:51] Decoded JSON data
+Array
+(
+    [action] => check
+)
+
+
+[2025-05-19 13:13:51] Session check
+Array
+(
+    [success] => 1
+    [is_logged_in] => 1
+    [session_id] => 6rn3cp0pjb0ibvig5shvurh5nm
+    [user] => Array
+        (
+            [id] => b512037f-6521-4b94-9b19-6e9db4086bfd
+            [email] => alexgarciap3108@gmail.com
+            [name] => Cloud
+        )
+
+)
+
+

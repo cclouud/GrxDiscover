@@ -1,0 +1,69 @@
+/* Filtros y barra de búsqueda móvil para GRXDiscover */
+@media (max-width: 768px) {
+    .mobile-filters {
+        position: fixed;
+        top: 66px; /* Más espacio debajo de la navbar */
+        left: 0;
+        width: 100vw;
+        z-index: 1001;
+        background: var(--card-bg, #222);
+        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        padding: 0.9rem 0.7rem 0.2rem 0.7rem;
+        border-bottom: 1px solid var(--border-color, #333);
+    }
+    .mobile-search-box {
+        display: flex;
+        align-items: center;
+        background: var(--input-bg, #181818);
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .mobile-search-box i {
+        color: var(--secondary-text, #aaa);
+        margin-right: 0.7rem;
+        font-size: 1.1rem;
+    }
+    #mobile-search-input {
+        border: none;
+        outline: none;
+        background: transparent;
+        color: var(--text-color, #fff);
+        font-size: 1.1rem;
+        width: 100%;
+    }
+    .mobile-filter-icons {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.7rem;
+        margin-bottom: 0.2rem;
+    }
+    .mobile-filter-btn {
+        background: var(--input-bg, #181818);
+        border: none;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-color, #ff5a5f);
+        font-size: 1.3rem;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        transition: background 0.2s, color 0.2s;
+    }
+    .mobile-filter-btn.active, .mobile-filter-btn:active {
+        background: var(--accent-color, #ff5a5f);
+        color: #fff;
+    }
+    .sidebar, .categories, .search-container {
+        display: none !important;
+    }
+    .map-container {
+        padding-top: 130px !important;
+    }
+}
+@media (min-width: 769px) {
+    #mobile-filters { display: none !important; }
+} 

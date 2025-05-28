@@ -19,6 +19,155 @@ session_start();
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+    /* Añadir estos estilos al final del archivo, antes de </head> */
+    .sidebar {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .place-details {
+        position: absolute;
+        top: 1em;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 1em);
+        background: var(--bg-color);
+        z-index: 1000;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+    }
+
+    .place-details.expanded {
+        height: calc(100% - 1em);
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .place-details-header {
+        padding: 1rem;
+        display: flex;
+        justify-content: flex-end;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .close-details {
+        background: none;
+        border: none;
+        color: var(--text-color);
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: transform 0.2s ease;
+    }
+
+    .close-details:hover {
+        transform: scale(1.1);
+    }
+
+    #place-details-content {
+        padding: 1rem;
+        overflow-y: auto;
+        height: calc(100% - 60px);
+    }
+
+    #place-details-image {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        overflow: hidden;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 0.3s ease 0.1s;
+    }
+
+    .place-details.expanded #place-details-image {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    #place-details-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    #place-details-title {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 0.3s ease 0.2s;
+    }
+
+    .place-details.expanded #place-details-title {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    #place-details-info {
+        color: var(--text-color);
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 0.3s ease 0.3s;
+    }
+
+    .place-details.expanded #place-details-info {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .info-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .website-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+    }
+
+    .description {
+        margin-bottom: 1rem;
+        line-height: 1.5;
+    }
+
+    .sidebar-content {
+        transition: opacity 0.3s ease;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .sidebar-content.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    @media (min-width: 769px) {
+        .place-details {
+            position: absolute;
+            width: 100%;
+            height: calc(100% - 1em);
+        }
+        
+        .place-details.expanded {
+            height: calc(100% - 1em);
+        }
+    }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -43,38 +192,54 @@ session_start();
     <div class="map-container">
         <!-- Sidebar -->
         <div class="sidebar">
-            <!-- Search Container -->
-            <div class="search-container">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="¿Qué quieres hacer hoy?">
+            <div class="sidebar-content">
+                <!-- Search Container -->
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="¿Qué quieres hacer hoy?">
+                    </div>
                 </div>
-            </div>
 
-            <!-- Categories -->
-            <div class="categories">
-                <h3>Filtros</h3>
-                <div class="category-list">
-                    <button class="category-btn" data-category="restaurantes">
-                        <i class="fas fa-utensils"></i>
-                        Restaurantes
-                    </button>
-                    <button class="category-btn" data-category="monumentos">
-                        <i class="fas fa-landmark"></i>
-                        Monumentos
-                    </button>
-                    <button class="category-btn" data-category="ocio">
-                        <i class="fas fa-theater-masks"></i>
-                        Ocio
-                    </button>
-                    <button class="category-btn" data-category="rutas">
-                        <i class="fas fa-route"></i>
-                        Rutas
+                <!-- Categories -->
+                <div class="categories">
+                    <h3>Filtros</h3>
+                    <div class="category-list">
+                        <button class="category-btn" data-category="restaurantes">
+                            <i class="fas fa-utensils"></i>
+                            Restaurantes
+                        </button>
+                        <button class="category-btn" data-category="monumentos">
+                            <i class="fas fa-landmark"></i>
+                            Monumentos
+                        </button>
+                        <button class="category-btn" data-category="ocio">
+                            <i class="fas fa-theater-masks"></i>
+                            Ocio
+                        </button>
+                        <button class="category-btn" data-category="rutas">
+                            <i class="fas fa-route"></i>
+                            Rutas
+                        </button>
+                    </div>
+                </div>
+                <!-- Lista de lugares -->
+                <div id="places-list" style="padding: 0.8rem;"></div>
+            </div>
+            
+            <!-- Panel de detalles expandible -->
+            <div id="place-details" class="place-details">
+                <div class="place-details-header">
+                    <button class="close-details" onclick="closePlaceDetails()">
+                        <i class="fas fa-times"></i>
                     </button>
                 </div>
+                <div id="place-details-content">
+                    <div id="place-details-image"></div>
+                    <h3 id="place-details-title"></h3>
+                    <div id="place-details-info"></div>
+                </div>
             </div>
-            <!-- Lista de lugares -->
-            <div id="places-list" style="padding: 0.8rem;"></div>
         </div>
 
         <!-- Map Section -->
@@ -361,12 +526,21 @@ session_start();
                         
                         // Renderiza el item de la lista
                         listHTML += `
-                        <div class="place-list-item" data-place-id="${place.id}" style="cursor:pointer;display:flex;align-items:center;gap:0.7rem;padding:0.7rem 0;border-bottom:1px solid var(--border-color);">
-                            ${place.images && place.images.length > 0 ? `<img src="${place.images[0]}" alt="${place.name}" style="width:48px;height:48px;object-fit:cover;border-radius:8px;">` : `<div style="width:48px;height:48px;background:#eee;border-radius:8px;display:flex;align-items:center;justify-content:center;"><i class="fas ${getCategoryIcon(place.category)}" style="color:#bbb;font-size:1.5rem;"></i></div>`}
+                        <div class="place-list-item" data-place-id="${place.id}" style="cursor:pointer;display:flex;align-items:center;gap:0.7rem;padding:0.7rem;border-bottom:1px solid var(--border-color);background:var(--bg-secondary);border-radius:8px;margin-bottom:0.5rem;">
+                            ${place.images && place.images.length > 0 ? 
+                                `<img src="${place.images[0]}" alt="${place.name}" style="width:48px;height:48px;object-fit:cover;border-radius:8px;">` : 
+                                `<div style="width:48px;height:48px;background:#eee;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+                                    <i class="fas ${getCategoryIcon(place.category)}" style="color:#bbb;font-size:1.5rem;"></i>
+                                </div>`
+                            }
                             <div style="flex:1;">
                                 <div style="font-weight:600;">${place.name}</div>
                                 <div style="font-size:0.95em;color:var(--secondary-text);">${place.category.charAt(0).toUpperCase() + place.category.slice(1)}</div>
                             </div>
+                            <button class="view-details-btn" style="background:var(--accent-color);color:white;border:none;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;display:flex;align-items:center;gap:0.5rem;">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Ver</span>
+                            </button>
                         </div>`;
                     }
                     
@@ -467,43 +641,11 @@ session_start();
             const icon = createCustomIcon(place.category);
             const marker = L.marker([place.latitude, place.longitude], { icon }).addTo(markers);
             
-            // Popup solo en escritorio
-            if (!isMobile()) {
-                const popupContent = `
-                    <div class="popup-content popup-desktop">
-                        <div class="popup-header">
-                            <div style="display:flex;align-items:center;gap:0.7rem;">
-                                <h3>${place.name}</h3>
-                                ${place.rating ? `<div class="rating"><i class="fas fa-star"></i> ${place.rating}</div>` : ''}
-                            </div>
-                        </div>
-                        ${place.images && place.images.length > 0 ? `<div class="popup-image"><img src="${place.images[0]}" alt="${place.name}" loading="lazy"></div>` : ''}
-                        <div class="popup-info">
-                            ${place.description ? `<div class="description">${place.description}</div>` : ''}
-                            ${place.address ? `<p><i class="fas fa-map-marker-alt"></i> <span>${place.address}</span></p>` : ''}
-                            ${place.phone ? `<p><i class="fas fa-phone"></i> <span>${place.phone}</span></p>` : ''}
-                            ${place.website ? `<p><i class="fas fa-globe"></i> <a href="${place.website}" target="_blank" rel="noopener noreferrer">Visitar sitio web</a></p>` : ''}
-                            ${place.schedule ? `<p><i class="fas fa-clock"></i> <span>${place.schedule}</span></p>` : ''}
-                            ${place.reviews ? `<div class="reviews"><i class="fas fa-comment"></i> ${place.reviews}</div>` : ''}
-                        </div>
-                    </div>
-                `;
-                const popup = L.popup({
-                    maxWidth: 420,
-                    minWidth: 320,
-                    maxHeight: '70vh',
-                    className: 'custom-popup',
-                    closeButton: true,
-                    autoPan: true,
-                    autoPanPadding: [50, 50],
-                    offset: [0, 20]
-                }).setContent(popupContent);
-                marker.bindPopup(popup);
-            }
             marker.on('click', function() {
                 if (isMobile()) {
                     openBottomSheet(place);
                 } else {
+                    showPlaceDetails(place);
                     marker.openPopup();
                 }
             });
@@ -512,10 +654,15 @@ session_start();
 
         // Función para mostrar los detalles del lugar
         function showPlaceDetails(place) {
+            console.log('Mostrando detalles para:', place.name);
             const detailsPanel = document.getElementById('place-details');
+            const sidebarContent = document.querySelector('.sidebar-content');
             const title = document.getElementById('place-details-title');
             const image = document.getElementById('place-details-image');
             const info = document.getElementById('place-details-info');
+            
+            // Ocultar el contenido del sidebar con animación
+            sidebarContent.classList.add('hidden');
             
             // Actualizar el contenido
             title.textContent = place.name;
@@ -555,14 +702,24 @@ session_start();
             
             info.innerHTML = infoHTML;
             
-            // Mostrar el panel
-            detailsPanel.classList.add('expanded');
+            // Mostrar el panel con animación
+            requestAnimationFrame(() => {
+                detailsPanel.classList.add('expanded');
+            });
         }
 
         // Función para cerrar los detalles
         function closePlaceDetails() {
             const detailsPanel = document.getElementById('place-details');
+            const sidebarContent = document.querySelector('.sidebar-content');
+            
+            // Ocultar el panel de detalles con animación
             detailsPanel.classList.remove('expanded');
+            
+            // Mostrar el contenido del sidebar con animación
+            setTimeout(() => {
+                sidebarContent.classList.remove('hidden');
+            }, 300);
         }
 
         // --- BOTTOM SHEET LOGIC ---
@@ -624,16 +781,23 @@ session_start();
         // Modificar la lista para abrir el bottom sheet en móvil
         function addListClickEvents(data) {
             document.querySelectorAll('.place-list-item').forEach(item => {
-                item.addEventListener('click', function() {
-                    const placeId = this.getAttribute('data-place-id');
-                    const marker = markerMap.get(placeId);
-                    const place = data.find(p => p.id === placeId);
-                    if (isMobile()) {
-                        if (place) openBottomSheet(place);
-                    } else {
-                        if (marker) marker.openPopup();
-                    }
-                });
+                const viewButton = item.querySelector('.view-details-btn');
+                if (viewButton) {
+                    viewButton.addEventListener('click', function(e) {
+                        e.stopPropagation(); // Evitar que el clic se propague al item
+                        const placeId = item.getAttribute('data-place-id');
+                        const marker = markerMap.get(placeId);
+                        const place = data.find(p => p.id === placeId);
+                        if (isMobile()) {
+                            if (place) openBottomSheet(place);
+                        } else {
+                            if (place) {
+                                showPlaceDetails(place);
+                                if (marker) marker.openPopup();
+                            }
+                        }
+                    });
+                }
             });
         }
 

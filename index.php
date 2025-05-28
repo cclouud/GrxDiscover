@@ -5,7 +5,7 @@
             'cookie_secure' => true,
             'cookie_httponly' => true,
             'cookie_samesite' => 'Lax',
-            'cookie_path' => '/GrxDiscover'
+            'cookie_path' => '/'
         ]);
     }
     
@@ -64,7 +64,7 @@
                             </button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo $is_logged_in ? '/GrxDiscover/php/profile.php' : '/GrxDiscover/php/login.php'; ?>" title="<?php echo $is_logged_in ? 'Mi Perfil' : 'Iniciar Sesión'; ?>">
+                            <a class="nav-link" href="<?php echo $is_logged_in ? 'php/profile.php' : 'php/login.php'; ?>" title="<?php echo $is_logged_in ? 'Mi Perfil' : 'Iniciar Sesión'; ?>">
                                 <i class="fas fa-user"></i>
                                 <span class="d-none d-md-inline ms-1"><?php echo $is_logged_in ? '' : ''; ?></span>
                             </a>

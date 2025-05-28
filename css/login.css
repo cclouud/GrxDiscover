@@ -213,18 +213,6 @@ body {
     }
 }
 
-/* Medium screens */
-@media (min-width: 577px) and (max-width: 768px) {
-    .login-container {
-        padding: 25px 20px;
-        max-width: 90%;
-    }
-    
-    .login-container h2 {
-        font-size: 1.6rem;
-    }
-}
-
 /* Landscape orientation on mobile */
 @media (max-height: 500px) and (orientation: landscape) {
     body {

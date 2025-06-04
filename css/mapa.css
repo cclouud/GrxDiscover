@@ -30,6 +30,9 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
 }
 
 .sidebar.collapsed {
@@ -646,6 +649,81 @@
         font-size: 0.85rem;
         margin: 0.5rem 0;
     }
+
+    /* Asegura que el botón de favoritos principal sea visible y centrado */
+    .fav-btn {
+        display: flex !important;
+        margin: 1.2em auto 1em auto !important;
+        width: 95% !important;
+        font-size: 1.1em;
+        z-index: 1002;
+        position: relative;
+    }
+    /* Corrige la disposición de los botones en el bottom sheet */
+    .bottom-sheet {
+        background: #111 !important;
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2000;
+        box-shadow: 0 -2px 16px rgba(0,0,0,0.25);
+    }
+    .sheet-header {
+        background: #111 !important;
+        padding-top: calc(1.2em + env(safe-area-inset-top, 0px)) !important;
+        padding-right: 2.5em !important;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    .sheet-actions {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        align-items: center;
+        flex: 1;
+    }
+    .close-sheet {
+        position: absolute;
+        right: 1.2em;
+        top: 1.2em;
+        z-index: 20;
+        font-size: 1.5em;
+        background: none;
+        border: none;
+        color: var(--text-color);
+        padding: 0;
+        margin-left: 0.5em;
+    }
+    /* Asegura que los botones no se salgan del header */
+    .sheet-header, .sheet-actions, .action-btn {
+        box-sizing: border-box;
+        max-width: 100vw;
+        overflow: visible;
+    }
+    /* Ajusta el bottom sheet para que no tape los botones */
+    .bottom-sheet {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    .bottom-sheet::before {
+        content: '';
+        display: block;
+        height: 12px;
+        background: transparent;
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+    }
+    .sheet-content {
+        background: #111 !important;
+    }
 }
 
 /* --- ESTILOS GLOBALES Y MÓVILES PARA MAPA Y FILTROS --- */
@@ -806,5 +884,341 @@
         z-index: 1000 !important;
         color: var(--text-color) !important;
         background: var(--card-bg) !important;
+    }
+}
+
+/* --- CSS migrado desde mapa.php --- */
+.place-details {
+    position: absolute;
+    top: 1em;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 1em);
+    background: var(--bg-color);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    margin-top: 1em;
+}
+.place-details.expanded {
+    height: calc(100% - 1em);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.place-details-header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+.details-actions {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 1rem;
+}
+.action-btn {
+    flex: 1;
+    background: var(--bg-secondary);
+    border: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.8rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+.action-btn i {
+    font-size: 1.2rem;
+}
+.action-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+.action-btn.favorited {
+    background: #e74c3c;
+    color: white;
+}
+.reviews-section {
+    margin-top: 1em;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border-color);
+    display: block;
+}
+.review-form {
+    display: none;
+    margin-bottom: 1rem;
+}
+.review-form.active {
+    display: block;
+}
+.review-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    resize: vertical;
+    min-height: 100px;
+}
+.review-form button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.review-item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8em;
+    text-align: left;
+}
+.review-item:last-child {
+    border-bottom: none;
+}
+.review-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9em;
+    color: var(--secondary-text);
+}
+.close-details {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+.close-details:hover {
+    transform: scale(1.1);
+}
+#place-details-content {
+    padding: 1rem;
+    overflow-y: auto;
+    height: calc(100% - 60px);
+}
+#place-details-image {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease 0.1s;
+}
+.place-details.expanded #place-details-image {
+    transform: translateY(0);
+    opacity: 1;
+}
+#place-details-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#place-details-title {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease 0.2s;
+}
+.place-details.expanded #place-details-title {
+    transform: translateY(0);
+    opacity: 1;
+}
+#place-details-info {
+    color: var(--text-color);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease 0.3s;
+}
+.place-details.expanded #place-details-info {
+    transform: translateY(0);
+    opacity: 1;
+}
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.website-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+.description {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+.sidebar-content {
+    transition: opacity 0.3s ease;
+    height: 100%;
+    overflow-y: auto;
+}
+.sidebar-content.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+@media (min-width: 769px) {
+    .place-details {
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 1em);
+    }
+    .place-details.expanded {
+        height: calc(100% - 1em);
+    }
+}
+#bottom-sheet {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    max-height: 70vh;
+    background: var(--bg-color);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    z-index: 2000;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+}
+#bottom-sheet.open {
+    transform: translateY(0);
+    top: auto !important;
+    margin-top: 0 !important;
+}
+.sheet-content {
+    padding: 1.2em;
+    overflow-y: auto;
+    max-height: 60vh;
+}
+.close-sheet {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5em;
+    z-index: 10;
+}
+#sheet-image {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 1em;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+}
+#sheet-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.fav-btn {
+    background: var(--primary-color);
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+    border-radius: 8px;
+    padding: 0.8em 1.5em;
+    font-weight: 600;
+    width: 90%;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: all 0.2s ease;
+}
+.fav-btn.active, .fav-btn:hover {
+    background: #e74c3c;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.place-fav {
+    background: none;
+    border: none;
+    color: #bbb;
+    font-size: 1.3em;
+    cursor: pointer;
+    margin-left: 0.5em;
+    transition: color 0.2s;
+    flex-shrink: 0;
+    outline: none;
+}
+.place-fav.favorited {
+    color: #e74c3c;
+}
+.place-fav:focus {
+    outline: 2px solid var(--primary-color);
+}
+@media (max-width: 768px) {
+    .fav-btn { 
+        font-size: 1em; 
+        padding: 0.7em 1em;
+        width: 95%;
+        margin: 0.8rem auto;
+    }
+    .place-fav { font-size: 1.1em; }
+    .sheet-header {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .sheet-actions {
+        display: flex;
+        gap: 1rem;
+    }
+    .details-actions {
+        padding: 0 0.8rem;
+        gap: 0.8rem;
+    }
+    .action-btn {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+    .action-btn i {
+        font-size: 1.1rem;
     }
 } 

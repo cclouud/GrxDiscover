@@ -30,7 +30,7 @@ header("Content-Security-Policy: default-src 'self' https: 'unsafe-inline' 'unsa
                 const { data, error } = await supabase.auth.signInWithOAuth({
                     provider: 'google',
                     options: {
-                        redirectTo: window.location.origin + '/GrxDiscover/php/oauth_callback.php',
+                        redirectTo: window.location.origin + '/php/oauth_callback.php',
                         queryParams: {
                             access_type: 'offline',
                             prompt: 'consent'

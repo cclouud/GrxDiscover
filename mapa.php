@@ -32,7 +32,7 @@ session_start();
                 <button class="theme-toggle" id="themeToggle">
                     <i class="fas fa-sun"></i>
                 </button>
-                <a class="nav-link" href="<?php echo isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true ? '/GrxDiscover/php/profile.php' : '/GrxDiscover/php/login.php'; ?>" title="Perfil">
+                <a class="nav-link" href="<?php echo isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true ? 'php/profile.php' : 'php/login.php'; ?>" title="Perfil">
                     <i class="fas fa-user"></i>
                 </a>
             </div>

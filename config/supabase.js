@@ -9,13 +9,13 @@ const options = {
         persistSession: true,
         detectSessionInUrl: true,
         flowType: 'pkce',
-        redirectTo: window.location.origin + '/GrxDiscover/php/oauth_callback.php',
+        redirectTo: window.location.origin + '/php/oauth_callback.php',
         storageKey: 'grxdiscover-auth',
         storage: window.localStorage,
         onAuthStateChange: async (event, session) => {
             if (event === 'SIGNED_IN' && session) {
                 try {
-                    const response = await fetch('/GrxDiscover/php/session_handler.php', {
+                    const response = await fetch('php/session_handler.php', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -39,8 +39,8 @@ const options = {
                     
                     // Verificar la sesión después de iniciar sesión
                     await checkSession();
-                } catch (error) {
-                    console.error('Error storing session:', error);
+                } catch (e) {
+                    console.error(e);
                 }
             } else if (event === 'SIGNED_OUT') {
                 try {

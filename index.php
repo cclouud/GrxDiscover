@@ -141,7 +141,7 @@
                     <div class="row">
                         <div class="col-md-4 col-lg-4" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                             <div class="team-member">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=alejandrogarcia&backgroundColor=b6e3f4" alt="Alejandro García">
+                                <img src="img/pfp/alexander.jpg" alt="Alejandro García">
                                 <h4>Alejandro García</h4>
                                 <span class="lead-role">Desarrollador Principal</span>
                                 <div class="team-social">
@@ -156,7 +156,7 @@
                         </div>
                         <div class="col-md-4 col-lg-4" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                             <div class="team-member">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=alejandrohernandez&backgroundColor=ffd5dc" alt="Alejandro Hernández">
+                                <img src="img/pfp/alexhern.jpg" alt="Alejandro Hernández">
                                 <h4>Alejandro Hernández</h4>
                                 <span class="frontend-role">Desarrollador Frontend</span>
                                 <div class="team-social">
@@ -171,7 +171,7 @@
                         </div>
                         <div class="col-md-4 col-lg-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                             <div class="team-member">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=alejandrobermudez&backgroundColor=c0aede" alt="Alejandro Bermúdez">
+                                <img src="img/pfp/alexb.jpg" alt="Alejandro Bermúdez">
                                 <h4>Alejandro Bermúdez</h4>
                                 <span class="backend-role">Desarrollador Backend</span>
                                 <div class="team-social">
@@ -186,7 +186,7 @@
                         </div>
                         <div class="col-md-4 col-lg-4" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                             <div class="team-member">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=jaimemoreno&backgroundColor=b6e3f4" alt="Jaime Moreno">
+                                <img src="img/pfp/jaime.jpg" alt="Jaime Moreno">
                                 <h4>Jaime Moreno</h4>
                                 <span class="designer-role">Diseñador UX/UI</span>
                                 <div class="team-social">
@@ -201,7 +201,7 @@
                         </div>
                         <div class="col-md-4 col-lg-4" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
                             <div class="team-member">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=pablomillan&backgroundColor=ffd5dc" alt="Pablo Millán">
+                                <img src="img/pfp/pablo.jpg" alt="Pablo Millán">
                                 <h4>Pablo Millán</h4>
                                 <span class="content-role">Experto en Contenido</span>
                                 <div class="team-social">
@@ -220,7 +220,7 @@
                     <div class="team-profiles">
                         <div class="team-profile" data-aos="fade-up" data-aos-delay="100">
                             <div class="profile-header">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=alejandrogarcia&backgroundColor=b6e3f4" alt="Alejandro García">
+                                <img src="img/pfp/alexander.jpg" alt="Alejandro García">
                                 <div class="profile-info">
                                     <h4>Alejandro García</h4>
                                     <span class="lead-role">Desarrollador Principal</span>
@@ -237,7 +237,7 @@
                         </div>
                         <div class="team-profile" data-aos="fade-up" data-aos-delay="200">
                             <div class="profile-header">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=alejandrohernandez&backgroundColor=ffd5dc" alt="Alejandro Hernández">
+                                <img src="img/pfp/alexhern.jpg" alt="Alejandro Hernández">
                                 <div class="profile-info">
                                     <h4>Alejandro Hernández</h4>
                                     <span class="frontend-role">Desarrollador Frontend</span>
@@ -254,7 +254,7 @@
                         </div>
                         <div class="team-profile" data-aos="fade-up" data-aos-delay="300">
                             <div class="profile-header">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=alejandrobermudez&backgroundColor=c0aede" alt="Alejandro Bermúdez">
+                                <img src="img/pfp/alexb.jpg" alt="Alejandro Bermúdez">
                                 <div class="profile-info">
                                     <h4>Alejandro Bermúdez</h4>
                                     <span class="backend-role">Desarrollador Backend</span>
@@ -271,7 +271,7 @@
                         </div>
                         <div class="team-profile" data-aos="fade-up" data-aos-delay="400">
                             <div class="profile-header">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=jaimemoreno&backgroundColor=b6e3f4" alt="Jaime Moreno">
+                                <img src="img/pfp/jaime.jpg" alt="Jaime Moreno">
                                 <div class="profile-info">
                                     <h4>Jaime Moreno</h4>
                                     <span class="designer-role">Diseñador UX/UI</span>
@@ -288,7 +288,7 @@
                         </div>
                         <div class="team-profile" data-aos="fade-up" data-aos-delay="500">
                             <div class="profile-header">
-                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=pablomillan&backgroundColor=ffd5dc" alt="Pablo Millán">
+                                <img src="img/pfp/pablo.jpg" alt="Pablo Millán">
                                 <div class="profile-info">
                                     <h4>Pablo Millán</h4>
                                     <span class="content-role">Experto en Contenido</span>

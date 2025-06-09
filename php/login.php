@@ -30,7 +30,7 @@ header("Content-Security-Policy: default-src 'self' https: 'unsafe-inline' 'unsa
                 const { data, error } = await supabase.auth.signInWithOAuth({
                     provider: 'google',
                     options: {
-                        redirectTo: window.location.origin + '/php/oauth_callback.php',
+                        redirectTo: window.location.origin + '/GrxDiscover/php/oauth_callback.php' + window.location.search,
                         queryParams: {
                             access_type: 'offline',
                             prompt: 'consent'
@@ -144,8 +144,20 @@ header("Content-Security-Policy: default-src 'self' https: 'unsafe-inline' 'unsa
 
                 // Redirect after successful login
                 const urlParams = new URLSearchParams(window.location.search)
-                const redirectUrl = urlParams.get('redirect')
-                window.location.href = redirectUrl ? '../' + redirectUrl.replace(/^\//, '') : '../index.php'
+                let redirectUrl = urlParams.get('redirect')
+                // Si no hay redirect, ve al index
+                if (!redirectUrl) {
+                    window.location.href = '../index.php'
+                } else {
+                    // Si la ruta ya empieza por '/', quítalo para evitar errores
+                    redirectUrl = redirectUrl.replace(/^\/+/, '')
+                    // Si la ruta no contiene '.php', añade index.php como fallback
+                    if (!redirectUrl.endsWith('.php')) {
+                        redirectUrl = 'index.php'
+                    }
+                    // Redirige de forma segura
+                    window.location.href = '../' + redirectUrl
+                }
 
             } catch (error) {
                 errorDiv.textContent = 'Error al iniciar sesión: ' + error.message

@@ -103,8 +103,14 @@ if (session_status() === PHP_SESSION_NONE) {
                     throw new Error('Error al guardar la sesión');
                 }
 
-                // Redirigir al perfil
-                window.location.replace('profile.php');
+                // Redirigir al perfil o a la URL indicada
+                const params = new URLSearchParams(window.location.search);
+                const redirectUrl = params.get('redirect');
+                if (redirectUrl) {
+                    window.location.replace(redirectUrl);
+                } else {
+                    window.location.replace('profile.php');
+                }
 
             } catch (error) {
                 // En caso de error, redirigir a login

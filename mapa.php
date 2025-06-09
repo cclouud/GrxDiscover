@@ -166,6 +166,10 @@ session_start();
         window.supabase = initSupabase();
         const supabaseClient = window.supabase;
 
+        // --- CLAVES DE API ---
+        const UNSPLASH_ACCESS_KEY = 'zb5MCLFg2Xd7-myqIYPBLbSwADz__4lb7JBXtOeXCKw'; // Unsplash Access Key
+        const PIXABAY_API_KEY = 'TU_PIXABAY_API_KEY'; // Sustituye por tu clave de Pixabay cuando la tengas
+
         // Inicializar el mapa
         const map = L.map('map', {
             zoomControl: false, // Desactivamos el control de zoom por defecto
@@ -391,9 +395,7 @@ session_start();
                         <div class="place-list-item" data-place-id="${place.id}" style="cursor:pointer;display:flex;align-items:center;gap:0.7rem;padding:0.7rem;border-bottom:1px solid var(--border-color);background:var(--bg-secondary);border-radius:8px;margin-bottom:0.5rem;">
                             ${place.images && place.images.length > 0 ? 
                                 `<img src="${place.images[0]}" alt="${place.name}" style="width:48px;height:48px;object-fit:cover;border-radius:8px;">` : 
-                                `<div style="width:48px;height:48px;background:#eee;border-radius:8px;display:flex;align-items:center;justify-content:center;">
-                                    <i class="fas ${getCategoryIcon(place.category)}" style="color:#bbb;font-size:1.5rem;"></i>
-                                </div>`
+                                `<img id="external-img-${place.id}" src="img/default_place.jpg" alt="${place.name}" style="width:48px;height:48px;object-fit:cover;border-radius:8px;">`
                             }
                             <div style="flex:1;min-width:0;">
                                 <div style="font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${place.name}</div>
@@ -411,6 +413,20 @@ session_start();
                     addListClickEvents(filteredData);
                 } else {
                     placesList.innerHTML = '<div style="color:var(--secondary-text);padding:1rem;">No hay lugares para mostrar.</div>';
+                }
+
+                // Después de placesList.innerHTML = listHTML; añade:
+                for (const place of filteredData) {
+                    if (!place.images || place.images.length === 0) {
+                        getExternalImage(place).then(url => {
+                            const imgElem = document.getElementById(`external-img-${place.id}`);
+                            let finalUrl = url && typeof url === 'string' && url.trim() !== '' ? url : 'img/default_place.jpg';
+                            console.log('Asignando imagen a', place.name, ':', finalUrl, imgElem);
+                            if (imgElem) {
+                                imgElem.src = finalUrl;
+                            }
+                        });
+                    }
                 }
 
             } catch (error) {
@@ -500,9 +516,13 @@ session_start();
             if (place.images && place.images.length > 0) {
                 image.innerHTML = `<img src="${place.images[0]}" alt="${place.name}" loading="lazy">`;
             } else {
-                image.innerHTML = `<div style="width:100%;height:100%;background:#eee;display:flex;align-items:center;justify-content:center;">
-                    <i class="fas ${getCategoryIcon(place.category)}" style="color:#bbb;font-size:3rem;"></i>
-                </div>`;
+                image.innerHTML = `<img id="details-img-${place.id}" src="img/default_place.jpg" alt="${place.name}" loading="lazy">`;
+                getExternalImage(place).then(url => {
+                    if (url) {
+                        const imgElem = document.getElementById(`details-img-${place.id}`);
+                        if (imgElem) imgElem.src = url;
+                    }
+                });
             }
             
             // Información
@@ -561,7 +581,13 @@ session_start();
             if (place.images && place.images.length > 0) {
                 document.getElementById('sheet-image').innerHTML = `<img src="${place.images[0]}" alt="${place.name}">`;
             } else {
-                document.getElementById('sheet-image').innerHTML = `<div style='width:100%;height:100%;display:flex;align-items:center;justify-content:center;'><i class="fas ${getCategoryIcon(place.category)}" style="color:#bbb;font-size:3rem;"></i></div>`;
+                document.getElementById('sheet-image').innerHTML = `<img id="sheet-img-${place.id}" src="img/default_place.jpg" alt="${place.name}">`;
+                getExternalImage(place).then(url => {
+                    if (url) {
+                        const imgElem = document.getElementById(`sheet-img-${place.id}`);
+                        if (imgElem) imgElem.src = url;
+                    }
+                });
             }
             let infoHTML = '';
             if (place.description) infoHTML += `<div style='margin-bottom:1rem;'>${place.description}</div>`;
@@ -941,6 +967,100 @@ session_start();
                 console.error('Error al cargar las reseñas:', error);
                 container.innerHTML = '<p style="color:var(--secondary-text);padding:1rem;">Error al cargar las reseñas.</p>';
             }
+        }
+
+        // --- FUNCIÓN PARA OBTENER IMAGEN EXTERNA ---
+        async function getRandomPlaceholder() {
+            try {
+                const response = await fetch('list_place_images.php?nocache=' + Date.now());
+                const images = await response.json();
+                console.log('Imágenes encontradas en img/places/:', images);
+                if (images.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * images.length);
+                    console.log('Imagen aleatoria elegida:', images[randomIndex]);
+                    return images[randomIndex];
+                }
+            } catch (e) {
+                console.error('Error obteniendo placeholders:', e);
+            }
+            return 'img/default_place.jpg'; // fallback si no hay imágenes
+        }
+
+        async function getExternalImage(place) {
+            // 1. Buscar por nombre + categoría
+            let query = encodeURIComponent(`${place.name} ${place.category}`);
+            let url, response, data;
+
+            // Unsplash
+            try {
+                url = `https://api.unsplash.com/search/photos?query=${query}&client_id=${UNSPLASH_ACCESS_KEY}&per_page=1`;
+                response = await fetch(url);
+                const contentType = response.headers.get('content-type');
+                if (contentType && contentType.includes('application/json')) {
+                    data = await response.json();
+                    if (data.results && data.results.length > 0) {
+                        return data.results[0].urls.regular;
+                    }
+                } else {
+                    throw new Error('Respuesta no JSON de Unsplash');
+                }
+            } catch (e) { console.error('Error en Unsplash:', e); }
+
+            // Pixabay
+            try {
+                if (PIXABAY_API_KEY && PIXABAY_API_KEY !== 'TU_PIXABAY_API_KEY') {
+                    url = `https://pixabay.com/api/?key=${PIXABAY_API_KEY}&q=${query}&image_type=photo&per_page=3`;
+                    response = await fetch(url);
+                    data = await response.json();
+                    if (data.hits && data.hits.length > 0) {
+                        return data.hits[0].webformatURL;
+                    }
+                }
+            } catch (e) { console.error('Error en Pixabay:', e); }
+
+            // Wikimedia
+            try {
+                const wikiUrl = await getWikimediaImage(`${place.name} ${place.category}`);
+                if (wikiUrl) return wikiUrl;
+            } catch (e) { console.error('Error en Wikimedia:', e); }
+
+            // 2. Buscar solo por categoría
+            query = encodeURIComponent(place.category);
+            // Unsplash
+            try {
+                url = `https://api.unsplash.com/search/photos?query=${query}&client_id=${UNSPLASH_ACCESS_KEY}&per_page=1`;
+                response = await fetch(url);
+                const contentType = response.headers.get('content-type');
+                if (contentType && contentType.includes('application/json')) {
+                    data = await response.json();
+                    if (data.results && data.results.length > 0) {
+                        return data.results[0].urls.regular;
+                    }
+                } else {
+                    throw new Error('Respuesta no JSON de Unsplash (cat)');
+                }
+            } catch (e) { console.error('Error en Unsplash (cat):', e); }
+
+            // Pixabay
+            try {
+                if (PIXABAY_API_KEY && PIXABAY_API_KEY !== 'TU_PIXABAY_API_KEY') {
+                    url = `https://pixabay.com/api/?key=${PIXABAY_API_KEY}&q=${query}&image_type=photo&per_page=3`;
+                    response = await fetch(url);
+                    data = await response.json();
+                    if (data.hits && data.hits.length > 0) {
+                        return data.hits[0].webformatURL;
+                    }
+                }
+            } catch (e) { console.error('Error en Pixabay (cat):', e); }
+
+            // Wikimedia
+            try {
+                const wikiUrl = await getWikimediaImage(place.category);
+                if (wikiUrl) return wikiUrl;
+            } catch (e) { console.error('Error en Wikimedia (cat):', e); }
+
+            // 3. Imagen placeholder aleatoria de la carpeta img/places/
+            return await getRandomPlaceholder();
         }
 
         // Al final del script type="module"

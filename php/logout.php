@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
         'cookie_secure' => true,
         'cookie_httponly' => true,
         'cookie_samesite' => 'Lax',
-        'cookie_path' => '/GrxDiscover'
+        'cookie_path' => '/'
     ]);
 }
 

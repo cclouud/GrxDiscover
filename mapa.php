@@ -834,7 +834,7 @@ session_start();
                     .select('id')
                     .eq('place_id', placeId)
                     .eq('user_id', user.id)
-                    .single();
+                    .maybeSingle();
 
                 if (checkError && checkError.code !== 'PGRST116') { // PGRST116 es el código para "no se encontró"
                     throw checkError;
@@ -888,37 +888,55 @@ session_start();
 
         async function loadReviews(placeId, container) {
             try {
-                // Obtener reseñas de Supabase
-                const { data: reviews, error } = await supabaseClient
+                // Primero obtenemos las reseñas
+                const { data: reviews, error: reviewsError } = await supabaseClient
                     .from('reviews')
-                    .select(`*, profiles!profile_id(username, avatar_url)`)
+                    .select('*')
                     .eq('place_id', placeId)
                     .order('created_at', { ascending: false });
 
-                if (error) throw error;
+                if (reviewsError) throw reviewsError;
                 
                 if (!reviews || reviews.length === 0) {
                     container.innerHTML = '<p style="color:var(--secondary-text);padding:1rem;">No hay reseñas todavía.</p>';
                     return;
                 }
+
+                // Luego obtenemos la información de los perfiles de usuario
+                const userIds = reviews.map(review => review.user_id);
+                const { data: profiles, error: profilesError } = await supabaseClient
+                    .from('profiles')
+                    .select('id, username, full_name, avatar_url')
+                    .in('id', userIds);
+
+                if (profilesError) throw profilesError;
+
+                // Creamos un mapa de perfiles para acceso rápido
+                const profilesMap = new Map(profiles.map(profile => [profile.id, profile]));
                 
-                container.innerHTML = reviews.map(review => `
-                    <div class="review-item" style="display:flex;align-items:flex-start;gap:0.8em;">
-                        <div style="flex-shrink:0;">
-                            ${review.profiles?.avatar_url ?
-                                `<img src="${review.profiles.avatar_url}" alt="avatar" style="width:38px;height:38px;border-radius:50%;object-fit:cover;">` :
-                                `<i class='fas fa-user-circle' style='font-size:2.2em;color:#bbb;'></i>`
-                            }
-                        </div>
-                        <div style="flex:1;">
-                            <div class="review-meta" style="display:flex;justify-content:space-between;align-items:center;">
-                                <span style="font-weight:600;">${review.profiles?.username || 'Usuario'}</span>
-                                <span style="font-size:0.95em;color:var(--secondary-text);">${new Date(review.created_at).toLocaleDateString()}</span>
+                container.innerHTML = reviews.map(review => {
+                    const profile = profilesMap.get(review.user_id);
+                    const userName = profile?.full_name || profile?.username || 'Usuario';
+                    const avatarUrl = profile?.avatar_url || null;
+
+                    return `
+                        <div class="review-item" style="display:flex;align-items:flex-start;gap:0.8em;">
+                            <div style="flex-shrink:0;">
+                                ${avatarUrl ?
+                                    `<img src="${avatarUrl}" alt="avatar" style="width:38px;height:38px;border-radius:50%;object-fit:cover;">` :
+                                    `<i class='fas fa-user-circle' style='font-size:2.2em;color:#bbb;'></i>`
+                                }
                             </div>
-                            <div class="review-text">${review.text}</div>
+                            <div style="flex:1;">
+                                <div class="review-meta" style="display:flex;justify-content:space-between;align-items:center;">
+                                    <span style="font-weight:600;">${userName}</span>
+                                    <span style="font-size:0.95em;color:var(--secondary-text);">${new Date(review.created_at).toLocaleDateString()}</span>
+                                </div>
+                                <div class="review-text">${review.text}</div>
+                            </div>
                         </div>
-                    </div>
-                `).join('');
+                    `;
+                }).join('');
             } catch (error) {
                 console.error('Error al cargar las reseñas:', error);
                 container.innerHTML = '<p style="color:var(--secondary-text);padding:1rem;">Error al cargar las reseñas.</p>';

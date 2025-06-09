@@ -1221,4 +1221,41 @@
     .action-btn i {
         font-size: 1.1rem;
     }
+}
+
+/* --- ESTILOS BOTONES ROJOS VISIBLES --- */
+.btn,
+.btn-danger,
+.btn-google,
+.btn-outline-danger,
+.action-btn.favorited {
+  background: #e74c3c !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.btn:hover,
+.btn-danger:hover,
+.btn-google:hover,
+.btn-outline-danger:hover,
+.action-btn.favorited:hover {
+  background: #c0392b !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.btn i,
+.btn-danger i,
+.btn-google i,
+.btn-outline-danger i,
+.action-btn.favorited i {
+  color: #fff !important;
+}
+/* --- FIN ESTILOS BOTONES ROJOS --- */
+
+.website-link {
+  color: #fff !important;
+}
+.website-link i {
+  color: #fff !important;
 } 

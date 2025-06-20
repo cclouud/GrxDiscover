@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/estilosinicio.css">
     <link rel="stylesheet" href="../css/login.css">
+    <!-- Configuración -->
+    <script src="../config.php"></script>
     <!-- Supabase -->
     <script type="module">
         import { initSupabase } from '../config/supabase.js';

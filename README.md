@@ -37,18 +37,7 @@ This project was made possible by combining the following technologies:
 
 ---
 
-## 🔐 A Note on Security
-
-Security is a priority. All API keys and sensitive credentials are managed through server-side environment variables, ensuring that no critical information is exposed in the source code.
-
----
-
 ## 📄 License
 
 This project is under the MIT License.
 
-## 🆘 Support
-
-If you have any problems or questions:
-- Open an issue on GitHub.
-- Contact the development team. 

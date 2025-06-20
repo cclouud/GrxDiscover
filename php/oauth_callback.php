@@ -55,6 +55,8 @@ if (session_status() === PHP_SESSION_NONE) {
             100% { transform: rotate(360deg); }
         }
     </style>
+    <!-- Configuración -->
+    <script src="../config.php"></script>
 </head>
 <body>
     <div class="container">

@@ -1,7 +1,11 @@
-// Inicialización de Supabase
-const supabaseUrl = 'https://tu-proyecto.supabase.co';
-const supabaseKey = 'tu-supabase-anon-key-aqui';
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+// Comprobar si la configuración de Supabase está disponible
+if (!window.SUPABASE_CONFIG || !window.SUPABASE_CONFIG.url || !window.SUPABASE_CONFIG.key) {
+    alert("Error crítico: La configuración de Supabase no se ha cargado. La aplicación no puede funcionar.");
+    throw new Error("Supabase configuration is missing from window object.");
+}
+
+// Inicialización de Supabase usando la configuración global
+const supabaseClient = supabase.createClient(window.SUPABASE_CONFIG.url, window.SUPABASE_CONFIG.key);
 
 // --- FUNCIONES DE AUTENTICACIÓN Y PERFIL ---
 async function getProfileId() {

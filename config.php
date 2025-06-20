@@ -25,11 +25,22 @@ if (file_exists(__DIR__ . '/.env')) {
     }
 }
 
-// Obtener variables de entorno o usar valores por defecto
-$supabaseUrl = $_ENV['SUPABASE_URL'] ?? $_SERVER['SUPABASE_URL'] ?? 'https://tu-proyecto.supabase.co';
-$supabaseKey = $_ENV['SUPABASE_KEY'] ?? $_SERVER['SUPABASE_KEY'] ?? 'tu-supabase-anon-key-aqui';
-$unsplashKey = $_ENV['UNSPLASH_ACCESS_KEY'] ?? $_SERVER['UNSPLASH_ACCESS_KEY'] ?? 'tu-unsplash-access-key-aqui';
-$pixabayKey = $_ENV['PIXABAY_API_KEY'] ?? $_SERVER['PIXABAY_API_KEY'] ?? 'tu-pixabay-api-key-aqui';
+// Obtener variables de entorno
+$supabaseUrl = $_ENV['SUPABASE_URL'] ?? $_SERVER['SUPABASE_URL'] ?? null;
+$supabaseKey = $_ENV['SUPABASE_KEY'] ?? $_SERVER['SUPABASE_KEY'] ?? null;
+
+// Validar que las variables críticas para Supabase están presentes.
+if (!$supabaseUrl || !$supabaseKey) {
+    http_response_code(500);
+    // Detener la ejecución y mostrar un error claro en la consola del navegador.
+    // Esto previene que la aplicación intente conectar con credenciales inválidas.
+    echo "console.error('CRITICAL ERROR: Supabase environment variables (SUPABASE_URL, SUPABASE_KEY) are not configured on the server. The application cannot start.');";
+    error_log('Configuration Error: SUPABASE_URL or SUPABASE_KEY are not defined in the environment.');
+    exit;
+}
+
+$unsplashKey = $_ENV['UNSPLASH_ACCESS_KEY'] ?? $_SERVER['UNSPLASH_ACCESS_KEY'] ?? '';
+$pixabayKey = $_ENV['PIXABAY_API_KEY'] ?? $_SERVER['PIXABAY_API_KEY'] ?? '';
 
 // Generar JavaScript con las variables
 echo "// Configuración generada automáticamente desde variables de entorno\n";

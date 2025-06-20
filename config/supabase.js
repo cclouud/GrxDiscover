@@ -1,8 +1,13 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js';
 
 // Configuración de Supabase - Usar variables de configuración globales
-const supabaseUrl = window.SUPABASE_CONFIG?.url || 'https://tu-proyecto.supabase.co';
-const supabaseKey = window.SUPABASE_CONFIG?.key || 'tu-supabase-anon-key-aqui';
+const supabaseUrl = window.SUPABASE_CONFIG?.url;
+const supabaseKey = window.SUPABASE_CONFIG?.key;
+
+// Si las variables no están definidas, detenemos la ejecución para evitar errores.
+if (!supabaseUrl || !supabaseKey) {
+    throw new Error("Supabase URL or Key are not defined. Check config.php and environment variables.");
+}
 
 const options = {
     auth: {

@@ -1,0 +1,64 @@
+# Archivos de configuración con claves reales
+config.js
+config.local.js
+.env
+.env.local
+.env.production
+.env.staging
+
+# Logs y archivos temporales
+*.log
+php/oauth_log.txt
+logs/
+tmp/
+temp/
+
+# Archivos de usuario y uploads
+uploads/profile_pictures/
+uploads/*/
+
+# Archivos de sesión PHP
+sessions/
+session/
+
+# Archivos de caché
+cache/
+.cache/
+
+# Archivos de IDE y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de dependencias (si usas Composer)
+vendor/
+composer.lock
+
+# Archivos de Node.js (si usas npm/yarn)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Archivos de Docker
+.dockerignore
+
+# Archivos de backup
+*.bak
+*.backup
+*.old
+
+# Archivos de base de datos
+*.sql
+*.sqlite
+*.db
+
+# Archivos de configuración de servidor
+.htaccess.local
+apache.conf
+nginx.conf 

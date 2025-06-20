@@ -24,7 +24,8 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, X-Requested-With');
 
-// Función para logging
+// Función para logging (desactivada para producción)
+/*
 function logDebug($message, $data = null) {
     $logFile = __DIR__ . '/oauth_log.txt';
     $timestamp = date('Y-m-d H:i:s');
@@ -35,8 +36,10 @@ function logDebug($message, $data = null) {
     $logMessage .= "\n\n";
     file_put_contents($logFile, $logMessage, FILE_APPEND);
 }
+*/
 
-// Log de la petición
+// Log de la petición (desactivado)
+/*
 logDebug('Request received', [
     'method' => $_SERVER['REQUEST_METHOD'],
     'headers' => getallheaders(),
@@ -46,6 +49,7 @@ logDebug('Request received', [
     'session_id' => session_id(),
     'session_data' => $_SESSION
 ]);
+*/
 
 try {
     // Obtener datos JSON del input
@@ -56,7 +60,7 @@ try {
         throw new Exception('Error al decodificar JSON: ' . json_last_error_msg());
     }
     
-    logDebug('Decoded JSON data', $data);
+    // logDebug('Decoded JSON data', $data);
     
     // Verificar acción
     if (!isset($data['action'])) {
@@ -87,10 +91,10 @@ try {
                 'samesite' => 'Lax'
             ]);
             
-            logDebug('Session data stored', [
-                'user' => $data['user'],
-                'session_id' => session_id()
-            ]);
+            // logDebug('Session data stored', [
+            //     'user' => $data['user'],
+            //     'session_id' => session_id()
+            // ]);
             
             echo json_encode([
                 'success' => true,
@@ -116,7 +120,7 @@ try {
             
             session_destroy();
             
-            logDebug('Session destroyed');
+            // logDebug('Session destroyed');
             
             echo json_encode([
                 'success' => true,
@@ -156,7 +160,7 @@ try {
                 $response['user'] = $_SESSION['user'];
             }
             
-            logDebug('Session check', $response);
+            // logDebug('Session check', $response);
             
             echo json_encode($response);
             break;
@@ -165,10 +169,10 @@ try {
             throw new Exception('Acción no válida');
     }
 } catch (Exception $e) {
-    logDebug('Error occurred', [
-        'error' => $e->getMessage(),
-        'trace' => $e->getTraceAsString()
-    ]);
+    // logDebug('Error occurred', [
+    //     'error' => $e->getMessage(),
+    //     'trace' => $e->getTraceAsString()
+    // ]);
     
     http_response_code(400);
     echo json_encode([

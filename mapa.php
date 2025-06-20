@@ -160,6 +160,7 @@ session_start();
     </div>
 
     <!-- Scripts -->
+    <script src="config.php"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script type="module">
         import { initSupabase } from './config/supabase.js';
@@ -167,8 +168,8 @@ session_start();
         const supabaseClient = window.supabase;
 
         // --- CLAVES DE API ---
-        const UNSPLASH_ACCESS_KEY = 'zb5MCLFg2Xd7-myqIYPBLbSwADz__4lb7JBXtOeXCKw'; // Unsplash Access Key
-        const PIXABAY_API_KEY = 'TU_PIXABAY_API_KEY'; // Sustituye por tu clave de Pixabay cuando la tengas
+        const UNSPLASH_ACCESS_KEY = window.API_KEYS?.unsplash || 'tu-unsplash-access-key-aqui'; // Unsplash Access Key
+        const PIXABAY_API_KEY = window.API_KEYS?.pixabay || 'TU_PIXABAY_API_KEY'; // Sustituye por tu clave de Pixabay cuando la tengas
 
         // Inicializar el mapa
         const map = L.map('map', {
@@ -737,7 +738,7 @@ session_start();
                 if (!user) {
                     const shouldLogin = confirm('Debes iniciar sesión para añadir favoritos. ¿Deseas iniciar sesión ahora?');
                     if (shouldLogin) {
-                        window.location.href = 'login.php';
+                        window.location.href = 'php/login.php';
                     }
                     return;
                 }
@@ -823,7 +824,7 @@ session_start();
             reviewBtn.onclick = () => {
                 if (!user) {
                     alert('Debes iniciar sesión para escribir reseñas');
-                    window.location.href = 'login.php';
+                    window.location.href = 'php/login.php';
                     return;
                 }
                 reviewForm.classList.toggle('active');
@@ -849,7 +850,7 @@ session_start();
                 if (!user) {
                     const shouldLogin = confirm('Debes iniciar sesión para escribir reseñas. ¿Deseas iniciar sesión ahora?');
                     if (shouldLogin) {
-                        window.location.href = 'login.php';
+                        window.location.href = 'php/login.php';
                     }
                     return;
                 }
